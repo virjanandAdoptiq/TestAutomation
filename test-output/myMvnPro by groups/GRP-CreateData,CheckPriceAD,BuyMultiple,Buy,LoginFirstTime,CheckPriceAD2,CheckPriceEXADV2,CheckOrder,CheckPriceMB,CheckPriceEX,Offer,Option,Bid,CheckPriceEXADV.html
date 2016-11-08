@@ -1,0 +1,2039 @@
+<html>
+<head>
+<title>TestNG:  GRP-CreateData,CheckPriceAD,BuyMultiple,Buy,LoginFirstTime,CheckPriceAD2,CheckPriceEXADV2,CheckOrder,CheckPriceMB,CheckPriceEX,Offer,Option,Bid,CheckPriceEXADV</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GRP-CreateData,CheckPriceAD,BuyMultiple,Buy,LoginFirstTime,CheckPriceAD2,CheckPriceEXADV2,CheckOrder,CheckPriceMB,CheckPriceEX,Offer,Option,Bid,CheckPriceEXADV</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>272/7/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 13 12:11:48 CEST 2016</td>
+</tr>
+<tr><td>Total time:</td><td>2885 seconds (2885612 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>CreateData CheckPriceAD BuyMultiple Buy LoginFirstTime CheckPriceAD2 CheckPriceEXADV2 CheckOrder CheckPriceMB CheckPriceEX Offer Option Bid CheckPriceEXADV </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testcases.B2Dev1132OptionPush.stop()'><b>stop</b><br>Test class: testcases.B2Dev1132OptionPush ()</td>
+<td><div><pre>org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 8 milliseconds
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:701)
+	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:521)
+	at toplevel.Top.CloseBrowser(Top.java:52)
+	at testcases.B2Dev1132OptionPush.stop(B2Dev1132OptionPush.java:152)
+Caused by: org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.nsCommandProcessor.prototype.execute(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12719)
+	at &lt;anonymous class&gt;.Dispatcher.executeAs/&lt;(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9558)
+	at &lt;anonymous class&gt;.Resource.prototype.handle(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9705)
+	at &lt;anonymous class&gt;.Dispatcher.prototype.dispatch(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9652)
+	at &lt;anonymous class&gt;.WebDriverServer/&lt;.handle(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:12517)
+	at &lt;anonymous class&gt;.createHandlerFunc/&lt;(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:2054)
+	at &lt;anonymous class&gt;.ServerHandler.prototype.handleResponse(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:2387)
+	at &lt;anonymous class&gt;.Connection.prototype.process(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:1223)
+	at &lt;anonymous class&gt;.RequestReader.prototype._handleResponse(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:1677)
+	at &lt;anonymous class&gt;.RequestReader.prototype._processBody(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:1525)
+	at &lt;anonymous class&gt;.RequestReader.prototype.onInputStreamReady(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:1393)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace911933063", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace911933063'><pre>org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Command duration or timeout: 8 milliseconds
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:701)
+	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:521)
+	at toplevel.Top.CloseBrowser(Top.java:52)
+	at testcases.B2Dev1132OptionPush.stop(B2Dev1132OptionPush.java:152)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:514)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+	at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:232)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:115)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+Caused by: org.openqa.selenium.NoSuchWindowException: Window not found. The browser window may have been closed.
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.nsCommandProcessor.prototype.execute(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12719)
+	at &lt;anonymous class&gt;.Dispatcher.executeAs/&lt;(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9558)
+	at &lt;anonymous class&gt;.Resource.prototype.handle(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9705)
+	at &lt;anonymous class&gt;.Dispatcher.prototype.dispatch(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:9652)
+	at &lt;anonymous class&gt;.WebDriverServer/&lt;.handle(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:12517)
+	at &lt;anonymous class&gt;.createHandlerFunc/&lt;(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:2054)
+	at &lt;anonymous class&gt;.ServerHandler.prototype.handleResponse(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:2387)
+	at &lt;anonymous class&gt;.Connection.prototype.process(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:1223)
+	at &lt;anonymous class&gt;.RequestReader.prototype._handleResponse(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:1677)
+	at &lt;anonymous class&gt;.RequestReader.prototype._processBody(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:1525)
+	at &lt;anonymous class&gt;.RequestReader.prototype.onInputStreamReady(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/httpd.js:1393)
+</pre></div></td>
+<td>0</td>
+<td>testcases.B2Dev1132OptionPush@5abca1e0</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testcases.C1Dev1137BidAutoBid.ADV2bidAgainAgainBecomeWinner()'><b>ADV2bidAgainAgainBecomeWinner</b><br>Test class: testcases.C1Dev1137BidAutoBid ()</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	expected [true] but found [false]
+	at testcases.C1Dev1137BidAutoBid.ADV2bidAgainAgainBecomeWinner(C1Dev1137BidAutoBid.java:129)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1510869126", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1510869126'><pre>java.lang.AssertionError: The following asserts failed:
+	expected [true] but found [false]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:43)
+	at testcases.C1Dev1137BidAutoBid.ADV2bidAgainAgainBecomeWinner(C1Dev1137BidAutoBid.java:129)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+</pre></div></td>
+<td>43</td>
+<td>testcases.C1Dev1137BidAutoBid@2d928643</td></tr>
+<tr>
+<td title='testcases.C1Dev1137BidAutoBid.ADV2bidBecomeOutbid()'><b>ADV2bidBecomeOutbid</b><br>Test class: testcases.C1Dev1137BidAutoBid ()</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Timed out after 60 seconds waiting for visibility of element located by By.cssSelector: .username
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at toplevel.Helper.FindElement(Helper.java:220)
+	at toplevel.Top.InputData(Top.java:98)
+	at toplevel.Top.Login(Top.java:58)
+	at testcases.C1Dev1137BidAutoBid.ADV2bidBecomeOutbid(C1Dev1137BidAutoBid.java:78)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.username&quot;}
+Command duration or timeout: 9 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+*** Element info: {Using=css selector, value=.username}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.username&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1117448897", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1117448897'><pre>org.openqa.selenium.TimeoutException: Timed out after 60 seconds waiting for visibility of element located by By.cssSelector: .username
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at toplevel.Helper.FindElement(Helper.java:220)
+	at toplevel.Top.InputData(Top.java:98)
+	at toplevel.Top.Login(Top.java:58)
+	at testcases.C1Dev1137BidAutoBid.ADV2bidBecomeOutbid(C1Dev1137BidAutoBid.java:78)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.username&quot;}
+Command duration or timeout: 9 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+*** Element info: {Using=css selector, value=.username}
+	at sun.reflect.GeneratedConstructorAccessor16.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.username&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+</pre></div></td>
+<td>60</td>
+<td>testcases.C1Dev1137BidAutoBid@2d928643</td></tr>
+<tr>
+<td title='testcases.C1Dev1137BidAutoBid.ADVIsOutBidADVBidAgain()'><b>ADVIsOutBidADVBidAgain</b><br>Test class: testcases.C1Dev1137BidAutoBid ()</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Timed out after 60 seconds waiting for visibility of element located by By.cssSelector: .modal-dialog .btn-success
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at toplevel.Helper.FindElement(Helper.java:220)
+	at toplevel.Top.ClickButton(Top.java:105)
+	at advertiser.Mylots.BuyBidOptionConfirm(Mylots.java:69)
+	at testcases.C1Dev1137BidAutoBid.ADVIsOutBidADVBidAgain(C1Dev1137BidAutoBid.java:142)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.modal-dialog .btn-success&quot;}
+Command duration or timeout: 7 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+*** Element info: {Using=css selector, value=.modal-dialog .btn-success}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.modal-dialog .btn-success&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2138295848", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2138295848'><pre>org.openqa.selenium.TimeoutException: Timed out after 60 seconds waiting for visibility of element located by By.cssSelector: .modal-dialog .btn-success
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at toplevel.Helper.FindElement(Helper.java:220)
+	at toplevel.Top.ClickButton(Top.java:105)
+	at advertiser.Mylots.BuyBidOptionConfirm(Mylots.java:69)
+	at testcases.C1Dev1137BidAutoBid.ADVIsOutBidADVBidAgain(C1Dev1137BidAutoBid.java:142)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.modal-dialog .btn-success&quot;}
+Command duration or timeout: 7 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+*** Element info: {Using=css selector, value=.modal-dialog .btn-success}
+	at sun.reflect.GeneratedConstructorAccessor16.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:492)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.modal-dialog .btn-success&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+</pre></div></td>
+<td>76</td>
+<td>testcases.C1Dev1137BidAutoBid@2d928643</td></tr>
+<tr>
+<td title='testcases.B2Dev1132OptionPush.campaignAddAll()'><b>campaignAddAll</b><br>Test class: testcases.B2Dev1132OptionPush ()<br>Parameters: qCXNQ9ADV2-Campaign, CD101V - Voorpagina, CD102VL - Pagina 3</td>
+<td><div><pre>org.openqa.selenium.support.ui.UnexpectedTagNameException: Element should have been &quot;select&quot; but was &quot;input&quot;
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.Select.&lt;init&gt;(Select.java:47)
+	at toplevel.Top.SelectDropdownItem(Top.java:150)
+	at advertiser.Exchange.SelectCampaign(Exchange.java:24)
+	at testcases.B2Dev1132OptionPush.campaignAddAll(B2Dev1132OptionPush.java:100)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1938634748", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1938634748'><pre>org.openqa.selenium.support.ui.UnexpectedTagNameException: Element should have been &quot;select&quot; but was &quot;input&quot;
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.Select.&lt;init&gt;(Select.java:47)
+	at toplevel.Top.SelectDropdownItem(Top.java:150)
+	at advertiser.Exchange.SelectCampaign(Exchange.java:24)
+	at testcases.B2Dev1132OptionPush.campaignAddAll(B2Dev1132OptionPush.java:100)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+</pre></div></td>
+<td>2</td>
+<td>testcases.B2Dev1132OptionPush@5abca1e0</td></tr>
+<tr>
+<td title='testcases.B2Dev1132OptionPush.campaignAddOne()'><b>campaignAddOne</b><br>Test class: testcases.B2Dev1132OptionPush ()<br>Parameters: qCXNQ9ADV-Campaign, CD102VL - Cover 3</td>
+<td><div><pre>org.openqa.selenium.support.ui.UnexpectedTagNameException: Element should have been &quot;select&quot; but was &quot;input&quot;
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.Select.&lt;init&gt;(Select.java:47)
+	at toplevel.Top.SelectDropdownItem(Top.java:150)
+	at advertiser.Exchange.SelectCampaign(Exchange.java:24)
+	at testcases.B2Dev1132OptionPush.campaignAddOne(B2Dev1132OptionPush.java:119)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1028908791", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1028908791'><pre>org.openqa.selenium.support.ui.UnexpectedTagNameException: Element should have been &quot;select&quot; but was &quot;input&quot;
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.Select.&lt;init&gt;(Select.java:47)
+	at toplevel.Top.SelectDropdownItem(Top.java:150)
+	at advertiser.Exchange.SelectCampaign(Exchange.java:24)
+	at testcases.B2Dev1132OptionPush.campaignAddOne(B2Dev1132OptionPush.java:119)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+</pre></div></td>
+<td>2</td>
+<td>testcases.B2Dev1132OptionPush@5abca1e0</td></tr>
+<tr>
+<td title='testcases.B2Dev1132OptionPush.deletAnOffer()'><b>deletAnOffer</b><br>Test class: testcases.B2Dev1132OptionPush ()<br>Parameters: CD102VS - Cover 3</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Timed out after 60 seconds waiting for visibility of element located by By.xpath: //table[contains(@class, &apos;int-table-to-datagrid&apos;)]//*[contains(text(), &apos;CD102VS - Cover 3&apos;)]/ancestor::table[contains(@class, &apos;mx-name-table1&apos;)]/tbody/tr[1]
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at toplevel.Helper.FindElement(Helper.java:220)
+	at toplevel.Top.ClickContextSensitiveItem(Top.java:157)
+	at advertiser.Exchange.SelectAInventory(Exchange.java:88)
+	at testcases.B2Dev1132OptionPush.deletAnOffer(B2Dev1132OptionPush.java:84)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//table[contains(@class, &apos;int-table-to-datagrid&apos;)]//*[contains(text(), &apos;CD102VS - Cover 3&apos;)]/ancestor::table[contains(@class, &apos;mx-name-table1&apos;)]/tbody/tr[1]&quot;}
+Command duration or timeout: 8 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+*** Element info: {Using=xpath, value=//table[contains(@class, &apos;int-table-to-datagrid&apos;)]//*[contains(text(), &apos;CD102VS - Cover 3&apos;)]/ancestor::table[contains(@class, &apos;mx-name-table1&apos;)]/tbody/tr[1]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//table[contains(@class, &apos;int-table-to-datagrid&apos;)]//*[contains(text(), &apos;CD102VS - Cover 3&apos;)]/ancestor::table[contains(@class, &apos;mx-name-table1&apos;)]/tbody/tr[1]&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1391067753", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1391067753'><pre>org.openqa.selenium.TimeoutException: Timed out after 60 seconds waiting for visibility of element located by By.xpath: //table[contains(@class, &apos;int-table-to-datagrid&apos;)]//*[contains(text(), &apos;CD102VS - Cover 3&apos;)]/ancestor::table[contains(@class, &apos;mx-name-table1&apos;)]/tbody/tr[1]
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:261)
+	at toplevel.Helper.FindElement(Helper.java:220)
+	at toplevel.Top.ClickContextSensitiveItem(Top.java:157)
+	at advertiser.Exchange.SelectAInventory(Exchange.java:88)
+	at testcases.B2Dev1132OptionPush.deletAnOffer(B2Dev1132OptionPush.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//table[contains(@class, &apos;int-table-to-datagrid&apos;)]//*[contains(text(), &apos;CD102VS - Cover 3&apos;)]/ancestor::table[contains(@class, &apos;mx-name-table1&apos;)]/tbody/tr[1]&quot;}
+Command duration or timeout: 8 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=47.0.1, platform=MAC, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ac83bd92-7931-4142-83cd-a8bc2b630c96
+*** Element info: {Using=xpath, value=//table[contains(@class, &apos;int-table-to-datagrid&apos;)]//*[contains(text(), &apos;CD102VS - Cover 3&apos;)]/ancestor::table[contains(@class, &apos;mx-name-table1&apos;)]/tbody/tr[1]}
+	at sun.reflect.GeneratedConstructorAccessor16.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:500)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:899)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//table[contains(@class, &apos;int-table-to-datagrid&apos;)]//*[contains(text(), &apos;CD102VS - Cover 3&apos;)]/ancestor::table[contains(@class, &apos;mx-name-table1&apos;)]/tbody/tr[1]&quot;}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;mbpro-dejuan.local&apos;, ip: &apos;10.34.6.211&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.11.6&apos;, java.version: &apos;1.8.0_91&apos;
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10770)
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/driver-component.js:10779)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///var/folders/wr/g92p1f_s6c34hxrt50h3c8jc0000gn/T/anonymous1344338999348531401webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)
+</pre></div></td>
+<td>60</td>
+<td>testcases.B2Dev1132OptionPush@5abca1e0</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testcases.C1Dev1137BidAutoBid.ADVLotStatusIsBid()'><b>ADVLotStatusIsBid</b><br>Test class: testcases.C1Dev1137BidAutoBid ()</td>
+<td></td>
+<td>17</td>
+<td>testcases.C1Dev1137BidAutoBid@2d928643</td></tr>
+<tr>
+<td title='testcases.C1Dev1137BidAutoBid.ADVautobid()'><b>ADVautobid</b><br>Test class: testcases.C1Dev1137BidAutoBid ()</td>
+<td></td>
+<td>41</td>
+<td>testcases.C1Dev1137BidAutoBid@2d928643</td></tr>
+<tr>
+<td title='testcases.C1Dev1137BidAutoBid.AddToMyLots()'><b>AddToMyLots</b><br>Test class: testcases.C1Dev1137BidAutoBid ()<br>Parameters: qCXNQ9ADV</td>
+<td></td>
+<td>36</td>
+<td>testcases.C1Dev1137BidAutoBid@2d928643</td></tr>
+<tr>
+<td title='testcases.C1Dev1137BidAutoBid.AddToMyLots()'><b>AddToMyLots</b><br>Test class: testcases.C1Dev1137BidAutoBid ()<br>Parameters: qCXNQ9ADV2</td>
+<td></td>
+<td>37</td>
+<td>testcases.C1Dev1137BidAutoBid@2d928643</td></tr>
+<tr>
+<td title='testcases.A1Dev1028UnitCreate.CreateData()'><b>CreateData</b><br>Test class: testcases.A1Dev1028UnitCreate ()</td>
+<td></td>
+<td>135</td>
+<td>testcases.A1Dev1028UnitCreate@4bec1f0c</td></tr>
+<tr>
+<td title='testcases.A4Dev1101CampaignBuy.SelectCmpBuyOne()'><b>SelectCmpBuyOne</b><br>Test class: testcases.A4Dev1101CampaignBuy ()<br>Parameters: qCXNQ9ADV-Campaign, qCXNQ9BuyNow, CD101V, 20-10-2016, CD101V - Cover 2, 1.575,00</td>
+<td></td>
+<td>62</td>
+<td>testcases.A4Dev1101CampaignBuy@64bf3bbf</td></tr>
+<tr>
+<td title='testcases.A4Dev1101CampaignBuy.SelectCmpBuyTwoTogether()'><b>SelectCmpBuyTwoTogether</b><br>Test class: testcases.A4Dev1101CampaignBuy ()<br>Parameters: qCXNQ9ADV2-Campaign, qCXNQ9BuyNow2, CD101V, CD102VS, 19-10-2016, CD101V - Pagina 2, CD102VS - Pagina 3</td>
+<td></td>
+<td>63</td>
+<td>testcases.A4Dev1101CampaignBuy@64bf3bbf</td></tr>
+<tr>
+<td title='testcases.A3Dev1079CheckPricesForADV2.addToMyLots()'><b>addToMyLots</b><br>Test class: testcases.A3Dev1079CheckPricesForADV2 ()</td>
+<td></td>
+<td>42</td>
+<td>testcases.A3Dev1079CheckPricesForADV2@29ca901e</td></tr>
+<tr>
+<td title='testcases.A3Dev1080CheckPricesForDiffCampaign.addToMyLots()'><b>addToMyLots</b><br>Test class: testcases.A3Dev1080CheckPricesForDiffCampaign ()</td>
+<td></td>
+<td>36</td>
+<td>testcases.A3Dev1080CheckPricesForDiffCampaign@71318ec4</td></tr>
+<tr>
+<td title='testcases.A6Dev1194CampaignBuyMultiple.campaignMultipleBuyGetOrderOverview()'><b>campaignMultipleBuyGetOrderOverview</b><br>Test class: testcases.A6Dev1194CampaignBuyMultiple ()</td>
+<td></td>
+<td>94</td>
+<td>testcases.A6Dev1194CampaignBuyMultiple@56ac3a89</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: lastMinute, defaultSale, 5.000,00, 4.500,00, qCXNQ9BuyNow, CD101V, 16-10-2016, CD101V - Cover 2, 6.300,00, 3.150,00, 3.150,00, 1.575,00, 0,00, 50,00, 0,00, 0,00, 1.575,00</td>
+<td></td>
+<td>53</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: lastMinute, defaultSale, 2.500,00, 2.250,00, qCXNQ9BuyNow, CD102VL, 16-10-2016, CD102VL - Cover 3, 2.500,00, 2.750,00, 2.750,00, 1.375,00, 343,75, 50,00, 25,00, 0,00, 1.031,25</td>
+<td></td>
+<td>45</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: bid, defaultSale, 5.000,00, NoLM, qCXNQ9BuyNow, CD101V, 17-10-2016, CD101V - Cover 2, 6.300,00, 3.150,00, 3.150,00, 1.575,00, 0,00, 50,00, 0,00, 0,00, 1.575,00</td>
+<td></td>
+<td>45</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: bid, defaultSale, 2.500,00, NoLM, qCXNQ9BuyNow, CD102VL, 17-10-2016, CD102VL - Cover 3, 2.500,00, 2.750,00, 2.750,00, 1.375,00, 343,75, 50,00, 25,00, 0,00, 1.031,25</td>
+<td></td>
+<td>46</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: DefaultBuyNow, defaultSale, NoBid, NoLM, qCXNQ9BuyNow, CD101V, 20-10-2016, CD101V - Cover 2, 6.300,00, 3.150,00, 3.150,00, 1.575,00, 0,00, 50,00, 0,00, 0,00, 1.575,00</td>
+<td></td>
+<td>43</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: DefaultBuyNow, defaultSale, NoBid, NoLM, qCXNQ9BuyNow, CD101V, 20-10-2016, CD101V - Cover 3, 9.000,00, 4.500,00, 4.500,00, 2.250,00, 0,00, 50,00, 0,00, 0,00, 2.250,00</td>
+<td></td>
+<td>43</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: DefaultBuyNow, defaultSale, NoBid, NoLM, qCXNQ9BuyNow, CD102VS, 20-10-2016, CD102VS - Cover 2, 5.040,00, 2.520,00, 2.520,00, 1.260,00, 0,00, 50,00, 0,00, 0,00, 1.260,00</td>
+<td></td>
+<td>43</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: DefaultBuyNow, defaultSale, NoBid, NoLM, qCXNQ9BuyNow, CD101V, 18-10-2016, CD101V - Cover 2, 3.780,00, 1.890,00, 1.890,00, 945,00, 0,00, 50,00, 0,00, 0,00, 945,00</td>
+<td></td>
+<td>43</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: DefaultBuyNow, defaultSale, NoBid, NoLM, qCXNQ9BuyNow, CD101V, 18-10-2016, CD101V - Cover 3, 5.400,00, 2.700,00, 2.700,00, 1.350,00, 0,00, 50,00, 0,00, 0,00, 1.350,00</td>
+<td></td>
+<td>43</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: AnotherSaleOrg, qCXNQ9Res, NoBid, NoLM, qCXNQ9BuyNow, CD101V, 20-10-2016, CD101V - Cover 2, 5.000,00, 5.500,00, 5.500,00, 2.750,00, 687,50, 50,00, 25,00, 0,00, 2.062,50</td>
+<td></td>
+<td>47</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1077CheckAllPricesForADV.checkAllPrices()'><b>checkAllPrices</b><br>Test class: testcases.A3Dev1077CheckAllPricesForADV ()<br>Parameters: AnotherSaleOrg, qCXNQ9UG, NoBid, NoLM, qCXNQ9BuyNow, CD102VS, 20-10-2016, CD102VS - Cover 2, 5.040,00, 2.520,00, 2.520,00, 1.260,00, 0,00, 50,00, 0,00, 0,00, 1.260,00</td>
+<td></td>
+<td>46</td>
+<td>testcases.A3Dev1077CheckAllPricesForADV@3159c4b8</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Cover 2, 3.150,00, 15,75, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: true, CD102VS - Cover 2, 2.520,00, 12,60, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: true, CD102VL - Cover 2, 2.520,00, 12,60, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VS - Cover 3, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VL - Cover 3, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Cover 3, 4.500,00, 22,50, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Cover 2, 1.575,00, 7,88, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Cover 2, 1.260,00, 6,30, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Cover 2, 1.260,00, 6,30, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Cover 3, 1.031,25, 5,16, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Cover 3, 1.031,25, 5,16, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Cover 3, 2.250,00, 11,25, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Cover 2, 1.875,00, 9,38, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Cover 2, 937,50, 4,69, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Cover 2, 937,50, 4,69, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Cover 3, 937,50, 4,69, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Cover 3, 937,50, 4,69, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePrice()'><b>checkBidExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Cover 3, 1.875,00, 9,38, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Pagina 2, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Pagina 3, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Pagina 4-5, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Voorpagina, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VS - Pagina 2, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VL - Pagina 2, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VS - Pagina 3, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VL - Pagina 3, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VS - Pagina 4-5, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VL - Pagina 4-5, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VS - Voorpagina, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VL - Voorpagina, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Pagina 2, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Pagina 3, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Pagina 4-5, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Voorpagina, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Pagina 2, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Pagina 2, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Pagina 3, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Pagina 3, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Pagina 4-5, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Pagina 4-5, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Voorpagina, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Voorpagina, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Pagina 2, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Pagina 3, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Pagina 4-5, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Voorpagina, 4.125,00, 20,63, 5.000,00, 25,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Pagina 2, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Pagina 2, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Pagina 3, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Pagina 3, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Pagina 4-5, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Pagina 4-5, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Voorpagina, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBidExchangePriceM2()'><b>checkBidExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Voorpagina, 2.062,50, 10,31, 2.500,00, 12,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Cover 2, 3.150,00, 15,75</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Cover 2, 2.520,00, 12,60</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Cover 2, 2.520,00, 12,60</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Cover 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Cover 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Cover 3, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD101V - Cover 2, 1.575,00, 7,88</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VS - Cover 2, 1.260,00, 6,30</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VL - Cover 2, 1.260,00, 6,30</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VS - Cover 3, 1.031,25, 5,16</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VL - Cover 3, 1.031,25, 5,16</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD101V - Cover 3, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD101V - Cover 2, 1.875,00, 9,38</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VS - Cover 2, 937,50, 4,69</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VL - Cover 2, 937,50, 4,69</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VS - Cover 3, 937,50, 4,69</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VL - Cover 3, 937,50, 4,69</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePrice()'><b>checkBuyNowExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD101V - Cover 3, 1.875,00, 9,38</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceCampaign2()'><b>checkBuyNowExchangePriceCampaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Cover 2, 1.875,00, 9,38</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceCampaign2()'><b>checkBuyNowExchangePriceCampaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Cover 2, 937,50, 4,69</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceCampaign2()'><b>checkBuyNowExchangePriceCampaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Cover 2, 937,50, 4,69</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceCampaign2()'><b>checkBuyNowExchangePriceCampaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Cover 3, 937,50, 4,69</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceCampaign2()'><b>checkBuyNowExchangePriceCampaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Cover 3, 937,50, 4,69</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceCampaign2()'><b>checkBuyNowExchangePriceCampaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Cover 3, 1.875,00, 9,38</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Pagina 2, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Pagina 3, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Pagina 4-5, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Voorpagina, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Pagina 2, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Pagina 2, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Pagina 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Pagina 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Pagina 4-5, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Pagina 4-5, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Voorpagina, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Voorpagina, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD101V - Pagina 2, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD101V - Pagina 3, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD101V - Pagina 4-5, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD101V - Voorpagina, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VS - Pagina 2, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VL - Pagina 2, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VS - Pagina 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VL - Pagina 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VS - Pagina 4-5, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VL - Pagina 4-5, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VS - Voorpagina, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: CD102VL - Voorpagina, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD101V - Pagina 2, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD101V - Pagina 3, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD101V - Pagina 4-5, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD101V - Voorpagina, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VS - Pagina 2, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VL - Pagina 2, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VS - Pagina 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VL - Pagina 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VS - Pagina 4-5, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VL - Pagina 4-5, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VS - Voorpagina, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkBuyNowExchangePriceM2()'><b>checkBuyNowExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: CD102VL - Voorpagina, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Pagina 2, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Pagina 3, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Pagina 4-5, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Voorpagina, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Pagina 2, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Pagina 2, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Pagina 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Pagina 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Pagina 4-5, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Pagina 4-5, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Voorpagina, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign1()'><b>checkBuyNowExchangePriceM2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Voorpagina, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Pagina 2, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Pagina 3, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Pagina 4-5, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Voorpagina, 4.125,00, 20,63</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Pagina 2, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Pagina 2, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Pagina 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Pagina 3, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Pagina 4-5, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Pagina 4-5, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Voorpagina, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceM2Campaign2()'><b>checkBuyNowExchangePriceM2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Voorpagina, 2.062,50, 10,31</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceWithCampaign1()'><b>checkBuyNowExchangePriceWithCampaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Cover 2, 1.575,00, 7,88</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceWithCampaign1()'><b>checkBuyNowExchangePriceWithCampaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Cover 2, 1.260,00, 6,30</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceWithCampaign1()'><b>checkBuyNowExchangePriceWithCampaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Cover 2, 1.260,00, 6,30</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceWithCampaign1()'><b>checkBuyNowExchangePriceWithCampaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VS - Cover 3, 1.031,25, 5,16</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceWithCampaign1()'><b>checkBuyNowExchangePriceWithCampaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD102VL - Cover 3, 1.031,25, 5,16</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkBuyNowExchangePriceWithCampaign1()'><b>checkBuyNowExchangePriceWithCampaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: CD101V - Cover 3, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Cover 2, 3.150,00, 15,75, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: true, CD102VS - Cover 2, 2.520,00, 12,60, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: true, CD102VL - Cover 2, 2.520,00, 12,60, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VS - Cover 3, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VL - Cover 3, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Cover 3, 4.500,00, 22,50, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Cover 2, 1.575,00, 7,88, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Cover 2, 1.260,00, 6,30, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Cover 2, 1.260,00, 6,30, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Cover 3, 1.031,25, 5,16, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Cover 3, 1.031,25, 5,16, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Cover 3, 2.250,00, 11,25, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Cover 2, 1.875,00, 9,38, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Cover 2, 937,50, 4,69, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Cover 2, 937,50, 4,69, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Cover 3, 937,50, 4,69, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Cover 3, 937,50, 4,69, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePrice()'><b>checkLMExchangePrice</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Cover 3, 1.875,00, 9,38, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Pagina 2, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Pagina 3, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Pagina 4-5, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD101V - Voorpagina, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VS - Pagina 2, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VL - Pagina 2, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VS - Pagina 3, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VL - Pagina 3, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VS - Pagina 4-5, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VL - Pagina 4-5, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VS - Voorpagina, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()<br>Parameters: false, CD102VL - Voorpagina, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Pagina 2, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Pagina 3, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Pagina 4-5, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD101V - Voorpagina, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Pagina 2, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Pagina 2, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Pagina 3, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Pagina 3, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Pagina 4-5, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Pagina 4-5, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VS - Voorpagina, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()<br>Parameters: false, CD102VL - Voorpagina, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Pagina 2, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Pagina 3, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Pagina 4-5, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD101V - Voorpagina, 4.125,00, 20,63, 4.500,00, 22,50</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Pagina 2, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Pagina 2, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Pagina 3, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Pagina 3, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Pagina 4-5, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Pagina 4-5, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VS - Voorpagina, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.checkLMExchangePriceM2()'><b>checkLMExchangePriceM2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()<br>Parameters: false, CD102VL - Voorpagina, 2.062,50, 10,31, 2.250,00, 11,25</td>
+<td></td>
+<td>0</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A6Dev1194CampaignBuyMultiple.checkOrderResults()'><b>checkOrderResults</b><br>Test class: testcases.A6Dev1194CampaignBuyMultiple ()<br>Parameters: 20-10-2016, qCXNQ9BuyNow2, CD101V - Pagina 2, qCXNQ9ADV2, qCXNQ9ADV2-Campaign, 4.125,00, Nee, 0,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A6Dev1194CampaignBuyMultiple@56ac3a89</td></tr>
+<tr>
+<td title='testcases.A6Dev1194CampaignBuyMultiple.checkOrderResults()'><b>checkOrderResults</b><br>Test class: testcases.A6Dev1194CampaignBuyMultiple ()<br>Parameters: 20-10-2016, qCXNQ9BuyNow2, CD101V - Pagina 3, qCXNQ9ADV2, qCXNQ9ADV2-Campaign, 4.125,00, Nee, 0,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A6Dev1194CampaignBuyMultiple@56ac3a89</td></tr>
+<tr>
+<td title='testcases.A6Dev1194CampaignBuyMultiple.checkOrderResults()'><b>checkOrderResults</b><br>Test class: testcases.A6Dev1194CampaignBuyMultiple ()<br>Parameters: 20-10-2016, qCXNQ9BuyNow2, CD101V - Pagina 4-5, qCXNQ9ADV2, qCXNQ9ADV2-Campaign, 4.125,00, Nee, 0,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A6Dev1194CampaignBuyMultiple@56ac3a89</td></tr>
+<tr>
+<td title='testcases.A5Dev1102CheckOrders.checkOrderValue()'><b>checkOrderValue</b><br>Test class: testcases.A5Dev1102CheckOrders ()<br>Parameters: 20-10-2016, qCXNQ9BuyNow, CD101V - Cover 2, qCXNQ9ADV, qCXNQ9ADV-Campaign, 1.575,00, Nee, 0,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A5Dev1102CheckOrders@27c20538</td></tr>
+<tr>
+<td title='testcases.A5Dev1102CheckOrders.checkOrderValue()'><b>checkOrderValue</b><br>Test class: testcases.A5Dev1102CheckOrders ()<br>Parameters: 19-10-2016, qCXNQ9BuyNow2, CD102VS - Pagina 3, qCXNQ9ADV2, qCXNQ9ADV2-Campaign, 2.062,50, Nee, 0,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A5Dev1102CheckOrders@27c20538</td></tr>
+<tr>
+<td title='testcases.A5Dev1102CheckOrders.checkOrderValue()'><b>checkOrderValue</b><br>Test class: testcases.A5Dev1102CheckOrders ()<br>Parameters: 19-10-2016, qCXNQ9BuyNow2, CD101V - Pagina 2, qCXNQ9ADV2, qCXNQ9ADV2-Campaign, 4.125,00, Nee, 0,00</td>
+<td></td>
+<td>0</td>
+<td>testcases.A5Dev1102CheckOrders@27c20538</td></tr>
+<tr>
+<td title='testcases.A3Dev1079CheckPricesForADV2.checkPrices()'><b>checkPrices</b><br>Test class: testcases.A3Dev1079CheckPricesForADV2 ()<br>Parameters: DefaultBuyNow, defaultSale, CD101V - Pagina 4-5, 5.000,00, 5.500,00, 5.500,00, 0,00, 1.375,00, 0,00, 25,00, 0,00, 4.125,00</td>
+<td></td>
+<td>10</td>
+<td>testcases.A3Dev1079CheckPricesForADV2@29ca901e</td></tr>
+<tr>
+<td title='testcases.A3Dev1079CheckPricesForADV2.checkPrices()'><b>checkPrices</b><br>Test class: testcases.A3Dev1079CheckPricesForADV2 ()<br>Parameters: DefaultBuyNow, defaultSale, CD102VL - Pagina 3, 2.500,00, 2.750,00, 2.750,00, 0,00, 687,50, 0,00, 25,00, 0,00, 2.062,50</td>
+<td></td>
+<td>10</td>
+<td>testcases.A3Dev1079CheckPricesForADV2@29ca901e</td></tr>
+<tr>
+<td title='testcases.A3Dev1079CheckPricesForADV2.checkPrices()'><b>checkPrices</b><br>Test class: testcases.A3Dev1079CheckPricesForADV2 ()<br>Parameters: AnotherSaleOrg, qCXNQ9UG2, CD101V - Pagina 4-5, 10.000,00, 11.000,00, 11.000,00, 0,00, 0,00, 0,00, 0,00, 0,00, 11.000,00</td>
+<td></td>
+<td>13</td>
+<td>testcases.A3Dev1079CheckPricesForADV2@29ca901e</td></tr>
+<tr>
+<td title='testcases.A3Dev1079CheckPricesForADV2.checkPrices()'><b>checkPrices</b><br>Test class: testcases.A3Dev1079CheckPricesForADV2 ()<br>Parameters: AnotherSaleOrg, qCXNQ9UG2, CD102VL - Pagina 3, 5.000,00, 5.500,00, 5.500,00, 0,00, 0,00, 0,00, 0,00, 0,00, 5.500,00</td>
+<td></td>
+<td>13</td>
+<td>testcases.A3Dev1079CheckPricesForADV2@29ca901e</td></tr>
+<tr>
+<td title='testcases.A3Dev1080CheckPricesForDiffCampaign.checkPrices()'><b>checkPrices</b><br>Test class: testcases.A3Dev1080CheckPricesForDiffCampaign ()<br>Parameters: qCXNQ9UG, 1, 6.300,00, 3.150,00, 3.150,00, 1.575,00, 0,00, 50,00, 0,00, 0,00, 1.575,00</td>
+<td></td>
+<td>18</td>
+<td>testcases.A3Dev1080CheckPricesForDiffCampaign@71318ec4</td></tr>
+<tr>
+<td title='testcases.A3Dev1080CheckPricesForDiffCampaign.checkPrices()'><b>checkPrices</b><br>Test class: testcases.A3Dev1080CheckPricesForDiffCampaign ()<br>Parameters: qCXNQ9UG, 2, 6.300,00, 3.150,00, 6.300,00, 3.150,00, 0,00, 50,00, 0,00, 0,00, 3.150,00</td>
+<td></td>
+<td>17</td>
+<td>testcases.A3Dev1080CheckPricesForDiffCampaign@71318ec4</td></tr>
+<tr>
+<td title='testcases.A3Dev1080CheckPricesForDiffCampaign.checkPrices()'><b>checkPrices</b><br>Test class: testcases.A3Dev1080CheckPricesForDiffCampaign ()<br>Parameters: qCXNQ9Res, 1, 5.000,00, 5.500,00, 5.500,00, 2.750,00, 687,50, 50,00, 25,00, 0,00, 2.062,50</td>
+<td></td>
+<td>18</td>
+<td>testcases.A3Dev1080CheckPricesForDiffCampaign@71318ec4</td></tr>
+<tr>
+<td title='testcases.A3Dev1080CheckPricesForDiffCampaign.checkPrices()'><b>checkPrices</b><br>Test class: testcases.A3Dev1080CheckPricesForDiffCampaign ()<br>Parameters: qCXNQ9Res, 2, 5.000,00, 5.500,00, 5.000,00, 2.500,00, 625,00, 50,00, 25,00, 0,00, 1.875,00</td>
+<td></td>
+<td>17</td>
+<td>testcases.A3Dev1080CheckPricesForDiffCampaign@71318ec4</td></tr>
+<tr>
+<td title='testcases.A5Dev1102CheckOrders.compareOrdersPubSideAndMBSide()'><b>compareOrdersPubSideAndMBSide</b><br>Test class: testcases.A5Dev1102CheckOrders ()</td>
+<td></td>
+<td>0</td>
+<td>testcases.A5Dev1102CheckOrders@27c20538</td></tr>
+<tr>
+<td title='testcases.A3Dev1079CheckPricesForADV2.deleteLots()'><b>deleteLots</b><br>Test class: testcases.A3Dev1079CheckPricesForADV2 ()</td>
+<td></td>
+<td>8</td>
+<td>testcases.A3Dev1079CheckPricesForADV2@29ca901e</td></tr>
+<tr>
+<td title='testcases.A3Dev1080CheckPricesForDiffCampaign.deleteLots()'><b>deleteLots</b><br>Test class: testcases.A3Dev1080CheckPricesForDiffCampaign ()</td>
+<td></td>
+<td>5</td>
+<td>testcases.A3Dev1080CheckPricesForDiffCampaign@71318ec4</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.findBidInventoryForMedia1()'><b>findBidInventoryForMedia1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()</td>
+<td></td>
+<td>7</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.findBidInventoryForMedia1()'><b>findBidInventoryForMedia1</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()</td>
+<td></td>
+<td>8</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.findBidInventoryForMedia1()'><b>findBidInventoryForMedia1</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()</td>
+<td></td>
+<td>7</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.findBidInventoryForMedia2()'><b>findBidInventoryForMedia2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()</td>
+<td></td>
+<td>8</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.findBidInventoryForMedia2()'><b>findBidInventoryForMedia2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()</td>
+<td></td>
+<td>9</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.findBidInventoryForMedia2()'><b>findBidInventoryForMedia2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()</td>
+<td></td>
+<td>9</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.findBuyNowInventoryForMedia1()'><b>findBuyNowInventoryForMedia1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()</td>
+<td></td>
+<td>7</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.findBuyNowInventoryForMedia1()'><b>findBuyNowInventoryForMedia1</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()</td>
+<td></td>
+<td>8</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.findBuyNowInventoryForMedia1()'><b>findBuyNowInventoryForMedia1</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()</td>
+<td></td>
+<td>7</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.findBuyNowInventoryForMedia1WithCampaign1()'><b>findBuyNowInventoryForMedia1WithCampaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()</td>
+<td></td>
+<td>21</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.findBuyNowInventoryForMedia1WithCampaign2()'><b>findBuyNowInventoryForMedia1WithCampaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()</td>
+<td></td>
+<td>21</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.findBuyNowInventoryForMedia2()'><b>findBuyNowInventoryForMedia2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()</td>
+<td></td>
+<td>8</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.findBuyNowInventoryForMedia2()'><b>findBuyNowInventoryForMedia2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()</td>
+<td></td>
+<td>8</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.findBuyNowInventoryForMedia2()'><b>findBuyNowInventoryForMedia2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()</td>
+<td></td>
+<td>8</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.findBuyNowInventoryForMedia2Campaign1()'><b>findBuyNowInventoryForMedia2Campaign1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()</td>
+<td></td>
+<td>20</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.findBuyNowInventoryForMedia2Campaign2()'><b>findBuyNowInventoryForMedia2Campaign2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()</td>
+<td></td>
+<td>22</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.findLMInventoryForMedia1()'><b>findLMInventoryForMedia1</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()</td>
+<td></td>
+<td>22</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.findLMInventoryForMedia1()'><b>findLMInventoryForMedia1</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()</td>
+<td></td>
+<td>20</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.findLMInventoryForMedia1()'><b>findLMInventoryForMedia1</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()</td>
+<td></td>
+<td>19</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A3Dev1015CheckExchangePricesMB.findLMInventoryForMedia2()'><b>findLMInventoryForMedia2</b><br>Test class: testcases.A3Dev1015CheckExchangePricesMB ()</td>
+<td></td>
+<td>27</td>
+<td>testcases.A3Dev1015CheckExchangePricesMB@72d818d1</td></tr>
+<tr>
+<td title='testcases.A3Dev999CheckExchangePricesADV.findLMInventoryForMedia2()'><b>findLMInventoryForMedia2</b><br>Test class: testcases.A3Dev999CheckExchangePricesADV ()</td>
+<td></td>
+<td>20</td>
+<td>testcases.A3Dev999CheckExchangePricesADV@55d56113</td></tr>
+<tr>
+<td title='testcases.A3Dev998CheckExchangePricesADV2.findLMInventoryForMedia2()'><b>findLMInventoryForMedia2</b><br>Test class: testcases.A3Dev998CheckExchangePricesADV2 ()</td>
+<td></td>
+<td>19</td>
+<td>testcases.A3Dev998CheckExchangePricesADV2@73846619</td></tr>
+<tr>
+<td title='testcases.A2Dev1072LoginFirstTime.logInChangePass()'><b>logInChangePass</b><br>Test class: testcases.A2Dev1072LoginFirstTime ()<br>Parameters: qCXNQ9ADV, dejuan@adoptiq.com</td>
+<td></td>
+<td>21</td>
+<td>testcases.A2Dev1072LoginFirstTime@6e06451e</td></tr>
+<tr>
+<td title='testcases.A2Dev1072LoginFirstTime.logInChangePass()'><b>logInChangePass</b><br>Test class: testcases.A2Dev1072LoginFirstTime ()<br>Parameters: qCXNQ9ADV2, dejuan@adoptiq.com</td>
+<td></td>
+<td>21</td>
+<td>testcases.A2Dev1072LoginFirstTime@6e06451e</td></tr>
+<tr>
+<td title='testcases.A2Dev1072LoginFirstTime.logInChangePass()'><b>logInChangePass</b><br>Test class: testcases.A2Dev1072LoginFirstTime ()<br>Parameters: qCXNQ9MB, dejuan@adoptiq.com</td>
+<td></td>
+<td>22</td>
+<td>testcases.A2Dev1072LoginFirstTime@6e06451e</td></tr>
+<tr>
+<td title='testcases.A2Dev1072LoginFirstTime.logInChangePass()'><b>logInChangePass</b><br>Test class: testcases.A2Dev1072LoginFirstTime ()<br>Parameters: qCXNQ9UG, dejuan@adoptiq.com</td>
+<td></td>
+<td>21</td>
+<td>testcases.A2Dev1072LoginFirstTime@6e06451e</td></tr>
+<tr>
+<td title='testcases.A2Dev1072LoginFirstTime.logInChangePass()'><b>logInChangePass</b><br>Test class: testcases.A2Dev1072LoginFirstTime ()<br>Parameters: qCXNQ9UG2, dejuan@adoptiq.com</td>
+<td></td>
+<td>21</td>
+<td>testcases.A2Dev1072LoginFirstTime@6e06451e</td></tr>
+<tr>
+<td title='testcases.A2Dev1072LoginFirstTime.logInChangePass()'><b>logInChangePass</b><br>Test class: testcases.A2Dev1072LoginFirstTime ()<br>Parameters: qCXNQ9Res, dejuan@adoptiq.com</td>
+<td></td>
+<td>21</td>
+<td>testcases.A2Dev1072LoginFirstTime@6e06451e</td></tr>
+<tr>
+<td title='testcases.A2Dev1072LoginFirstTime.logInChangePass()'><b>logInChangePass</b><br>Test class: testcases.A2Dev1072LoginFirstTime ()<br>Parameters: qCXNQ9Res2, dejuan@adoptiq.com</td>
+<td></td>
+<td>21</td>
+<td>testcases.A2Dev1072LoginFirstTime@6e06451e</td></tr>
+<tr>
+<td title='testcases.B2Dev1132OptionPush.notificationNoCampaignDeselect()'><b>notificationNoCampaignDeselect</b><br>Test class: testcases.B2Dev1132OptionPush ()<br>Parameters: CD102VL - Pagina 3, CD101V - Voorpagina, CD102VL - Cover 3, CD102VS - Cover 3</td>
+<td></td>
+<td>25</td>
+<td>testcases.B2Dev1132OptionPush@5abca1e0</td></tr>
+<tr>
+<td title='testcases.B2Dev1132OptionPush.optionPush()'><b>optionPush</b><br>Test class: testcases.B2Dev1132OptionPush ()<br>Parameters: qCXNQ9Res2, qCXNQ9MB, qCXNQ9ADV2, qCXNQ9BuyNow2, CD101V, 19-10-2016, 400, CD101V - Voorpagina</td>
+<td></td>
+<td>70</td>
+<td>testcases.B2Dev1132OptionPush@5abca1e0</td></tr>
+<tr>
+<td title='testcases.B2Dev1132OptionPush.optionPush()'><b>optionPush</b><br>Test class: testcases.B2Dev1132OptionPush ()<br>Parameters: qCXNQ9UG2, qCXNQ9MB, qCXNQ9ADV2, qCXNQ9BuyNow2, CD102VL, 19-10-2016, 300, CD102VL - Pagina 3</td>
+<td></td>
+<td>58</td>
+<td>testcases.B2Dev1132OptionPush@5abca1e0</td></tr>
+<tr>
+<td title='testcases.B2Dev1132OptionPush.optionPush()'><b>optionPush</b><br>Test class: testcases.B2Dev1132OptionPush ()<br>Parameters: qCXNQ9Res, qCXNQ9MB, qCXNQ9ADV, qCXNQ9BuyNow, CD102VL, 20-10-2016, 200, CD102VL - Cover 3</td>
+<td></td>
+<td>58</td>
+<td>testcases.B2Dev1132OptionPush@5abca1e0</td></tr>
+<tr>
+<td title='testcases.B2Dev1132OptionPush.optionPush()'><b>optionPush</b><br>Test class: testcases.B2Dev1132OptionPush ()<br>Parameters: qCXNQ9UG, qCXNQ9MB, qCXNQ9ADV, qCXNQ9BuyNow, CD102VS, 20-10-2016, 100, CD102VS - Cover 3</td>
+<td></td>
+<td>60</td>
+<td>testcases.B2Dev1132OptionPush@5abca1e0</td></tr>
+<tr>
+<td title='testcases.B1Dev1121OptionRequestAcceptReject.optionRequestAcceptReject()'><b>optionRequestAcceptReject</b><br>Test class: testcases.B1Dev1121OptionRequestAcceptReject ()<br>Parameters: accept, qCXNQ9Res2, qCXNQ9MB, qCXNQ9ADV2-Campaign, qCXNQ9BuyNow2, CD101V, 19-10-2016, CD101V - Pagina 4-5</td>
+<td></td>
+<td>117</td>
+<td>testcases.B1Dev1121OptionRequestAcceptReject@5025a98f</td></tr>
+<tr>
+<td title='testcases.B1Dev1121OptionRequestAcceptReject.optionRequestAcceptReject()'><b>optionRequestAcceptReject</b><br>Test class: testcases.B1Dev1121OptionRequestAcceptReject ()<br>Parameters: reject, qCXNQ9UG, qCXNQ9MB, qCXNQ9ADV-Campaign, qCXNQ9BuyNow, CD101V, 20-10-2016, CD101V - Cover 3</td>
+<td></td>
+<td>106</td>
+<td>testcases.B1Dev1121OptionRequestAcceptReject@5025a98f</td></tr>
+</table><p>
+</body>
+</html>

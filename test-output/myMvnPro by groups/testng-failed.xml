@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [myMvnPro by groups]">
+  <test verbose="0" name="GRP-CreateData,LoginFirstTime">
+    <groups>
+      <run>
+        <include name="CreateData"/>
+        <include name="LoginFirstTime"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="testcases.A2Dev1072LoginFirstTime"/>
+      <class name="testcases.A1Dev1028UnitCreate"/>
+    </classes>
+  </test> <!-- GRP-CreateData,LoginFirstTime -->
+</suite> <!-- Failed suite [myMvnPro by groups] -->
