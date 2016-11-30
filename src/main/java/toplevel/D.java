@@ -28,6 +28,9 @@ public class D {
 	public static String $infoErroBox = "//h4[text()='";    // + Informatie + "']"; or + Fout + "']";
     public static String $PoweredByMendix = "//div[contains(@class, 'wgt-CKEditorViewerForMendixNode')]";
 	//----login page and account
+    public static String $forgot_password_link = "//a[text()='Forgot password?']";
+    public static String $forgot_password_email = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div/div/div[2]/div/input";
+    public static String $forgot_password_send_button = ".mx-name-microflowButton";
 	public static String $username = ".username";
 	public static String $password = ".password";
 	public static String $signin = ".btn-primary";
@@ -51,6 +54,7 @@ public class D {
 	public static String $MenuMedia = "'Media'";
 	public static String $MenuAccount = "'Account'";
 	public static String $MenuDeveloper = "'Develop'";
+	public static String $MenuSystem = "'Systeem'";
     public static String $ItemExchange = "'Exchange'";
     public static String $ItemMyLots = "'Mijn kavels'";
     public static String $ItemOrderOverview = "'Orderoverzicht'";
@@ -105,6 +109,8 @@ public class D {
     public static String $bm_lot_expand_arrow = ".mx-name-actionExpandInventory4";
     public static String $bm_lot_expand_arrow_red = ".mx-name-actionExpandInventory5";
     public static String $bm_lot_select_publisher = ".mx-name-referenceSelector2 select";
+    public static String $bm_lot_select_PPP = ".mx-name-referenceSelector4 select";
+    public static String $bm_lot_PPP_Nr = "//table[contains(@class,'mx-name-table3')]/tbody/tr[2]//input";
     public static String $bm_lot_buyNowPrice = ".mx-name-textBuyNowPriceNett";
     public static String $bm_lot_bidPrice = ".mx-name-textNextBidPriceNett1";
     public static String $bm_lot_info_icon = ".mx-name-actionButton33";
@@ -118,7 +124,8 @@ public class D {
     public static String $bm_lot_underbid_input = "//table[contains(@class,'mx-name-table4')]/tbody/tr[1]//input";
     public static String $bm_lot_underbid_change_button = ".mx-name-actCampaignEdit3";
     public static String $bm_lot_underbid_change_input = "//body/div[3]/div[1]/div[2]/div/div/div/div/div/div[1]/div/div/input";
-  //  public static String $bm_lot_underbid_change_save = ".mx-name-actionButton1";
+    public static String $bm_lot_dealid_input = "//table[contains(@class,'mx-name-table3')]/tbody/tr[1]//input";
+
     //Enter Bulk DealID
     public static String $bm_bulkDealIDForm_DealID = "//tbody/tr[3]/td[1]/div/input";
     public static String $bm_bulkDealIDForm_Save = "//tbody/tr[7]/td/button";
@@ -143,6 +150,7 @@ public class D {
     //Buy OrderOverview
     public static String $b_orderoverview_table = ".mx-datagrid-body-table"; 
     //--- Buy,Option, bid lot form
+    public static String $bm_lot_exceed_price_confirm = ".modal-dialog .btn-primary";
     public static String $bm_lot_buy_confirm = ".modal-dialog .btn-primary";
     public static String $bm_lot_option_confirm = ".modal-dialog .btn-warning";
     public static String $bm_lot_bid_confirm = ".modal-dialog .btn-success";
@@ -172,11 +180,14 @@ public class D {
     public static String $p_approve_option_save = "//img[contains(@src,'https://adoptiq100-test.mendixcloud.com/img/System$Save.png')]";
     public static String $p_reject_option_save = "//button[contains(text(),'Doorgaan')]";
     public static String $p_orderoverview_privateSeat_tab = ".mx-name-tabPage8";
-    public static String $p_content_row_dispaly_button = ".mx-name-microflowButton7";
+    public static String $p_orderoverview_pluspropersition_tab = ".mx-name-tabPage7";
+    public static String $p_private_seat_row_dispaly_button = ".mx-name-microflowButton7";
+    public static String $p_plus_propersition_row_dispaly_button = ".mx-name-microflowButton10";
       //Private Seat
     public static String $p_private_seat_publisher_orderID = "//tbody/tr[2]/td[2]/div/input";
     public static String $p_private_seat_discount_percentage = "//tbody/tr[2]/td[1]/div/input";
     public static String $p_private_seat_save_button = ".mx-name-microflowButton1";
+    public static String $p_private_seat_PPP_Price = "//tbody/tr[1]/td[2]/div/input";
     //Publisher Media
     public static String $p_option_push_dialog = ".modal-content";
     public static String $p_option_push = ".mx-name-actionButton1"; //text']"
@@ -187,11 +198,14 @@ public class D {
     public static String $p_option_details_price = "//table/tbody/tr[7]/td/div/input";
     public static String $p_overview_underbid = "//a[text()='Onderbiedingen']";
     public static String $p_underbid_accept = "//button[text()='Accepteer bod']";
+    public static String $p_underbid_reject = "//button[text()='Wijs bod af']";
     //----admin page
     public static String $ad_unit_tests = "//label[contains(text(),'Unit tests')]";
     public static String $ad_unit_tests_menu = "//div[@class='mx-name-textBox1']/label[contains(text(), '"; // + menu name + ')]
     public static String $ad_unit_enter_name = ".mx-name-microflowButton5";
     public static String $ad_unit_input_name = "//tbody/tr[1]/td/div/input";
+    public static String $ad_schematischeTaken = "//label[contains(text(),'Schematische taken')]";
+    public static String $ad_schematischeTaken_dailyreport = "//button[text()='SE_Order_SendOverviewOrdersToMA_Adv']";
  //   public static String $ad_unit_input_name = ".mx-name-textBox3";
     public static String $ad_unit_input_email = "//tbody/tr[2]/td/div/input";
     public static String $ad_unit_input_save = ".mx-dataview-controls button";

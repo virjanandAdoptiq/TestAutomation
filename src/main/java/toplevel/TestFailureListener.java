@@ -67,7 +67,11 @@ public class TestFailureListener extends TestListenerAdapter {
 			} catch (Exception e){
 				LOG.info(">>>>>>>>>>>>>>>Test failed. No need to logout");
 			}
-			
+			try {
+				Top.CloseBrowser();
+			}catch (Exception e){
+				LOG.info(">>>>>>>>>>>>>>>Test failed. No need to close browser");
+			}
 		}
 		
 	  }

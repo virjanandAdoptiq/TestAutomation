@@ -9,8 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import toplevel.D;
-import toplevel.Helper;
-import toplevel.Top;
+import toplevel.Lib;
 
 public class Mylots {
 	
@@ -18,7 +17,7 @@ public class Mylots {
 		//String path = D.$MyLotsLink + item + ")]";
 		String menu = D.$Menu + D.$MenuMyLots + ")]";
 		String path = D.$MenuLink + item + ")]";
-		Top.SelectMenuLink(By.xpath(menu), By.xpath(path));
+		Lib.SelectMenuLink(By.xpath(menu), By.xpath(path));
 	}
 	
 	
@@ -44,7 +43,7 @@ public class Mylots {
     
 	public static void SelectALot(String product) throws InterruptedException{		
 		String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/td[1]";
-		Top.ClickButton(By.xpath(path));	
+		Lib.ClickButton(By.xpath(path));	
 	}
 	public static void SelectAllLot(String medium) throws InterruptedException{		
 		String path = D.$bm_lot_row_prefix + medium + D.$bm_lot_row_suffix;
@@ -67,19 +66,19 @@ public class Mylots {
 		}
 	}
 	public static void BuyBidOptionConfirm(String which) throws InterruptedException{	
-		Top.ClickButton(By.cssSelector(which));
+		Lib.ClickButton(By.cssSelector(which));
 		D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
 		Thread.sleep(D.waitTime);
-		Top.CloseDialogBox();
+		Lib.CloseDialogBox();
 	}
 	public static void ExpandALot(String product, String color) throws InterruptedException{		
 		String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix;
 		if(color.equalsIgnoreCase("grey")){
-		  Top.ClickContextSensitiveItem(By.xpath(path), By.cssSelector(D.$bm_lot_expand_arrow));
+		  Lib.ClickContextSensitiveItem(By.xpath(path), By.cssSelector(D.$bm_lot_expand_arrow));
 		  return;
 		}
 		if(color.equalsIgnoreCase("red")){
-		  Top.ClickContextSensitiveItem(By.xpath(path), By.cssSelector(D.$bm_lot_expand_arrow_red));
+		  Lib.ClickContextSensitiveItem(By.xpath(path), By.cssSelector(D.$bm_lot_expand_arrow_red));
 		}
 	}
 	public static void SelectPublisher(String product, String publisher) throws InterruptedException{	
@@ -95,27 +94,27 @@ public class Mylots {
 		D.driver.findElement(By.xpath(fatherpath)).findElement(By.cssSelector(D.$bm_lot_autobid_button)).click();
 		//select price from the pops up
 		String path = D.$bm_lot_autobid_prices_prefix + priceLevel +  D.$bm_lot_autobid_prices_sufix;
-		Top.ClickButton(By.xpath(path));
-		Top.ClickButton(By.xpath(D.$bm_lot_autobid_select_button));
-		Top.CloseDialogBox();
+		Lib.ClickButton(By.xpath(path));
+		Lib.ClickButton(By.xpath(D.$bm_lot_autobid_select_button));
+		Lib.CloseDialogBox();
 	}
 	public static void SetUnderBidPrice(String product, String price) throws InterruptedException{
 	   String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/following-sibling::tr";
-	   Top.ClickContextSensitiveItem(By.xpath(path), By.xpath(D.$bm_lot_underbid_input));
+	   Lib.ClickContextSensitiveItem(By.xpath(path), By.xpath(D.$bm_lot_underbid_input));
 	   D.driver.findElement(By.xpath(path)).findElement(By.xpath(D.$bm_lot_underbid_input)).sendKeys(price);
-	   Top.SendSpecialKey(Keys.TAB);
+	   Lib.SendSpecialKey(Keys.TAB);
 	   Thread.sleep(D.waitTime); 
 	}
 	public static void ChangeUnderBidPrice(String product, String price) throws InterruptedException{
 		   String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/following-sibling::tr";
 		   D.driver.findElement(By.xpath(path)).findElement(By.cssSelector(D.$bm_lot_underbid_change_button)).click();
-		   Top.SendSpecialKey(Keys.CLEAR);
-		   Top.InputData(price, By.xpath(D.$bm_lot_underbid_change_input));
-		   Top.SendSpecialKey(Keys.TAB);
+		   Lib.SendSpecialKey(Keys.CLEAR);
+		   Lib.InputData(price, By.xpath(D.$bm_lot_underbid_change_input));
+		   Lib.SendSpecialKey(Keys.TAB);
 		   Thread.sleep(D.waitTime); 
-		   Top.SendSpecialKey(Keys.ENTER);
+		   Lib.SendSpecialKey(Keys.ENTER);
 		   Thread.sleep(D.waitTime); 
-		   Top.CloseDialogBox();
+		   Lib.CloseDialogBox();
 		}
 	public static void SetCampaign(String product,String campaignNo) throws InterruptedException{	
 		String fatherpath = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/following-sibling::tr";
@@ -125,21 +124,41 @@ public class Mylots {
 		D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path)));
 		Thread.sleep(D.waitTime);
 		D.driver.findElement(By.xpath(path)).click();
-		Top.ClickButton(By.xpath(D.$bm_lot_autobid_select_button));
-		Top.CloseDialogBox();
+		Lib.ClickButton(By.xpath(D.$bm_lot_autobid_select_button));
+		Lib.CloseDialogBox();
 	}
+	public static void SelectPPP(String product, String thePPP, String number) throws InterruptedException{		   
+			String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/following-sibling::tr";
+			WebElement mySelectElm = D.driver.findElement(By.xpath(path)).findElement(By.cssSelector(D.$bm_lot_select_PPP));
+			Select mySelect= new Select(mySelectElm);
+			mySelect.selectByVisibleText(thePPP);
+			Thread.sleep(D.waitTime);
+			
+			Lib.ClickContextSensitiveItem(By.xpath(path), By.xpath(D.$bm_lot_PPP_Nr));
+			D.driver.findElement(By.xpath(path)).findElement(By.xpath(D.$bm_lot_PPP_Nr)).sendKeys(number);
+			Lib.SendSpecialKey(Keys.TAB);
+			Thread.sleep(D.waitTime); 
+			D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
+		}
+	public static void SetDealID(String product, String theID) throws InterruptedException{
+		   String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/following-sibling::tr";
+		   Lib.ClickContextSensitiveItem(By.xpath(path), By.xpath(D.$bm_lot_dealid_input));
+		   D.driver.findElement(By.xpath(path)).findElement(By.xpath(D.$bm_lot_dealid_input)).sendKeys(theID);
+		   Lib.SendSpecialKey(Keys.TAB);
+		   Thread.sleep(D.waitTime); 
+		}
 	public static void SetBulkDealID(String dealID) throws InterruptedException{
-		Top.ClickButton(By.cssSelector(D.$bm_lot_bulkDealID_icon));
-		Top.InputData(dealID, By.xpath(D.$bm_bulkDealIDForm_DealID));
-		Top.ClickButton(By.xpath(D.$bm_bulkDealIDForm_Save));
+		Lib.ClickButton(By.cssSelector(D.$bm_lot_bulkDealID_icon));
+		Lib.InputData(dealID, By.xpath(D.$bm_bulkDealIDForm_DealID));
+		Lib.ClickButton(By.xpath(D.$bm_bulkDealIDForm_Save));
 		
 	}
 	public static void OpenLotInfon(String medium) throws InterruptedException{	
 		String path = D.$bm_lot_row_prefix + medium + D.$bm_lot_row_suffix;
-		Top.ClickContextSensitiveItem(By.xpath(path), By.cssSelector(D.$bm_lot_info_icon));
+		Lib.ClickContextSensitiveItem(By.xpath(path), By.cssSelector(D.$bm_lot_info_icon));
 	}
 	public static void CloseLotInfo() throws InterruptedException{	
-		Top.ClickButton(By.cssSelector(D.$bm_lot_info_closeButton));
+		Lib.ClickButton(By.cssSelector(D.$bm_lot_info_closeButton));
 	}
 	public static String GetLotInfo(String name) throws InterruptedException{	
 		try {

@@ -2,24 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="98423" started-at="2016-11-07T12:39:53Z" finished-at="2016-11-07T12:41:31Z">
+  <suite name="Default suite" duration-ms="9055" started-at="2016-11-30T13:17:19Z" finished-at="2016-11-30T13:17:28Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="98423" started-at="2016-11-07T12:39:53Z" finished-at="2016-11-07T12:41:31Z">
-      <class name="testcases.C2Dev1139UnderBidModifyDelete">
-        <test-method status="PASS" signature="start()[pri:0, instance:testcases.C2Dev1139UnderBidModifyDelete@3abbfa04]" test-instance-name="" name="start" is-config="true" duration-ms="4380" started-at="2016-11-07T13:39:53Z" finished-at="2016-11-07T13:39:57Z">
+    <test name="Default test" duration-ms="9055" started-at="2016-11-30T13:17:19Z" finished-at="2016-11-30T13:17:28Z">
+      <class name="testcases.T0Dev000CaptureEmailsToFile">
+        <test-method status="PASS" signature="email()[pri:0, instance:testcases.T0Dev000CaptureEmailsToFile@6093dd95]" name="email" duration-ms="9043" started-at="2016-11-30T14:17:19Z" finished-at="2016-11-30T14:17:28Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- start -->
-        <test-method status="PASS" signature="UnderbidsAndModify()[pri:0, instance:testcases.C2Dev1139UnderBidModifyDelete@3abbfa04]" test-instance-name="" name="UnderbidsAndModify" duration-ms="88939" started-at="2016-11-07T13:39:57Z" finished-at="2016-11-07T13:41:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UnderbidsAndModify -->
-        <test-method status="PASS" signature="stop()[pri:0, instance:testcases.C2Dev1139UnderBidModifyDelete@3abbfa04]" test-instance-name="" name="stop" is-config="true" duration-ms="5094" started-at="2016-11-07T13:41:26Z" finished-at="2016-11-07T13:41:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- stop -->
-      </class> <!-- testcases.C2Dev1139UnderBidModifyDelete -->
+        </test-method> <!-- email -->
+      </class> <!-- testcases.T0Dev000CaptureEmailsToFile -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

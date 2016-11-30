@@ -8,12 +8,12 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import toplevel.D;
-import toplevel.Helper;
+import toplevel.Lib;
 import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"LoginFirstTime"}, dependsOnGroups="CreateData", alwaysRun = true)
+@Test(groups = {"A2"}, dependsOnGroups="A1", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class A2Dev1072LoginFirstTime {
 	
@@ -21,7 +21,7 @@ public class A2Dev1072LoginFirstTime {
 	
 	@BeforeClass
 	public void start() throws InterruptedException{
-		D.FAILURE_INDICATION = 3; //if test failed, logout and close browser
+		D.FAILURE_INDICATION = 3; 
 		Top.StartBroswer();
 	}
 	
@@ -30,34 +30,29 @@ public class A2Dev1072LoginFirstTime {
 	    Top.Login(user, "Welkom01@");
 	    softAssert.assertTrue(Top.LoginAcceptTerms());
 	    Top.LoginChangePassword("Welkom01@", "Welkom01@1");
-	    
-	    //set email account
-	//    Account.GotoAccountMyAccount();
-	//	Account.SetMyAccountEmailAddress(email);
-	//	Top.ClickButton(By.xpath(D.$SaveMyAccount));
-		
+
 	    Top.Logout();  
 	    
-		 D.FAILURE_INDICATION = 0; //if test failed, do nothing
-		 softAssert.assertAll();
-		 D.FAILURE_INDICATION = 3; //if test failed, logout and close browser	
+		D.FAILURE_INDICATION = 0; 
+		softAssert.assertAll();
+		D.FAILURE_INDICATION = 3; 	
 	}
 		  	
 	@DataProvider
 	  public Object[][] users() {
 	    return new Object[][] { 
-	      { Helper.ADV,D.EMAIL },
-	      { Helper.ADV2,D.EMAIL},
-	      { Helper.MB,D.EMAIL },
-	      { Helper.UG,D.EMAIL }, 
-	      { Helper.UG2,D.EMAIL }, 
-	      { Helper.Res,D.EMAIL }, 
-	      { Helper.Res2,D.EMAIL }  
+	      { Lib.ADV,D.EMAIL },
+	      { Lib.ADV2,D.EMAIL},
+	      { Lib.MB,D.EMAIL },
+	      { Lib.UG,D.EMAIL }, 
+	      { Lib.UG2,D.EMAIL }, 
+	      { Lib.Res,D.EMAIL }, 
+	      { Lib.Res2,D.EMAIL }  
 	    };
 	  }
 	
 	@AfterClass
 	public void stop() throws InterruptedException {
-		Top.CloseBrowser();
+		 Top.CloseBrowser();
 	}
 }
