@@ -105,8 +105,13 @@ public class Exchange {
 		return D.driver.findElement(By.xpath(path)).findElement(By.cssSelector(name)).getText().replace("€", "").replaceAll("\\s","");
 	}
 	
-	//offers
+	//private offers
 	public static void ClickOfferNotification() throws InterruptedException{
 		Lib.ClickButton(By.xpath(D.$be_offer_notification));
+	}
+	//public offer
+	public static void SelectAnOffer(String name) throws InterruptedException{	
+		String path = D.$b_offer_inventory_path + name + "']/..";
+		Lib.ClickContextSensitiveItem(By.xpath(path), By.cssSelector(D.$b_offer_select_checkbox));
 	}
 }

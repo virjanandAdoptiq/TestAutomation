@@ -58,12 +58,12 @@ public class B2Dev999CheckExchangePricesADV {
 	@DataProvider
 	public Object[][] inputData() {
 	return new Object[][] { 	
-		{false,"CD101V - Cover 2","1.575,00","7,88","4.500,00","22,50"},
-		{false,"CD102VS - Cover 2","1.031,25","5,16","2.250,00","11,25"},
-		{false,"CD102VL - Cover 2","1.031,25","5,16","2.250,00","11,25"},
-		{false,"CD102VS - Cover 3","1.031,25","5,16","2.250,00","11,25"},
-		{false,"CD102VL - Cover 3","1.031,25","5,16","2.250,00","11,25"},
-		{false,"CD101V - Cover 3","2.062,50","10,31","4.500,00","22,50"},
+		{false,D.Cover2FullPage,"1.575,00","7,88","4.500,00","22,50"},
+		{false,D.Cover2HalfStand,"1.031,25","5,16","2.250,00","11,25"},
+		{false,D.Cover2HalfLying,"1.031,25","5,16","2.250,00","11,25"},
+		{false,D.Cover3HalfStand,"1.031,25","5,16","2.250,00","11,25"},
+		{false,D.Cover3HalfLying,"1.031,25","5,16","2.250,00","11,25"},
+		{false,D.Cover3FullPage,"2.062,50","10,31","4.500,00","22,50"},
 		};
 	}
 	 @Test(dependsOnMethods="checkLMExchangePrice",alwaysRun = true)
@@ -96,12 +96,12 @@ public class B2Dev999CheckExchangePricesADV {
 	@DataProvider
 	public Object[][] inputData2() {
 	return new Object[][] { 	
-		{false,"CD101V - Cover 2","1.575,00","7,88","5.000,00","25,00"},
-		{false,"CD102VS - Cover 2","1.031,25","5,16","2.500,00","12,50"},
-		{false,"CD102VL - Cover 2","1.031,25","5,16","2.500,00","12,50"},
-		{false,"CD102VS - Cover 3","1.031,25","5,16","2.500,00","12,50"},
-		{false,"CD102VL - Cover 3","1.031,25","5,16","2.500,00","12,50"},
-		{false,"CD101V - Cover 3","2.062,50","10,31","5.000,00","25,00"},
+		{false,D.Cover2FullPage,"1.575,00","7,88","5.000,00","25,00"},
+		{false,D.Cover2HalfStand,"1.031,25","5,16","2.500,00","12,50"},
+		{false,D.Cover2HalfLying,"1.031,25","5,16","2.500,00","12,50"},
+		{false,D.Cover3HalfStand,"1.031,25","5,16","2.500,00","12,50"},
+		{false,D.Cover3HalfLying,"1.031,25","5,16","2.500,00","12,50"},
+		{false,D.Cover3FullPage,"2.062,50","10,31","5.000,00","25,00"},
 		};
 	}
 	
@@ -114,16 +114,17 @@ public class B2Dev999CheckExchangePricesADV {
 	  public void checkBuyNowExchangePrice(String product, String buyNowE,String buyNowCPME) throws InterruptedException{
 		  
 		SoftAssert softAssert = new SoftAssert();
-
-				 String BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_price);
-				 if(BuyNowPrice.isEmpty()){
+		String BuyNowPrice;
+		String BuyNowCPM;
+		//		 String BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_price);
+		//		 if(BuyNowPrice.isEmpty()){
 					 BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_bidphase_price);
-				 }
+		//		 }
 				 softAssert.assertEquals(BuyNowPrice, buyNowE);
-				 String BuyNowCPM = Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_cpm_price);
-				 if(BuyNowCPM.isEmpty()){
+		//		 String BuyNowCPM = Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_cpm_price);
+		//		 if(BuyNowCPM.isEmpty()){
 					 BuyNowCPM = Exchange.GetAInventoryPrice(product,D.$be_inventory_buynow_bidphase_cpm_price);
-				 }
+		//		 }
 				 softAssert.assertEquals(BuyNowCPM, buyNowCPME);				 
 
 						 			
@@ -132,12 +133,12 @@ public class B2Dev999CheckExchangePricesADV {
 	@DataProvider
 	public Object[][] inputData3() {
 	return new Object[][] { 	
-		{"CD101V - Cover 2","1.575,00","7,88"},
-		{"CD102VS - Cover 2","1.031,25","5,16"},
-		{"CD102VL - Cover 2","1.031,25","5,16"},
-		{"CD102VS - Cover 3","1.031,25","5,16"},
-		{"CD102VL - Cover 3","1.031,25","5,16"},
-		{"CD101V - Cover 3","2.062,50","10,31"},
+		{D.Cover2FullPage,"1.575,00","7,88"},
+		{D.Cover2HalfStand,"1.031,25","5,16"},
+		{D.Cover2HalfLying,"1.031,25","5,16"},
+		{D.Cover3HalfStand,"1.031,25","5,16"},
+		{D.Cover3HalfLying,"1.031,25","5,16"},
+		{D.Cover3FullPage,"2.062,50","10,31"},
 		};
 	}
 	
@@ -174,18 +175,18 @@ public class B2Dev999CheckExchangePricesADV {
 	@DataProvider
 	public Object[][] inputData_2() {
 	return new Object[][] { 	
-		{false,"CD101V - Pagina 2","4.125,00","20,63","4.500,00","22,50"},
-		{false,"CD101V - Pagina 3","4.125,00","20,63","4.500,00","22,50"},
-		{false,"CD101V - Pagina 4-5","4.125,00","20,63","4.500,00","22,50"},
-		{false,"CD101V - Voorpagina","4.125,00","20,63","4.500,00","22,50"},		
-		{false,"CD102VS - Pagina 2","2.062,50","10,31","2.250,00","11,25"},
-		{false,"CD102VL - Pagina 2","2.062,50","10,31","2.250,00","11,25"},
-		{false,"CD102VS - Pagina 3","2.062,50","10,31","2.250,00","11,25"},
-		{false,"CD102VL - Pagina 3","2.062,50","10,31","2.250,00","11,25"},
-		{false,"CD102VS - Pagina 4-5","2.062,50","10,31","2.250,00","11,25"},
-		{false,"CD102VL - Pagina 4-5","2.062,50","10,31","2.250,00","11,25"},
-		{false,"CD102VS - Voorpagina","2.062,50","10,31","2.250,00","11,25"},
-		{false,"CD102VL - Voorpagina","2.062,50","10,31","2.250,00","11,25"},		
+		{false,D.Pagina2FullPage,"4.125,00","20,63","4.500,00","22,50"},
+		{false,D.Pagina3FullPage,"4.125,00","20,63","4.500,00","22,50"},
+		{false,D.Pagina45FullPage,"4.125,00","20,63","4.500,00","22,50"},
+		{false,D.VoorpaginaFullPage,"4.125,00","20,63","4.500,00","22,50"},		
+		{false,D.Pagina2HalfStand,"2.062,50","10,31","2.250,00","11,25"},
+		{false,D.Pagina2HalfLying,"2.062,50","10,31","2.250,00","11,25"},
+		{false,D.Pagina3HalfStand,"2.062,50","10,31","2.250,00","11,25"},
+		{false,D.Pagina3HalfLying,"2.062,50","10,31","2.250,00","11,25"},
+		{false,D.Pagina45HalfStand,"2.062,50","10,31","2.250,00","11,25"},
+		{false,D.Pagina45HalfLying,"2.062,50","10,31","2.250,00","11,25"},
+		{false,D.VoorpaginaHalfStand,"2.062,50","10,31","2.250,00","11,25"},
+		{false,D.VoorpaginaHalfLying,"2.062,50","10,31","2.250,00","11,25"},		
 		};
 	}
 	 @Test(dependsOnMethods="checkLMExchangePriceM2",alwaysRun = true)
@@ -218,18 +219,18 @@ public class B2Dev999CheckExchangePricesADV {
 	@DataProvider
 	public Object[][] inputData22() {
 	return new Object[][] { 	
-		{false,"CD101V - Pagina 2","4.125,00","20,63","5.000,00","25,00"},
-		{false,"CD101V - Pagina 3","4.125,00","20,63","5.000,00","25,00"},
-		{false,"CD101V - Pagina 4-5","4.125,00","20,63","5.000,00","25,00"},
-		{false,"CD101V - Voorpagina","4.125,00","20,63","5.000,00","25,00"},		
-		{false,"CD102VS - Pagina 2","2.062,50","10,31","2.500,00","12,50"},
-		{false,"CD102VL - Pagina 2","2.062,50","10,31","2.500,00","12,50"},
-		{false,"CD102VS - Pagina 3","2.062,50","10,31","2.500,00","12,50"},
-		{false,"CD102VL - Pagina 3","2.062,50","10,31","2.500,00","12,50"},
-		{false,"CD102VS - Pagina 4-5","2.062,50","10,31","2.500,00","12,50"},
-		{false,"CD102VL - Pagina 4-5","2.062,50","10,31","2.500,00","12,50"},
-		{false,"CD102VS - Voorpagina","2.062,50","10,31","2.500,00","12,50"},
-		{false,"CD102VL - Voorpagina","2.062,50","10,31","2.500,00","12,50"},
+		{false,D.Pagina2FullPage,"4.125,00","20,63","5.000,00","25,00"},
+		{false,D.Pagina3FullPage,"4.125,00","20,63","5.000,00","25,00"},
+		{false,D.Pagina45FullPage,"4.125,00","20,63","5.000,00","25,00"},
+		{false,D.VoorpaginaFullPage,"4.125,00","20,63","5.000,00","25,00"},		
+		{false,D.Pagina2HalfStand,"2.062,50","10,31","2.500,00","12,50"},
+		{false,D.Pagina2HalfLying,"2.062,50","10,31","2.500,00","12,50"},
+		{false,D.Pagina3HalfStand,"2.062,50","10,31","2.500,00","12,50"},
+		{false,D.Pagina3HalfLying,"2.062,50","10,31","2.500,00","12,50"},
+		{false,D.Pagina45HalfStand,"2.062,50","10,31","2.500,00","12,50"},
+		{false,D.Pagina45HalfLying,"2.062,50","10,31","2.500,00","12,50"},
+		{false,D.VoorpaginaHalfStand,"2.062,50","10,31","2.500,00","12,50"},
+		{false,D.VoorpaginaHalfLying,"2.062,50","10,31","2.500,00","12,50"},
 		};
 	}
 	
@@ -242,16 +243,17 @@ public class B2Dev999CheckExchangePricesADV {
 	  public void checkBuyNowExchangePriceM2(String product, String buyNowE,String buyNowCPME) throws InterruptedException{
 		  
 		SoftAssert softAssert = new SoftAssert();
-
-				 String BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_price);
-				 if(BuyNowPrice.isEmpty()){
+		String BuyNowPrice;
+		String BuyNowCPM;
+		//		 String BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_price);
+		//		 if(BuyNowPrice.isEmpty()){
 					 BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_bidphase_price);
-				 }
+		//		 }
 				 softAssert.assertEquals(BuyNowPrice, buyNowE);
-				 String BuyNowCPM = Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_cpm_price);
-				 if(BuyNowCPM.isEmpty()){
+		//		 String BuyNowCPM = Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_cpm_price);
+		//		 if(BuyNowCPM.isEmpty()){
 					 BuyNowCPM = Exchange.GetAInventoryPrice(product,D.$be_inventory_buynow_bidphase_cpm_price);
-				 }
+		//		 }
 				 softAssert.assertEquals(BuyNowCPM, buyNowCPME);				 
 
 						 			
@@ -260,18 +262,18 @@ public class B2Dev999CheckExchangePricesADV {
 	@DataProvider
 	public Object[][] inputData23() {
 	return new Object[][] { 	
-		{"CD101V - Pagina 2","4.125,00","20,63"},
-		{"CD101V - Pagina 3","4.125,00","20,63"},
-		{"CD101V - Pagina 4-5","4.125,00","20,63"},
-		{"CD101V - Voorpagina","4.125,00","20,63"},	
-		{"CD102VS - Pagina 2","2.062,50","10,31"},
-		{"CD102VL - Pagina 2","2.062,50","10,31"},
-		{"CD102VS - Pagina 3","2.062,50","10,31"},
-		{"CD102VL - Pagina 3","2.062,50","10,31"},
-		{"CD102VS - Pagina 4-5","2.062,50","10,31"},
-		{"CD102VL - Pagina 4-5","2.062,50","10,31"},
-		{"CD102VS - Voorpagina","2.062,50","10,31"},
-		{"CD102VL - Voorpagina","2.062,50","10,31"},
+		{D.Pagina2FullPage,"4.125,00","20,63"},
+		{D.Pagina3FullPage,"4.125,00","20,63"},
+		{D.Pagina45FullPage,"4.125,00","20,63"},
+		{D.VoorpaginaFullPage,"4.125,00","20,63"},	
+		{D.Pagina2HalfStand,"2.062,50","10,31"},
+		{D.Pagina2HalfLying,"2.062,50","10,31"},
+		{D.Pagina3HalfStand,"2.062,50","10,31"},
+		{D.Pagina3HalfLying,"2.062,50","10,31"},
+		{D.Pagina45HalfStand,"2.062,50","10,31"},
+		{D.Pagina45HalfLying,"2.062,50","10,31"},
+		{D.VoorpaginaHalfStand,"2.062,50","10,31"},
+		{D.VoorpaginaHalfLying,"2.062,50","10,31"},
 		};
 	}
 

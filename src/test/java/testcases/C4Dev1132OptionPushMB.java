@@ -22,11 +22,12 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"C4"}, dependsOnGroups="C3", alwaysRun = true)
+@Test//(groups = {"C4"}, dependsOnGroups="C3", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class C4Dev1132OptionPushMB {		  
 	  @BeforeClass
 			public void start() throws InterruptedException{
+		        Lib.deleteAllMailsFromInbox();
 				Top.StartBroswer();
 			}
 	  
@@ -74,23 +75,24 @@ public class C4Dev1132OptionPushMB {
 	  @DataProvider
 	  public Object[][] inputdata2() {
 	    return new Object[][] { 
-          {"CD102VL - Pagina 3","CD101V - Voorpagina","CD102VL - Cover 3","CD102VS - Cover 3"},
+          {D.Pagina3HalfLying,D.VoorpaginaFullPage,D.Cover3HalfLying,D.Cover3HalfStand},
 	    };
 	  }
 	  
 	  @Test(dataProvider="inputdata3",dependsOnMethods="notificationNoCampaignDeselect", alwaysRun = true)
 	  public void deletAnOffer(String product) throws InterruptedException{
 		  Exchange.SelectAInventory(product);
-		  //Top.DoubleClicky(By.cssSelector(D.$be_offer_delete));
 		  Lib.ClickButton(By.cssSelector(D.$be_offer_delete));
-		  D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(D.$OK_Button)));
-		  Lib.CloseDialogBox();
+		  
+		  D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(D.$Doorgaan_Button)));
+		  Lib.ClickButton(By.xpath(D.$Doorgaan_Button));
+		  
 
 	  }
 	  @DataProvider
 	  public Object[][] inputdata3() {
 	    return new Object[][] { 
-          {"CD102VS - Cover 3"},
+          {D.Cover3HalfStand},
 	    };
 	  }
 	  @Test(dataProvider="inputdata4",dependsOnMethods="deletAnOffer", alwaysRun = true)
@@ -108,7 +110,7 @@ public class C4Dev1132OptionPushMB {
 	  @DataProvider
 	  public Object[][] inputdata4() {
 	    return new Object[][] { 
-          {Lib.CampaignADV2,"CD101V - Voorpagina","CD102VL - Pagina 3"},
+          {Lib.CampaignADV2,D.VoorpaginaFullPage,D.Pagina3HalfLying},
 	    };
 	  }
 	  @Test(dataProvider="inputdata5",dependsOnMethods="campaignAddAll", alwaysRun = true)
@@ -123,7 +125,7 @@ public class C4Dev1132OptionPushMB {
 	  @DataProvider
 	  public Object[][] inputdata5() {
 	    return new Object[][] { 
-          {Lib.CampaignADV,"CD102VL - Cover 3"},
+          {Lib.CampaignADV,D.Cover3HalfLying},
 	    };
 	  }
 	  @Test(dependsOnMethods="campaignAddOne", alwaysRun = true)
@@ -134,24 +136,36 @@ public class C4Dev1132OptionPushMB {
 		  SoftAssert softAssert = new SoftAssert();
 		  softAssert.assertEquals(elements.size(), 3);
 		  //buy two
-		  Mylots.SelectALot("CD101V - Voorpagina");
-		  Mylots.SelectALot("CD102VL - Pagina 3");
+		  Mylots.SelectALot(D.VoorpaginaFullPage);
+		  Mylots.SelectALot(D.Pagina3HalfLying);
 		  Lib.ClickButton(By.cssSelector(D.$bm_lot_buy_icon));
 		  Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);
 		
 		  //delete one
-		  Mylots.SelectALot("CD102VL - Cover 3");
+		  Mylots.SelectALot(D.Cover3HalfLying);
+		  Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
+		  Lib.CloseDialogBox();
+		  softAssert.assertTrue(Mylots.CheckLotStatus(D.Cover3HalfLying, D.$bm_lot_status_saved));
+		  Mylots.SelectALot(D.Cover3HalfLying);
 		  Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 		  Lib.CloseDialogBox();
 	
 		  Top.Logout();
+		  Top.CloseBrowser(); 
+		  
 		  D.FAILURE_INDICATION = 0;
 		  softAssert.assertAll();
 	  }	
-
+	  @Test(dependsOnMethods="CheckStatusBuyTwoDeleteOne")
+	  public static void checkEmail() throws InterruptedException{
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("C4Dev1132OptionPushMB", 13), "emailCorrect");				
+			D.FAILURE_INDICATION = 0;
+			softAssert.assertAll(); 		  
+	  }
 	  @AfterClass
 		public void stop() throws InterruptedException { 
-			Top.CloseBrowser();
+		  Top.CloseBrowser();
 		} 
 
 		 

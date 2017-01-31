@@ -22,10 +22,19 @@ public class Mylots {
 	
 	
 	public static void ClickApplyFilterButton() throws InterruptedException{	
+ 		List<WebElement> elements = D.driver.findElements(By.cssSelector(D.$bm_lot_apply_filter_button));
+ 		for(WebElement ele: elements){
+ 			if(ele.isDisplayed()){
+ 				ele.click();
+ 				Thread.sleep(D.waitTime);
+ 			}
+ 		}
+ /*		
 		if(D.driver.findElement(By.cssSelector(D.$bm_lot_apply_filter_button)).isDisplayed()){
 			D.driver.findElement(By.cssSelector(D.$bm_lot_apply_filter_button)).click();
 			Thread.sleep(D.waitTime);
 		}
+*/		
 	}
 
 	public static void SetFilterOrderShow() throws InterruptedException{
@@ -37,6 +46,12 @@ public class Mylots {
     public static void SetFilterOrderNotShow() throws InterruptedException{
     	if(D.driver.findElements(By.xpath(D.$bm_lots_order_filter_off)).isEmpty()){
 			D.driver.findElement(By.xpath(D.$bm_lots_order_filter_on)).click();
+			Thread.sleep(D.waitTime);	
+		} 
+	}
+    public static void SetFilterBidNotShow() throws InterruptedException{
+    	if(D.driver.findElements(By.xpath(D.$bm_lots_bid_filter_off)).isEmpty()){
+			D.driver.findElement(By.xpath(D.$bm_lots_bid_filter_on)).click();
 			Thread.sleep(D.waitTime);	
 		} 
 	}
@@ -170,9 +185,31 @@ public class Mylots {
 		}
 	}
 	
+	public static String GetLotMaterialInfo(String name) throws InterruptedException{	
+		try {
+		Thread.sleep(D.waitTime);
+		return D.driver.findElement(By.xpath(name)).getText().replaceAll("\\s","");
+		} catch (Exception e) {
+			return "No this info";
+		}
+	}
+	
 	public static String CheckLotRowPrice(String product, String name) throws InterruptedException{	
 		String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix;
 		Thread.sleep(D.waitTime);
 		return D.driver.findElement(By.xpath(path)).findElement(By.cssSelector(name)).getText().replace("€", "").replaceAll("\\s","");
+	}
+	public static void OpenConflictingLotInfon(String product) throws InterruptedException{	
+		String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix;
+		Lib.ClickContextSensitiveItem(By.xpath(path), By.xpath(D.$bm_lot_status_conflicting));
+	}
+	public static void Negotiation(String price, String date, boolean bundle) throws InterruptedException{	
+		Lib.InputData(price, By.xpath(D.$bm_lot_negotiation_proposed_price));
+		Lib.InputData(date, By.xpath(D.$bm_lot_negotiation_Expiration_date));
+		if(bundle){
+			Lib.DoubleClicky(By.xpath(D.$bm_lot_negotiation_Bundled));
+		}
+		Lib.ClickButton(By.xpath(D.$bm_lot_negotiation_Negotiation_Button));
+		Lib.CloseDialogBox();
 	}
 }

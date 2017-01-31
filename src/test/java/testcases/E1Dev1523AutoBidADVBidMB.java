@@ -16,16 +16,18 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"E1"}, alwaysRun = true)
+@Test//(groups = {"E1"}, alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class E1Dev1523AutoBidADVBidMB {	
-	  private String product = "CD101V - Pagina 3";
+	  private String product = D.Pagina3FullPage;
+	//private String product = D.Pagina2FullPage;
 	  private String media = Lib.BuyNow2;
 	  private String format = "CD101V";
 	  private String theDate = Lib.lmDay2;
 	  @BeforeClass
 	  public void start() throws InterruptedException{
-				Top.StartBroswer();
+	        Lib.deleteAllMailsFromInbox();
+			Top.StartBroswer();
 	  }
 	  
 	  @Test(dataProvider="addToMyLots",alwaysRun = true)
@@ -161,11 +163,18 @@ public class E1Dev1523AutoBidADVBidMB {
 			 Top.Logout();  
 			 
 			 D.FAILURE_INDICATION = 0; //if test failed, do nothing
-			 softAssert.assertAll();
-			 D.FAILURE_INDICATION = 1; //if test failed, logout			     						 			 
+			 softAssert.assertAll();		     						 			 
 	  }	
+	  @Test(dependsOnMethods="MBIsOutBid")
+	  public static void checkEmail() throws InterruptedException{
+		    Top.CloseBrowser();
+		  
+		    SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("E1Dev1523AutoBidADVBidMB", 27), "emailCorrect");				
+			softAssert.assertAll(); 		  
+	  }	 
 	  @AfterClass
-		public void stop() throws InterruptedException {
-			Top.CloseBrowser();
-		} 
+	  public void stop() throws InterruptedException{
+		  Top.CloseBrowser();  
+	  }	
 }

@@ -1,114 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [myMvnPro by groups]">
-  <test verbose="0" name="GRP-E5,E6,E7,E1,E2,E3,E4">
+  <test verbose="0" name="GRP-A1,A2">
     <groups>
       <run>
-        <include name="E5"/>
-        <include name="E6"/>
-        <include name="E7"/>
-        <include name="E1"/>
-        <include name="E2"/>
-        <include name="E3"/>
-        <include name="E4"/>
+        <include name="A1"/>
+        <include name="A2"/>
       </run>
     </groups>
     <classes>
-      <class name="testcases.E2Dev1137AutoBidMBBidADV2"/>
-      <class name="testcases.E5Dev1526UnderBidMBADV2"/>
-      <class name="testcases.E6Dev1139UnderBidADVMB"/>
-      <class name="testcases.E1Dev1523AutoBidADVBidMB"/>
-      <class name="testcases.E4Dev1525BulkBidMB"/>
-      <class name="testcases.E3Dev1524BulkBidADV"/>
-      <class name="testcases.E7Dev987UnderBidModifyDelete"/>
+      <class name="testcases.A2Dev1072LoginFirstTime"/>
+      <class name="testcases.A1Dev1028UnitCreate"/>
     </classes>
-  </test> <!-- GRP-E5,E6,E7,E1,E2,E3,E4 -->
-  <test name="GRP-E5,E6,E7,E1,E2,E3,E4(failed)">
-    <groups>
-      <run>
-        <include name="E5"/>
-        <include name="E6"/>
-        <include name="E7"/>
-        <include name="E1"/>
-        <include name="E2"/>
-        <include name="E3"/>
-        <include name="E4"/>
-      </run>
-    </groups>
-    <classes>
-      <class name="testcases.E1Dev1523AutoBidADVBidMB">
-        <methods>
-          <include name="MBbidAgainAgainBecomeWinner"/>
-          <include name="start"/>
-          <include name="ADVLotStatusIsBid"/>
-          <include name="MBIsOutBid"/>
-          <include name="AddToMyLots"/>
-          <include name="MBbidBecomeOutbid"/>
-          <include name="ADVIsOutBidADVBidAgain"/>
-          <include name="stop"/>
-          <include name="ADVautobid"/>
-        </methods>
-      </class> <!-- testcases.E1Dev1523AutoBidADVBidMB -->
-      <class name="testcases.E7Dev987UnderBidModifyDelete">
-        <methods>
-          <include name="UnderbidsAndModify"/>
-          <include name="start"/>
-          <include name="stop"/>
-        </methods>
-      </class> <!-- testcases.E7Dev987UnderBidModifyDelete -->
-      <class name="testcases.E5Dev1526UnderBidMBADV2">
-        <methods>
-          <include name="MBunderBidautobid"/>
-          <include name="ADV2underBid"/>
-          <include name="Res2RejectMBUnderBid"/>
-          <include name="MBLotStatusIsOutbid"/>
-          <include name="Res2AcceptADV2UnderBid"/>
-          <include name="MBLotStatusIsUnderBid"/>
-          <include name="stop"/>
-          <include name="start"/>
-          <include name="AddToMyLots"/>
-        </methods>
-      </class> <!-- testcases.E5Dev1526UnderBidMBADV2 -->
-      <class name="testcases.E3Dev1524BulkBidADV">
-        <methods>
-          <include name="start"/>
-          <include name="AddToMyLotsAndBid"/>
-          <include name="stop"/>
-        </methods>
-      </class> <!-- testcases.E3Dev1524BulkBidADV -->
-      <class name="testcases.E2Dev1137AutoBidMBBidADV2">
-        <methods>
-          <include name="ADV2IsOutBid"/>
-          <include name="stop"/>
-          <include name="MBautobid"/>
-          <include name="MBIsOutBidADVBidAgain"/>
-          <include name="start"/>
-          <include name="MBLotStatusIsBid"/>
-          <include name="AddToMyLots"/>
-          <include name="ADV2bidBecomeOutbid"/>
-          <include name="ADV2bidAgainAgainBecomeWinner"/>
-        </methods>
-      </class> <!-- testcases.E2Dev1137AutoBidMBBidADV2 -->
-      <class name="testcases.E4Dev1525BulkBidMB">
-        <methods>
-          <include name="start"/>
-          <include name="AddToMyLotsAndBid"/>
-          <include name="stop"/>
-        </methods>
-      </class> <!-- testcases.E4Dev1525BulkBidMB -->
-      <class name="testcases.E6Dev1139UnderBidADVMB">
-        <methods>
-          <include name="start"/>
-          <include name="ResAcceptMBUnderBid"/>
-          <include name="ADVLotStatusIsUnderBid"/>
-          <include name="ResRejectADVUnderBid"/>
-          <include name="ADVunderBidautobid"/>
-          <include name="AddToMyLots"/>
-          <include name="MBunderBid"/>
-          <include name="ADVLotStatusIsOutbid"/>
-          <include name="stop"/>
-        </methods>
-      </class> <!-- testcases.E6Dev1139UnderBidADVMB -->
-    </classes>
-  </test> <!-- GRP-E5,E6,E7,E1,E2,E3,E4(failed) -->
+  </test> <!-- GRP-A1,A2 -->
 </suite> <!-- Failed suite [myMvnPro by groups] -->

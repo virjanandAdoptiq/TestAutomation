@@ -34,8 +34,8 @@ public class B5Dev1079CheckPricesForADV2 {
 			 Exchange.SelectFormat("CD102VL");
 			 Exchange.EnterFromThroughDate(Lib.buyDay1);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
-			 Exchange.AddToMyLots("CD101V - Pagina 4-5");
-			 Exchange.AddToMyLots("CD102VL - Pagina 3");
+			 Exchange.AddToMyLots(D.Pagina45FullPage);
+			 Exchange.AddToMyLots(D.Pagina3HalfLying);
 			 
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots);  //Go to My Lots 
 			 
@@ -88,18 +88,18 @@ public class B5Dev1079CheckPricesForADV2 {
 			  public Object[][] inputData() {
 			    return new Object[][] { 	
 			   //which, publisher,media,format, theDate, product,rateCardPrice,buyNowPrice,crossPrice,contractDeductedPrice,volumeDedactedPrice,contract,volume,surchargePrice,finalPrice 
-	       		{"DefaultBuyNow","defaultSale","CD101V - Pagina 4-5","5.000,00","5.500,00","5.500,00","0,00","1.375,00","0,00","25,00","0,00","4.125,00"},
-				{"DefaultBuyNow","defaultSale","CD102VL - Pagina 3","2.500,00","2.750,00","2.750,00","0,00","687,50","0,00","25,00","0,00","2.062,50"},
-			    {"AnotherSaleOrg",Lib.UG2,"CD101V - Pagina 4-5","10.000,00","11.000,00","11.000,00","0,00","0,00","0,00","0,00","0,00","11.000,00"},
-			    {"AnotherSaleOrg",Lib.UG2,"CD102VL - Pagina 3","5.000,00","5.500,00","5.500,00","0,00","0,00","0,00","0,00","0,00","5.500,00"},
+	       		{"DefaultBuyNow","defaultSale",D.Pagina45FullPage,"5.000,00","5.500,00","5.500,00","0,00","1.375,00","0,00","25,00","0,00","4.125,00"},
+				{"DefaultBuyNow","defaultSale",D.Pagina3HalfLying,"2.500,00","2.750,00","2.750,00","0,00","687,50","0,00","25,00","0,00","2.062,50"},
+			    {"AnotherSaleOrg",Lib.UG2,D.Pagina45FullPage,"10.000,00","11.000,00","11.000,00","0,00","0,00","0,00","0,00","0,00","11.000,00"},
+			    {"AnotherSaleOrg",Lib.UG2,D.Pagina3HalfLying,"5.000,00","5.500,00","5.500,00","0,00","0,00","0,00","0,00","0,00","5.500,00"},
 
 			    };
 			  }
 	@Test(dependsOnMethods="checkPrices",alwaysRun = true)		 
 	public void deleteLots() throws InterruptedException{
 		//Delete it from My lot
-		 Mylots.SelectALot("CD101V - Pagina 4-5");
-		 Mylots.SelectALot("CD102VL - Pagina 3");
+		 Mylots.SelectALot(D.Pagina45FullPage);
+		 Mylots.SelectALot(D.Pagina3HalfLying);
 		 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 		 Lib.CloseDialogBox();
 	}

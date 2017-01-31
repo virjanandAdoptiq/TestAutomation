@@ -21,10 +21,11 @@ import toplevel.Top;
 @Listeners(TestFailureListener.class)
 public class D5Dev985BuyPlusPADV {
       String[][] orders; 
-      String product = "CD102VS - Pagina 4-5";
+      String product = D.Pagina45HalfStand;
       
       @BeforeClass
 	  public void start() throws InterruptedException{
+	        Lib.deleteAllMailsFromInbox();
 			Top.StartBroswer();
 	  }
       @Test(alwaysRun = true)
@@ -84,7 +85,7 @@ public class D5Dev985BuyPlusPADV {
 			 Top.Logout();		 			     						 			 
 	  }	
 	  @Test(dataProvider="inputdata2", dependsOnMethods="GetOrderOverview")
-	  public void checkFinalOrderResults(String pubDate, String media, String product,
+	  public void checkFinalOrderResults(String pubDate, String media, String format, String page,
 			                        String advertiser, String campaign,
 	                                String price, String ppp, String surcharge) {	
 		     D.FAILURE_INDICATION = 0; 
@@ -92,14 +93,14 @@ public class D5Dev985BuyPlusPADV {
 		     			 			 
 			 int index =0;
 			  for(int i = 0; i < 12; i++){
-				  if(orders[i][5].equals(product) && orders[i][1].equals(pubDate)){
+				  if(orders[i][5].equals(format) && orders[i][6].equals(page) && orders[i][1].equals(pubDate)){
 					  index = i;
 					  softAssert.assertEquals(orders[index][2], media);
-					  softAssert.assertEquals(orders[index][6], advertiser);
-					  softAssert.assertEquals(orders[index][7], campaign);
-					  softAssert.assertEquals(orders[index][8], price);
-					  softAssert.assertEquals(orders[index][9], ppp);
-					  softAssert.assertEquals(orders[index][10], surcharge);	
+					  softAssert.assertEquals(orders[index][7], advertiser);
+					  softAssert.assertEquals(orders[index][8], campaign);
+					  softAssert.assertEquals(orders[index][9], price);
+					  softAssert.assertEquals(orders[index][10], ppp);
+					  softAssert.assertEquals(orders[index][11], surcharge);	
 					  break;
 				  }
 				  index = i + 1;
@@ -111,12 +112,20 @@ public class D5Dev985BuyPlusPADV {
 	  @DataProvider
 	  public Object[][] inputdata2() {
 	    return new Object[][] { 
-	      {Lib.weekDay,Lib.BuyNow2,product,Lib.ADV," ","2.062,50","Ja","2.162,50"},
+	      {Lib.weekDay,Lib.BuyNow2,"1/2 pagina volledig staand","Pagina 4-5",Lib.ADV," ","2.062,50","Ja","2.162,50"},
 	    };
 	  }
+	  @Test(dependsOnMethods="checkFinalOrderResults")
+	  public static void checkEmail() throws InterruptedException{
+		    Top.CloseBrowser();
+		    
+		    SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("D5Dev985BuyPlusPADV", 6), "emailCorrect");				
+			softAssert.assertAll(); 		  
+	  }	 
 	  @AfterClass
 	  public void stop() throws InterruptedException{
-		  Top.CloseBrowser();
-	  }
+		  Top.CloseBrowser();  
+	  }	
 
 }

@@ -17,17 +17,18 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"C2"}, dependsOnGroups="C1", alwaysRun = true)
+@Test//(groups = {"C2"}, dependsOnGroups="C1", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class C2Dev1121OptionRequestAcceptRejectMB {		  
 	  @BeforeClass
 			public void start() throws InterruptedException{
+		        Lib.deleteAllMailsFromInbox();
 				Top.StartBroswer();
 			}
 	  
 	  @Test(dataProvider="inputdata",alwaysRun = true)
 	  public void optionRequestAcceptReject(String pubAction, String seller, String buyer, String campaign, String media, String format, 
-			                        String theDate, String product) throws InterruptedException {			  
+			                        String theDate, String product, String productP) throws InterruptedException {			  
 		     SoftAssert softAssert = new SoftAssert();
 		     D.FAILURE_INDICATION = 1; 
 
@@ -56,7 +57,7 @@ public class C2Dev1121OptionRequestAcceptRejectMB {
 			 String menu = D.$Menu + D.$MenuExchange + ")]";
 			 Lib.ClickButton(By.xpath(menu));
 			 ExchangeP.SelectLeftMenu("Optie overzicht");
-			 ExchangeP.SelectRowOverViewTable(product);
+			 ExchangeP.SelectRowOverViewTable(productP);
 			 if(pubAction.equalsIgnoreCase("accept")){				 
 				 Lib.ClickButton(By.cssSelector(D.$p_option_approve));
 				 ExchangeP.AproveOption("1");		
@@ -70,13 +71,20 @@ public class C2Dev1121OptionRequestAcceptRejectMB {
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
 			 if(pubAction.equalsIgnoreCase("accept")){	
 				 softAssert.assertTrue(Mylots.CheckLotStatus(product,D.$bm_lot_status_option));
+				 Mylots.SelectALot(product);
+				 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
+				 Lib.CloseDialogBox();
+				 softAssert.assertTrue(Mylots.CheckLotStatus(product,D.$bm_lot_status_saved));
+				 Mylots.SelectALot(product);
+				 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
+				 Lib.CloseDialogBox();
 			 } else {
 				 softAssert.assertTrue(Mylots.CheckLotStatus(product,D.$bm_lot_status_saved));
+				 Mylots.SelectALot(product);
+				 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
+				 Lib.CloseDialogBox();
 			 }
 			 
-			 Mylots.SelectALot(product);
-			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
-			 Lib.CloseDialogBox();
 			 Top.Logout();
 			 
 			 D.FAILURE_INDICATION = 0; 
@@ -86,12 +94,21 @@ public class C2Dev1121OptionRequestAcceptRejectMB {
 	  @DataProvider
 	  public Object[][] inputdata() {
 	    return new Object[][] { 
-	      {"accept",Lib.Res2,Lib.MB,Lib.CampaignADV2,Lib.BuyNow2,"CD101V",Lib.buyDay1,"CD101V - Pagina 4-5"},
-	      {"reject",Lib.UG,Lib.MB,Lib.CampaignADV,Lib.BuyNow,"CD101V",Lib.buyDay1,"CD101V - Cover 3"},
+	      {"accept",Lib.Res2,Lib.MB,Lib.CampaignADV2,Lib.BuyNow2,"CD101V",Lib.buyDay1,D.Pagina45FullPage,"CD101V - Pagina 4-5"},
+	      {"reject",Lib.UG,Lib.MB,Lib.CampaignADV,Lib.BuyNow,"CD101V",Lib.buyDay1,D.Cover3FullPage,"CD101V - Cover 3"},
 	    };
+	  }
+	  @Test(dependsOnMethods="optionRequestAcceptReject")
+	  public static void checkEmail() throws InterruptedException{
+		    Top.CloseBrowser();
+		  
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("C2Dev1121OptionRequestAcceptRejectMB", 11), "emailCorrect");				
+			D.FAILURE_INDICATION = 0;
+			softAssert.assertAll(); 		  
 	  }
 	  @AfterClass
 		public void stop() throws InterruptedException {
-			Top.CloseBrowser();
+		  Top.CloseBrowser(); 
 		} 		 
 }

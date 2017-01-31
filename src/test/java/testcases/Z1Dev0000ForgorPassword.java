@@ -12,9 +12,9 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"Gui"}, alwaysRun = true)
+@Test//(groups = {"Gui"}, alwaysRun = true)
 @Listeners(TestFailureListener.class)
-public class Z0Dev1000ForgorPassword {	
+public class Z1Dev0000ForgorPassword {	
 	  @BeforeClass
 	  public void start() throws InterruptedException{
 			Top.StartBroswer();			

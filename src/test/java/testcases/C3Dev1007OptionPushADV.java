@@ -18,12 +18,14 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"C3"}, dependsOnGroups="C2", alwaysRun = true)
+@Test//(groups = {"C3"}, dependsOnGroups="C2", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class C3Dev1007OptionPushADV {	
-	  String product = "CD102VL - Voorpagina";
+	  String productP = "CD102VL - Voorpagina";
+	  String product = D.VoorpaginaHalfLying;
 	  @BeforeClass
 			public void start() throws InterruptedException{
+		        Lib.deleteAllMailsFromInbox();
 				Top.StartBroswer();
 			}
 	  
@@ -37,7 +39,7 @@ public class C3Dev1007OptionPushADV {
 			 Exchange.SelectMedia(Lib.BuyNow2);
 			 Exchange.EnterFromThroughDate(Lib.buyDay1);		 
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
-			 ExchangeP.SelectRowOverViewTable(product);
+			 ExchangeP.SelectRowOverViewTable(productP);
 			 Lib.ClickButton(By.cssSelector(D.$p_option_push));
 			 Media.PushOptionToADVOnly(Lib.ADV, "1", "ID1", "123");
 			 Top.Logout(); 
@@ -61,15 +63,27 @@ public class C3Dev1007OptionPushADV {
 		  Mylots.SelectALot(product);
 		  Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 		  Lib.CloseDialogBox();
+		  softAssert.assertTrue(Mylots.CheckLotStatus(product, D.$bm_lot_status_saved));
+		  Mylots.SelectALot(product);
+		  Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
+		  Lib.CloseDialogBox();
 	
 		  Top.Logout();
+		  Top.CloseBrowser();
+		  
 		  D.FAILURE_INDICATION = 0;
 		  softAssert.assertAll();
 	  }	
-
+	  @Test(dependsOnMethods="offerScreen")
+	  public static void checkEmail() throws InterruptedException{
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("C3Dev1007OptionPushADV", 2), "emailCorrect");				
+			D.FAILURE_INDICATION = 0;
+			softAssert.assertAll(); 		  
+	  }
 	  @AfterClass
-		public void stop() throws InterruptedException { 
-			Top.CloseBrowser();
+		public void stop() throws InterruptedException {
+		  Top.CloseBrowser(); 
 		} 
 
 		 

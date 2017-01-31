@@ -39,9 +39,12 @@ public class Top {
 	}
  
 	public static void CloseBrowser() throws InterruptedException {
+		if(!D.driver.toString().equals(D.driverIsNull))
+		{
 		    D.driver.close();
 		    D.driver.quit();
-		    Thread.sleep(D.waitTimeAfterCloseBrowser);    //for clean up
+		    Thread.sleep(D.waitTimeAfterCloseBrowser); 
+		}
 	}
 	  
 	public static void Login(String user, String pass) throws InterruptedException{ 
@@ -51,8 +54,9 @@ public class Top {
 	}
 	
 	public static void Logout() throws InterruptedException{
-		Lib.CloseDialogBox();
-		Lib.ClickButton(By.cssSelector(D.$signout));
+		    Lib.CloseDialogBox();
+		    Lib.ClickButton(By.cssSelector(D.$signout));
+		 
 		}
 	
 	public static boolean LoginAcceptTerms() throws InterruptedException {
@@ -74,4 +78,9 @@ public class Top {
     	Lib.ClickButton(By.cssSelector(D.$changePasswordButton));
 	  }
 
+	public static void DeeplinkLogin(String user, String pass) throws InterruptedException{ 
+		Lib.InputData(user,By.xpath(D.$Deeplink_login_user));
+		Lib.InputData(pass,By.xpath(D.$Deeplink_login_password));
+		Lib.ClickButton(By.xpath(D.$Deeplink_login_signIn));
+	}
   }

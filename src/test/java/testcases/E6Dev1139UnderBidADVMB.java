@@ -17,18 +17,20 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"E6"}, dependsOnGroups="E5", alwaysRun = true)
+@Test//(groups = {"E6"}, dependsOnGroups="E5", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class E6Dev1139UnderBidADVMB {	
-	  private String product = "CD101V - Cover 3";
+	  private String product = D.Cover3FullPage;
+	  private String productP = "CD101V - Cover 3";
 	  private String media = Lib.BuyNow;
 	  private String format = "CD101V";
 	  private String theDate = Lib.lmDay1;
 
 	  @BeforeClass
-			public void start() throws InterruptedException{
-				Top.StartBroswer();
-			}
+	  public void start() throws InterruptedException{
+	        Lib.deleteAllMailsFromInbox();
+			Top.StartBroswer();
+	  }
 	  
 	  @Test(dataProvider="addToMyLots",alwaysRun = true)
 	  public void AddToMyLots(String user, String campaign) throws InterruptedException {	
@@ -102,7 +104,7 @@ public class E6Dev1139UnderBidADVMB {
 	  @Test(dependsOnMethods="MBunderBid")
 	  public void ResAcceptMBUnderBid() throws InterruptedException {			  		     
 			 Top.Login(Lib.Res,"Welkom01@1");				 
-			 ExchangeP.AcceptUnderbid(product);			 
+			 ExchangeP.AcceptUnderbid(productP);			 
 			 Top.Logout();  		     						 			 
 	  }	
 	  @Test(dependsOnMethods="ResAcceptMBUnderBid")
@@ -123,7 +125,7 @@ public class E6Dev1139UnderBidADVMB {
 	  @Test(dependsOnMethods="ADVLotStatusIsUnderBid")
 	  public void ResRejectADVUnderBid() throws InterruptedException {			  		     
 			 Top.Login(Lib.Res,"Welkom01@1");				 
-			 ExchangeP.RejectUnderbid(product);			 
+			 ExchangeP.RejectUnderbid(productP);			 
 			 Top.Logout();  		     						 			 
 	  }	
 	  @Test(dependsOnMethods="ResRejectADVUnderBid")
@@ -138,11 +140,19 @@ public class E6Dev1139UnderBidADVMB {
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 			
 			 Top.Logout(); 
+			 Top.CloseBrowser();
+			 
 			 D.FAILURE_INDICATION = 0; //if test failed, do nothing
 			 softAssert.assertAll();			     						 			 
 	  }	
+	  @Test(dependsOnMethods="ADVLotStatusIsOutbid")
+	  public static void checkEmail() throws InterruptedException{
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("E6Dev1139UnderBidADVMB", 10), "emailCorrect");				
+			softAssert.assertAll(); 		  
+	  }	
 	  @AfterClass
-		public void stop() throws InterruptedException {
-			Top.CloseBrowser();
-		} 
+	  public void stop() throws InterruptedException{
+		  Top.CloseBrowser();  
+	  }	
 }

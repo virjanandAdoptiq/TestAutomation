@@ -1,5 +1,9 @@
 package toplevel;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.BufferedReader;
 import java.io.IOException;
 //import java.sql.DriverManager;
@@ -9,6 +13,7 @@ import java.util.*;
 
 import javax.mail.Address;
 import javax.mail.BodyPart;
+import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.Multipart;
@@ -42,6 +47,7 @@ public class Lib {
 	public static String BuyNow = credential+"BuyNow";
 	public static String BuyNow2 = credential+"BuyNow2";
     //publication dates
+	public static String Today = dateFormat(addHoursToToday(0),"dd-MM-yyyy");
 	public static String lmDay1 = dateFormat(addHoursToToday(40),"dd-MM-yyyy");
 	public static String lmDay2 = dateFormat(addHoursToToday(64),"dd-MM-yyyy");
 	public static String bidDay1 = dateFormat(addHoursToToday(104),"dd-MM-yyyy");
@@ -358,7 +364,9 @@ public class Lib {
 		            	Address[] ad = emails[i].getFrom();
 		            	if(ad[0].toString().equalsIgnoreCase("system@adoptiq.com")){
 		            		StringBuilder sb = new StringBuilder(); 
-		            		sb.append(emails[i].getSubject().replaceAll("editie:.*", "editie:").replaceAll("TEST: .*]", "TEST:").replaceAll(credential, "XXXXXX").replaceAll("TEST: .* <>", "TEST: <>"));        		           		
+		            		//sb.append(emails[i].getSubject().replaceAll("editie:.*", "editie:").replaceAll("TEST: .*]", "TEST:").replaceAll(credential, "XXXXXX").replaceAll("TEST: .* <>", "TEST: <>"));        		           		
+		            		//sb.append(emails[i].getSubject().replaceAll("TEST: .*]", "TEST:").replaceAll("TEST: .* <>", "TEST: <>").replaceAll(credential, "XXXXXX").replaceAll("[a-z]* \\d{2} [a-z]* \\d{4} - \\d{2}-\\d{2}-\\d{4}", "Edition:"));        		           		
+		            		sb.append(emails[i].getSubject().replaceAll("TEST: .*]", "TEST:").replaceAll("TEST: .* <>", "TEST: <>").replaceAll(credential, "XXXXXX").replaceAll("[a-z]* \\d{2} [a-z]* \\d{4}.*", "Edition:"));        		           				            		
 		            		//get content
 		                	Multipart mp = (Multipart) emails[i].getContent();
 		                	BodyPart bp = mp.getBodyPart(0);
@@ -367,8 +375,9 @@ public class Lib {
 		                	for (int j = 0; j < mp2.getCount(); j++) {
 		                        BodyPart bodyPart = mp2.getBodyPart(j);
 		                        //<[^>]*>  html tag, \\s+ empty space and invisible character
-		                        sb.append(bodyPart.getContent().toString().replaceAll("<[^>]*>", "").replaceAll("\\s+", "").replaceAll("_*", "").replaceAll("&nbsp;", "").replaceAll(credential, "XXXXXX").replaceAll("\\d{2}-\\d{2}-\\d{4}", "dd-mm-yyyy").replaceAll("editie:[a-z]*\\d{2}[a-z]*\\d{4}", "editie").replaceAll("Nr:\\d+", "Nr:NNNN"));         
-		            	      }
+		                      //  sb.append(bodyPart.getContent().toString().replaceAll("<[^>]*>", "").replaceAll("\\s+", "").replaceAll("_*", "").replaceAll("&nbsp;", "").replaceAll(credential, "XXXXXX").replaceAll("\\d{2}-\\d{2}-\\d{4}", "dd-mm-yyyy").replaceAll("editie:[a-z]*\\d{2}[a-z]*\\d{4}", "editie").replaceAll("Nr:\\d+", "Nr:NNNN").replaceAll("OptieID:[0-9]*","OptieID:XXXX").replaceAll("bodnummer:[0-9]*", "bodnummer:XXXX").replaceAll("Bodnummer:[0-9]*", "Bodnummer:XXXX"));         
+		                          sb.append(bodyPart.getContent().toString().replaceAll("<[^>]*>", "").replaceAll("\\s+", "").replaceAll("_*", "").replaceAll("&nbsp;", "").replaceAll(credential, "XXXXXX").replaceAll("\\d{2}-\\d{2}-\\d{4}", "dd-mm-yyyy").replaceAll("[a-z]*\\d{2}[a-z]*\\d{4}", "editie").replaceAll("Nr:\\d+", "Nr:NNNN").replaceAll("OptieID:[0-9]*","OptieID:XXXX").replaceAll("bodnummer:[0-9]*", "bodnummer:XXXX").replaceAll("Bodnummer:[0-9]*", "Bodnummer:XXXX").replaceAll("ordernummer:[0-9]*", "ordernummer:XXXX"));          
+		                	}
 		                	actualMails[i] = sb.toString();	  	              
 		                	}       
 		                  }
@@ -379,4 +388,61 @@ public class Lib {
 		            }
 		        return actualMails;
 		  }
+
+		public static String checkEmails(String fileName, int numberOfMails) throws InterruptedException{
+			String ret = "emailCorrect";  
+			String[] expectedMails = new String[numberOfMails];
+			  String file = "./src/test/resources/mails/" + fileName + ".txt";
+			  String[] actualMails = getMailsFromInbox(numberOfMails);
+			  String result[] = new String[numberOfMails];
+	          expectedMails = ReadLineFromFileToArray(file,numberOfMails);
+			  for(int i =0; i <numberOfMails; i++){
+				  result[i] = "0";
+				  for(int j = 0; j <numberOfMails; j++){
+					  if(expectedMails[i].equals(actualMails[j])){
+						  actualMails[j] = null;
+						  result[i] = "1";
+						  break;					  
+					  }
+				  }
+				  if(result[i].equals("0")){
+					 ret = "email X";
+					 result[i] = expectedMails[i];
+					 System.out.println(result[i]);
+				  }
+			  }
+			  
+			  return ret;
+		  } 
+		
+		public static void deleteAllMailsFromInbox(){	
+	        Properties props = new Properties();
+	        props.setProperty("mail.store.protocol", "imaps");
+	        try {
+	            Session session = Session.getInstance(props, null);
+	            Store store = session.getStore();
+	            store.connect("imap.gmail.com", D.EMAIL, D.EmailPass);
+	            Folder inbox = store.getFolder("INBOX");
+	            inbox.open(Folder.READ_WRITE);
+	            int numberOfEmails = inbox.getMessageCount();
+	            
+	            if(numberOfEmails > 0){
+	            Message[] emails = inbox.getMessages();
+	            for(int i = 0; i < numberOfEmails; i++){
+	            	emails[i].setFlag(Flags.Flag.DELETED, true);
+	              	}
+	            inbox.close(true);
+	            }
+	            } catch (Exception mex) {
+	                  mex.printStackTrace();   
+	            }
+	       
+	  }
+
+		
+		public static String getFromClipboard() throws UnsupportedFlavorException, IOException{
+			Toolkit toolkit = Toolkit.getDefaultToolkit();
+			Clipboard clipboard = toolkit.getSystemClipboard();
+			return(String) clipboard.getData(DataFlavor.stringFlavor);
+		}
 }

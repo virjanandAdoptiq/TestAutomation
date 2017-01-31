@@ -16,17 +16,22 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"C1"}, alwaysRun = true)
+@Test//(groups = {"C1"}, alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class C1Dev1002OptionRequestAcceptRejectADV {	
-	  String product1 = "CD102VS - Voorpagina";
-	  String product2 = "CD102VL - Voorpagina";
+	  String format1 = "CD102VS";
+	  String productP1 = "CD102VS - Voorpagina";
+	  String product1 = D.VoorpaginaHalfStand;	
+	  String format2 = "CD102VL";
+	  String productP2 = "CD102VL - Voorpagina";
+	  String product2 = D.VoorpaginaHalfLying;
 	  String media = Lib.BuyNow2;
 	  String theDay = Lib.weekDay;
 	  String buyer = Lib.ADV;
 	  String seller = Lib.Res2;
 	  @BeforeClass
 			public void start() throws InterruptedException{
+		        Lib.deleteAllMailsFromInbox();
 				Top.StartBroswer();
 			}
 	  
@@ -39,9 +44,13 @@ public class C1Dev1002OptionRequestAcceptRejectADV {
 			 Exchange.GotoBuyerEchangePage();
 			 Exchange.SelectMedia(media);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
+			 Exchange.SelectFormat(format1);
 			 Exchange.EnterFromThroughDate(theDay);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
-			 Exchange.AddToMyLots(product1);  
+			 Exchange.AddToMyLots(product1);
+			 Exchange.SelectFormat(format1);
+			 Exchange.SelectFormat(format2);
+			 Lib.ClickButton(By.cssSelector(D.$be_execute));
 			 Exchange.AddToMyLots(product2);
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
 
@@ -61,10 +70,10 @@ public class C1Dev1002OptionRequestAcceptRejectADV {
 			 String menu = D.$Menu + D.$MenuExchange + ")]";
 			 Lib.ClickButton(By.xpath(menu));
 			 ExchangeP.SelectLeftMenu("Optie overzicht");
-			 ExchangeP.SelectRowOverViewTable(product1);				 
+			 ExchangeP.SelectRowOverViewTable(productP1);				 
 			 Lib.ClickButton(By.cssSelector(D.$p_option_approve));
 			 ExchangeP.AproveOption("1");		
-			 ExchangeP.SelectRowOverViewTable(product2);
+			 ExchangeP.SelectRowOverViewTable(productP2);
 			 Lib.ClickButton(By.cssSelector(D.$p_option_reject));
 			 ExchangeP.RejectOption();
 			 
@@ -80,14 +89,23 @@ public class C1Dev1002OptionRequestAcceptRejectADV {
 			 Mylots.SelectALot(product2);
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 			 Lib.CloseDialogBox();
+			 Mylots.SelectALot(product1);
+			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
+			 Lib.CloseDialogBox();
 			 Top.Logout();
+			 Top.CloseBrowser();
 			 
 			 D.FAILURE_INDICATION = 0; 
-			 softAssert.assertAll();
-			 D.FAILURE_INDICATION = 1; 			     						 			 
+			 softAssert.assertAll();		     						 			 
 	  }	
+	  @Test(dependsOnMethods="optionRequestAcceptReject")
+	  public static void checkEmail() throws InterruptedException{
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("C1Dev1002OptionRequestAcceptRejectADV", 8), "emailCorrect");				
+			softAssert.assertAll(); 		  
+	  }
 	  @AfterClass
 		public void stop() throws InterruptedException {
-			Top.CloseBrowser();
+		  Top.CloseBrowser();
 		} 		 
 }

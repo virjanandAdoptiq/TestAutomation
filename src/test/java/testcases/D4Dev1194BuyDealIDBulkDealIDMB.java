@@ -1,6 +1,7 @@
 package testcases;
 
 import org.openqa.selenium.By;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -20,12 +21,16 @@ import toplevel.Top;
 @Listeners(TestFailureListener.class)
 public class D4Dev1194BuyDealIDBulkDealIDMB {
       String[][] orders; 
-      String product1 = "CD102VS - Cover 2";
-      String product2 = "CD102VL - Cover 3";
-      String product3 = "CD102VS - Cover 3";
+      String product1 = D.Cover2HalfStand;
+      String product2 = D.Cover3HalfLying;
+      String product3 = D.Cover3HalfStand;
+      String productP1 = "CD102VS - Cover 2";
+      String productP2 = "CD102VL - Cover 3";
+      String productP3 = "CD102VS - Cover 3";
       
       @BeforeClass
 	  public void start() throws InterruptedException{
+	        Lib.deleteAllMailsFromInbox();
 			Top.StartBroswer();
 	  }
 
@@ -72,6 +77,10 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 
 			 Mylots.SetBulkDealID("BulkDeal2");
 
+			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots);
+			 Mylots.SelectALot(product2);
+			 Mylots.SelectALot(product3);
+			 
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_buy_icon));
 			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);
 			 
@@ -80,7 +89,7 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 			 Top.Logout(); 
       }
 	  @Test(dataProvider="inputdata", dependsOnMethods="SetBulkDealIdAndBuyAndGetOrderOverview")
-	  public void checkOrderResults(String pubDate, String media, String product,
+	  public void checkOrderResults(String pubDate, String media, String format, String page,
 			                        String advertiser, String campaign,
 	                                String price, String ppp, String surcharge) {	
 		     D.FAILURE_INDICATION = 0; //if test failed, do nothing
@@ -88,14 +97,14 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 		     			 			 
 			 int index =0;
 			  for(int i = 0; i < 6; i++){
-				  if(orders[i][5].equals(product) && orders[i][1].equals(pubDate)){
+				  if(orders[i][5].equals(format) && orders[i][6].equals(page) && orders[i][1].equals(pubDate)){
 					  index = i;
 					  softAssert.assertEquals(orders[index][2], media);
-					  softAssert.assertEquals(orders[index][6], advertiser);
-					  softAssert.assertEquals(orders[index][7], campaign);
-				//	  softAssert.assertEquals(orders[index][8], price);
-					  softAssert.assertEquals(orders[index][9], ppp);
-					  softAssert.assertEquals(orders[index][10], surcharge);	
+					  softAssert.assertEquals(orders[index][7], advertiser);
+					  softAssert.assertEquals(orders[index][8], campaign);
+					  softAssert.assertEquals(orders[index][9], price);
+					  softAssert.assertEquals(orders[index][10], ppp);
+					  softAssert.assertEquals(orders[index][11], surcharge);	
 					  break;
 				  }
 				  index = i + 1;
@@ -108,9 +117,9 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 	  @DataProvider
 	  public Object[][] inputdata() {
 	    return new Object[][] { 
-	      {Lib.weekDay,Lib.BuyNow,product1,Lib.ADV,Lib.CampaignADV,"","Nee","0,00"},
-	      {Lib.weekDay,Lib.BuyNow,product2,Lib.ADV,Lib.CampaignADV,"","Nee","0,00"},
-	      {Lib.weekDay,Lib.BuyNow,product3,Lib.ADV,Lib.CampaignADV,"","Nee","0,00"},
+	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig staand", "Cover 2",Lib.ADV,Lib.CampaignADV," ","Nee","0,00"},
+	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig liggend","Cover 3",Lib.ADV,Lib.CampaignADV," ","Nee","0,00"},
+	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig staand","Cover 3",Lib.ADV,Lib.CampaignADV," ","Nee","0,00"},
 	    };
 	  }
 
@@ -125,13 +134,13 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 			Lib.ClickButton(By.cssSelector(D.$p_orderoverview_privateSeat_tab));
 			
 //			ExchangeP.SetPrivatePrice("CD101V - Pagina 2", "30");			
-			ExchangeP.SetPrivatePrice(product2, "50");
-			ExchangeP.SetPrivatePrice(product3, "40");
+			ExchangeP.SetPrivatePrice(productP2, "50");
+			ExchangeP.SetPrivatePrice(productP3, "40");
 			
 			Top.Logout();
 	  }
 	  
-	  @Test(dependsOnMethods="setPricesByPublisher")
+	  @Test(dependsOnMethods="setPricesByPublisher", alwaysRun = true)
 	  public void campaignMultipleBuyGetOrderOverview() throws InterruptedException {	
 			Top.Login(Lib.MB,"Welkom01@1");
 		     			 			 
@@ -141,7 +150,7 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 			 Top.CloseBrowser();			 			     						 			 
 	  }	
 	  @Test(dataProvider="inputdata2", dependsOnMethods="campaignMultipleBuyGetOrderOverview")
-	  public void checkFinalOrderResults(String pubDate, String media, String product,
+	  public void checkFinalOrderResults(String pubDate, String media, String format, String page,
 			                        String advertiser, String campaign,
 	                                String price, String ppp, String surcharge) {	
 		     D.FAILURE_INDICATION = 0; //if test failed, do nothing
@@ -149,14 +158,14 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 		     			 			 
 			 int index =0;
 			  for(int i = 0; i < 6; i++){
-				  if(orders[i][5].equals(product) && orders[i][1].equals(pubDate)){
+				  if(orders[i][5].equals(format) && orders[i][6].equals(page) && orders[i][1].equals(pubDate)){
 					  index = i;
 					  softAssert.assertEquals(orders[index][2], media);
-					  softAssert.assertEquals(orders[index][6], advertiser);
-					  softAssert.assertEquals(orders[index][7], campaign);
-					  softAssert.assertEquals(orders[index][8], price);
-					  softAssert.assertEquals(orders[index][9], ppp);
-					  softAssert.assertEquals(orders[index][10], surcharge);	
+					  softAssert.assertEquals(orders[index][7], advertiser);
+					  softAssert.assertEquals(orders[index][8], campaign);
+					  softAssert.assertEquals(orders[index][9], price);
+					  softAssert.assertEquals(orders[index][10], ppp);
+					  softAssert.assertEquals(orders[index][11], surcharge);	
 					  break;
 				  }
 				  index = i + 1;
@@ -170,10 +179,18 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 	  public Object[][] inputdata2() {
 	    return new Object[][] { 
 //	      {Lib.buyDay2,Lib.BuyNow2,"CD101V - Pagina 2",Lib.ADV2,Lib.CampaignADV2,"3.500,00","Nee","0,00"},
-	      {Lib.weekDay,Lib.BuyNow,product2,Lib.ADV,Lib.CampaignADV,"2.160,00","Nee","0,00"},
-	      {Lib.weekDay,Lib.BuyNow,product3,Lib.ADV,Lib.CampaignADV,"2.592,00","Nee","0,00"},
+	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig liggend","Cover 3",Lib.ADV,Lib.CampaignADV,"2.160,00","Nee","0,00"},
+	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig staand","Cover 3",Lib.ADV,Lib.CampaignADV,"2.592,00","Nee","0,00"},
 	    };
 	  }
-
-
+	  @Test(dependsOnMethods="checkFinalOrderResults")
+	  public static void checkEmail() throws InterruptedException{
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("D4Dev1194BuyDealIDBulkDealIDMB", 10), "emailCorrect");				
+			softAssert.assertAll(); 		  
+	  }	 
+	  @AfterClass
+	  public void stop() throws InterruptedException{
+		  Top.CloseBrowser();  
+	  }	
 }

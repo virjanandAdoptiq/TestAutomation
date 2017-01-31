@@ -14,33 +14,41 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"Gui"}, alwaysRun = true)
+@Test(groups = {"Ba2"}, dependsOnGroups="Ba1", alwaysRun = true)
 @Listeners(TestFailureListener.class)
-public class Z0GuiCheckExchange {	
+public class Ba2Dev1000GuiCheckExchange {	
 	  @BeforeClass
 			public void start() throws InterruptedException{
 				Top.StartBroswer();
 				Top.Login(Lib.MB,"Welkom01@1");				
 			}
 	  
-	  @Test//(dataProvider = "pages")
-	  public void ExchangePageGUICheck1() throws InterruptedException {	
+	  @Test
+	  public void ExchangePageFilterCheck() throws InterruptedException {	
 		  SoftAssert softAssert = new SoftAssert();
 		  Exchange.GotoBuyerEchangePage();
 		  Exchange.SelectPhase("Buy Now");
 		  Exchange.SelectMediaType("Krant (Landelijk)");
-		  Exchange.SelectSaleOrg(Lib.Res);
-		  Exchange.SelectMedia(Lib.BuyNow);
+		  Exchange.SelectSaleOrg(Lib.Res2);
+		  Exchange.SelectMedia(Lib.BuyNow2);
 		  Exchange.SelectFormat("CD101V");
 		  Exchange.SelectSharedPage("1/1 pagina");
 		  Exchange.SelectFrequency("Dagelijks");
-		  Exchange.SelectWeekday("Maandag");
-		  Exchange.SelectCategory("Uitverkoop");
 		  Exchange.SelectPlusProposition("Ja");
 		  Lib.ClickButton(By.cssSelector(D.$be_execute));
 		  
+		  Exchange.SelectAInventory(D.Pagina2FullPage);
+		  
+		  Exchange.SelectWeekday("Maandag");
+		  Exchange.SelectCategory("Uitverkoop");
+		  Lib.ClickButton(By.cssSelector(D.$be_execute));
 		  softAssert.assertEquals(false, Lib.isBox("Fout"));
 		  Lib.CloseDialogBox();
+		  softAssert.assertAll();  
+	  }
+	  @Test(dependsOnMethods="ExchangePageFilterCheck")
+	  public void ExchangeOtherGUICheck() throws InterruptedException{
+		  SoftAssert softAssert = new SoftAssert();
 		  Lib.ClickButton(By.xpath(D.$be_restore));
 		  Lib.ClickButton(By.xpath(D.$be_switchLeftMenuIcon));
 		  softAssert.assertEquals(false, Lib.isBox("Fout"));
@@ -52,7 +60,7 @@ public class Z0GuiCheckExchange {
 
 	  }
 	  
-	  @Test
+	  @Test(dependsOnMethods="ExchangeOtherGUICheck")
 	  public void MediaSearchGUICheck() throws InterruptedException{
 		  SoftAssert softAssert = new SoftAssert();
 		  Exchange.GotoBuyerEchangePage();
@@ -61,17 +69,20 @@ public class Z0GuiCheckExchange {
 		  Lib.InputData(Lib.UG, By.xpath(D.$media_filter_publisher));
 		  Lib.InputData(Lib.BuyNow, By.xpath(D.$media_filter_title));
 		  Lib.ClickButton(By.xpath(D.$media_filter_execute));
-		  softAssert.assertEquals(false, Lib.isBox("Fout"));
-		  Exchange.SelectAInventory(Lib.BuyNow);
+		  
+		  Lib.InputData("Cover 2", By.xpath(D.$be_filter_positionname));
+		  Lib.ClickButton(By.cssSelector(D.$be_execute));
+
+		  Exchange.SelectAInventory(D.Cover2FullPage);
 		  Lib.ClickButton(By.xpath(D.$be_deselect_all));
 		  
 		  softAssert.assertAll();
 	  }
 
 	
-	 	  @AfterClass
-		public void stop() throws InterruptedException {
+	  @AfterClass
+	  public void stop() throws InterruptedException {
 		    Top.Logout();
 			Top.CloseBrowser();
-		} 
+	  } 
 }

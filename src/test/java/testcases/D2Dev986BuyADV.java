@@ -5,6 +5,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import advertiser.Exchange;
 import advertiser.Mylots;
@@ -17,9 +18,14 @@ import toplevel.Top;
 @Test//(groups = {"D2"}, dependsOnGroups="D1", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class D2Dev986BuyADV {
+	 String product1 = D.VoorpaginaHalfStand;
+	 String product2 = D.Pagina2HalfStand;
+	 String product3 = D.Pagina3HalfStand;
+	 String product4 = D.Pagina45HalfLying;
 	  	  
 	  @BeforeClass
 	  public void start() throws InterruptedException{
+	         Lib.deleteAllMailsFromInbox();
 			 Top.StartBroswer();
 			 Top.Login(Lib.ADV,"Welkom01@1");				
 	  }
@@ -31,10 +37,10 @@ public class D2Dev986BuyADV {
 			 Exchange.SelectMedia(Lib.BuyNow2);
 			 Exchange.EnterFromThroughDate(Lib.buyDay3);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));	
-			 Exchange.AddToMyLots("CD102VS - Voorpagina");
-			 Exchange.AddToMyLots("CD102VS - Pagina 2");
-			 Exchange.AddToMyLots("CD102VS - Pagina 3");
-			 Exchange.AddToMyLots("CD102VL - Pagina 4-5");
+			 Exchange.AddToMyLots(product1);
+			 Exchange.AddToMyLots(product2);
+			 Exchange.AddToMyLots(product3);
+			 Exchange.AddToMyLots(product4);
 			 
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
 	
@@ -43,24 +49,31 @@ public class D2Dev986BuyADV {
 	  }
 	  @Test(dependsOnMethods="AddToMyLots")
 	  public void ADBuyOne() throws InterruptedException {
-			 Mylots.SelectALot("CD102VS - Voorpagina");
+			 Mylots.SelectALot(product1);
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_buy_icon));
 			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);
 	  }
-	  @Test(dependsOnMethods="AddToMyLots")
+	  @Test(dependsOnMethods="ADBuyOne")
 	  public void ADBuyMultiple() throws InterruptedException {	 
-			 Mylots.SelectALot("CD102VS - Pagina 2");
-			 Mylots.SelectALot("CD102VS - Pagina 3");
-			 Mylots.SelectALot("CD102VL - Pagina 4-5");
+			 Mylots.SelectALot(product2);
+			 Mylots.SelectALot(product3);
+			 Mylots.SelectALot(product4);
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_buy_icon));
-			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);			 			 		  
+			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);	
+			 Top.Logout();
+			 Top.CloseBrowser();
 	  }
-	  	  
-	 	@AfterClass
-		public void stop() throws InterruptedException {
-		    Top.Logout();
-			Top.CloseBrowser();
-		} 
+	  @Test(dependsOnMethods="ADBuyMultiple")
+	  public static void checkEmail() throws InterruptedException{
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("D2Dev986BuyADV", 7), "emailCorrect");				
+			D.FAILURE_INDICATION = 0;
+			softAssert.assertAll(); 		  
+	  }	  
+	  @AfterClass
+	  public void stop() throws InterruptedException {
+		  Top.CloseBrowser();
+	  } 
 
 	
 		 

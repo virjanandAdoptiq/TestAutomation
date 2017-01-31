@@ -15,14 +15,17 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"E3"}, dependsOnGroups="E2", alwaysRun = true)
+@Test//(groups = {"E3"}, dependsOnGroups="E2", alwaysRun = true)
 @Listeners(TestFailureListener.class)
-public class E3Dev1524BulkBidADV {	
+public class E3Dev1524BulkBidADV {	  
+	  String product1 = D.Cover3HalfStand;
+	  String product2 = D.Cover3HalfLying;
 	  private String media = Lib.BuyNow;
 	  private String theDate = Lib.bidDay1;
 	  @BeforeClass
 	  public void start() throws InterruptedException{
-				Top.StartBroswer();
+	        Lib.deleteAllMailsFromInbox();
+			Top.StartBroswer();
 	  }
 	  
 	  @Test
@@ -32,31 +35,36 @@ public class E3Dev1524BulkBidADV {
 			 Exchange.EnterFromThroughDate(theDate);
 			 Exchange.SelectMedia(media);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
-			 Exchange.AddToMyLots("CD102VS - Cover 3");  
-			 Exchange.AddToMyLots("CD102VL - Cover 3"); 
+			 Exchange.AddToMyLots(product1);  
+			 Exchange.AddToMyLots(product2); 
 	 	
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
 
 			 Mylots.SetFilterOrderNotShow();
 			 Mylots.ClickApplyFilterButton();			 
 
-			 Mylots.SelectALot("CD102VS - Cover 3");
-			 Mylots.SelectALot("CD102VL - Cover 3");
+			 Mylots.SelectALot(product1);
+			 Mylots.SelectALot(product2);
 		     Lib.ClickButton(By.cssSelector(D.$bm_lot_bid_icon));
 			 Mylots.BuyBidOptionConfirm(D.$bm_lot_bid_confirm);       
 			 
 			 SoftAssert softAssert = new SoftAssert();
-			 softAssert.assertTrue(Mylots.CheckLotStatus("CD102VS - Cover 3", D.$bm_lot_status_bid));
-			 softAssert.assertTrue(Mylots.CheckLotStatus("CD102VL - Cover 3", D.$bm_lot_status_bid));
+			 softAssert.assertTrue(Mylots.CheckLotStatus(product1, D.$bm_lot_status_bid));
+			 softAssert.assertTrue(Mylots.CheckLotStatus(product2, D.$bm_lot_status_bid));
 			 Top.Logout();  
+			 Top.CloseBrowser();
 			 
 			 D.FAILURE_INDICATION = 0; //if test failed, do nothing
-			 softAssert.assertAll();
-			 D.FAILURE_INDICATION = 1; //if test failed, logout			     						 			 
+			 softAssert.assertAll();		     						 			 
 	  }	
-	  		     						 			 
+	  @Test(dependsOnMethods="AddToMyLotsAndBid")
+	  public static void checkEmail() throws InterruptedException{
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("E3Dev1524BulkBidADV", 4), "emailCorrect");				
+			softAssert.assertAll(); 		  
+	  }	 		     						 			 
 	  @AfterClass
-		public void stop() throws InterruptedException {
-			Top.CloseBrowser();
-		} 
+	  public void stop() throws InterruptedException{
+		  Top.CloseBrowser();  
+	  }	
 }

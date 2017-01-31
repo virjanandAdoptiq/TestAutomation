@@ -14,18 +14,19 @@ import toplevel.Lib;
 import toplevel.TestFailureListener;
 import toplevel.Top;
 
-@Test(groups = {"E7"}, dependsOnGroups="E6", alwaysRun = true)
+@Test//(groups = {"E7"}, dependsOnGroups="E6", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class E7Dev987UnderBidModifyDelete {	
-	  private String product = "CD102VL - Cover 2";
+	  private String product = D.Cover2HalfLying;
 	  private String media = Lib.BuyNow;
 	  private String format = "CD102VL";
 	  private String theDate = Lib.lmDay2;
 
 	  @BeforeClass
-			public void start() throws InterruptedException{
-				Top.StartBroswer();
-			}
+	  public void start() throws InterruptedException{
+	        Lib.deleteAllMailsFromInbox();
+			Top.StartBroswer();
+	  }
 	  
 	  @Test
 	  public void UnderbidsAndModify() throws InterruptedException {	
@@ -62,14 +63,20 @@ public class E7Dev987UnderBidModifyDelete {
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 			 
              Top.Logout();
+             Top.CloseBrowser();
              
              D.FAILURE_INDICATION = 0; //if test failed, do nothing
 			 softAssert.assertAll();
 	  }
 	  
-	 
+	  @Test(dependsOnMethods="UnderbidsAndModify")
+	  public static void checkEmail() throws InterruptedException{
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("E7Dev987UnderBidModifyDelete", 8), "emailCorrect");				
+			softAssert.assertAll(); 		  
+	  }	
 	  @AfterClass
-		public void stop() throws InterruptedException {
-			Top.CloseBrowser();
-		} 
+	  public void stop() throws InterruptedException{
+		  Top.CloseBrowser();  
+	  }	
 }

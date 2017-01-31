@@ -13,7 +13,7 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"A2"}, dependsOnGroups="A1", alwaysRun = true)
+@Test(groups = {"A2"}, dependsOnGroups="A1")
 @Listeners(TestFailureListener.class)
 public class A2Dev1072LoginFirstTime {
 	

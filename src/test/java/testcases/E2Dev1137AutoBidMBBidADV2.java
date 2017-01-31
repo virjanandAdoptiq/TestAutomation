@@ -16,16 +16,17 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"E2"}, dependsOnGroups="E1", alwaysRun = true)
+@Test//(groups = {"E2"}, dependsOnGroups="E1", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class E2Dev1137AutoBidMBBidADV2 {	
-	  private String product = "CD101V - Cover 2";
+	  private String product = D.Cover2FullPage;
 	  private String media = Lib.BuyNow;
 	  private String format = "CD101V";
 	  private String theDate = Lib.bidDay1;
 	  @BeforeClass
 	  public void start() throws InterruptedException{
-				Top.StartBroswer();
+	        Lib.deleteAllMailsFromInbox();
+			Top.StartBroswer();
 	  }
 	  
 	  @Test(dataProvider="addToMyLots",alwaysRun = true)
@@ -160,13 +161,19 @@ public class E2Dev1137AutoBidMBBidADV2 {
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 			 
 			 Top.Logout();  
+			 Top.CloseBrowser();
 			 
 			 D.FAILURE_INDICATION = 0; //if test failed, do nothing
-			 softAssert.assertAll();
-			 D.FAILURE_INDICATION = 1; //if test failed, logout			     						 			 
+			 softAssert.assertAll();		     						 			 
 	  }	
+	  @Test(dependsOnMethods="ADV2IsOutBid")
+	  public static void checkEmail() throws InterruptedException{
+			SoftAssert softAssert = new SoftAssert();
+			softAssert.assertEquals(Lib.checkEmails("E2Dev1137AutoBidMBBidADV2", 27), "emailCorrect");				
+			softAssert.assertAll(); 		  
+	  }	 
 	  @AfterClass
-		public void stop() throws InterruptedException {
-			Top.CloseBrowser();
-		} 
+	  public void stop() throws InterruptedException{
+		  Top.CloseBrowser();  
+	  }	
 }

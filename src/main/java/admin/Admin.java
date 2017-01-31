@@ -40,7 +40,7 @@ public class Admin {
 		Thread.sleep(D.waitTime);
 		D.driver.findElement(By.cssSelector(D.$ad_unit_run)).click(); 	
 			
-		Thread.sleep(D.waitTime * 150);
+		Thread.sleep(D.waitTime * 100);
 		D.longWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
 		
 	}

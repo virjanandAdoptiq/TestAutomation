@@ -21,7 +21,7 @@ import toplevel.Top;
 public class B6Dev1080CheckPricesForMB {	
 	  String media = Lib.BuyNow;
 	  String format = "CD101V";
-	  String product = "CD101V - Cover 2";
+	  String product = D.Cover2FullPage;
 	  String theDay = Lib.buyDay1;
 	
 	  @BeforeClass
