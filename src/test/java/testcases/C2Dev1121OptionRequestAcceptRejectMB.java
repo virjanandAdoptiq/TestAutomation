@@ -74,12 +74,12 @@ public class C2Dev1121OptionRequestAcceptRejectMB {
 				 Mylots.SelectALot(product);
 				 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 				 Lib.CloseDialogBox();
-				 softAssert.assertTrue(Mylots.CheckLotStatus(product,D.$bm_lot_status_saved));
+				 softAssert.assertTrue(Mylots.CheckLotStatus(product,D.$bm_lot_status_option_cancelled));
 				 Mylots.SelectALot(product);
 				 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 				 Lib.CloseDialogBox();
 			 } else {
-				 softAssert.assertTrue(Mylots.CheckLotStatus(product,D.$bm_lot_status_saved));
+				 softAssert.assertTrue(Mylots.CheckLotStatus(product,D.$bm_lot_status_option_cancelled));
 				 Mylots.SelectALot(product);
 				 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 				 Lib.CloseDialogBox();

@@ -82,13 +82,14 @@ public class C1Dev1002OptionRequestAcceptRejectADV {
 			 Top.Login(buyer,"Welkom01@1");
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
 			 softAssert.assertTrue(Mylots.CheckLotStatus(product1,D.$bm_lot_status_option));
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product2,D.$bm_lot_status_saved));
+			 softAssert.assertTrue(Mylots.CheckLotStatus(product2,D.$bm_lot_status_option_cancelled));
 
 			 
 			 Mylots.SelectALot(product1);
 			 Mylots.SelectALot(product2);
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 			 Lib.CloseDialogBox();
+			 softAssert.assertTrue(Mylots.CheckLotStatus(product1,D.$bm_lot_status_option_cancelled));
 			 Mylots.SelectALot(product1);
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 			 Lib.CloseDialogBox();

@@ -265,7 +265,8 @@ public class B4Dev1077CheckAllPricesForADV {
 							{D.Cover3FullPage,"5.400,00","2.700,00","2.700,00","1.350,00","0,00","50,00","0,00","0,00","1.350,00"},		  								  
 	        	           };
                       }
-				
+
+
 		 @Test(dependsOnMethods="checkWeekDayPrices",alwaysRun = true)
 		 public void addAnotherSaleOrgToMyLots() throws InterruptedException{
 				        	 Exchange.GotoBuyerEchangePage();

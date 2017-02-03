@@ -83,4 +83,9 @@ public class Top {
 		Lib.InputData(pass,By.xpath(D.$Deeplink_login_password));
 		Lib.ClickButton(By.xpath(D.$Deeplink_login_signIn));
 	}
-  }
+	public static void GotoMyAccountPage() throws InterruptedException{	
+		String menu = D.$Menu + D.$MenuAccount + ")]";
+		String item = D.$MenuLink + D.$ItemMyAccount + ")]";
+		Lib.SelectMenuLink(By.xpath(menu), By.xpath(item));
+	}
+}

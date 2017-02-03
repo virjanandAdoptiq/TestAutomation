@@ -145,7 +145,7 @@ public class C4Dev1132OptionPushMB {
 		  Mylots.SelectALot(D.Cover3HalfLying);
 		  Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 		  Lib.CloseDialogBox();
-		  softAssert.assertTrue(Mylots.CheckLotStatus(D.Cover3HalfLying, D.$bm_lot_status_saved));
+		  softAssert.assertTrue(Mylots.CheckLotStatus(D.Cover3HalfLying, D.$bm_lot_status_option_cancelled));
 		  Mylots.SelectALot(D.Cover3HalfLying);
 		  Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 		  Lib.CloseDialogBox();

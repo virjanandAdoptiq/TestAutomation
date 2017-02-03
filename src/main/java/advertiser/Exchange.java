@@ -64,6 +64,10 @@ public class Exchange {
 	public static void SelectPlusProposition(String yesOrNo) throws InterruptedException{	
 		Lib.SelectDropdownItem(By.xpath(D.$be_filter_pluspropercition), yesOrNo);
 	}
+	public static String GetTradingCountryName() throws InterruptedException{
+		Thread.sleep(D.waitTime);
+		return D.driver.findElement(By.xpath(D.$be_filter_land)).getText();
+	}
 	public static void EnterFromThroughDate(String date) throws InterruptedException{	
 		Lib.FindElement(By.cssSelector(D.$be_date_filter));
 		List<WebElement> elements = D.driver.findElements(By.cssSelector(D.$be_date_filter));

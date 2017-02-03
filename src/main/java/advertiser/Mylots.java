@@ -57,7 +57,7 @@ public class Mylots {
 	}
     
 	public static void SelectALot(String product) throws InterruptedException{		
-		String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/td[1]";
+		String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/td[1]/table/tbody/tr/td/span/img";
 		Lib.ClickButton(By.xpath(path));	
 	}
 	public static void SelectAllLot(String medium) throws InterruptedException{		

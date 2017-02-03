@@ -77,6 +77,9 @@ public class D {
     public static String $ItemOrderOverview = "'Orderoverzicht'";
     public static String $ItemMyAccount = "' Mijn account'";
     public static String $campaign = ".form-control";
+    //MyAccount
+    public static String $MyAccount_TradingCountry = "//html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div/div/div/div[1]/table[2]/tbody/tr[5]/td[1]/div/div/select";
+    public static String $MyAccount_Save = "//html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div/div/div/div[2]/button[1]";
     //---Media filter search form
     public static String $media_filter_publisher = "//label[text()='Uitgever']/../following-sibling::td/div/input";
     public static String $media_filter_title = "//label[text()='Titel']/../following-sibling::td/div/input";
@@ -97,6 +100,7 @@ public class D {
     public static String $be_filter_saleorg = "//tr[4]/td/div/div/div/button";
     public static String $be_filter_category = "//tr[13]/td/div/div/div/button"; 
     public static String $be_filter_pluspropercition = "//tr[14]/td/div/select"; 
+    public static String $be_filter_land = "//tr[15]/td/div/div/div/button";
 //  a bit complicated to make all filers share one path.    
     public static String $be_medium_format_prefix = "//label[text()='";
     public static String $be_medium_format_suffix = "']/../following-sibling::td//button";
@@ -122,17 +126,18 @@ public class D {
     public static String $be_offer_notification = "//img[contains(@src,'Layouts$private_offer_on.png')]";    
     public static String $be_offer_delete = ".mx-name-actionButton6";
     //----buyer My Lots
-    public static String $bm_lot_row_prefix = "//tr//*[contains(normalize-space(.), '";
-    public static String $bm_lot_row_suffix = "')]/ancestor::table[contains(@class, 'mx-name-table6')]/tbody/tr[1]";
+    public static String $bm_lot_row_prefix = "//li//*[contains(normalize-space(.), '";
+    public static String $bm_lot_row_suffix = "')]/ancestor::table[contains(@class, 'mx-name-table44')]/tbody/tr[1]";
     public static String $bm_lot_select_check = ".mx-name-actionExpandInventory3";
-    public static String $bm_lot_expand_arrow = ".mx-name-actionExpandInventory4";
+    public static String $bm_lot_expand_arrow = ".mx-name-actionExpandInventory13";
     public static String $bm_lot_expand_arrow_red = ".mx-name-actionExpandInventory5";
     public static String $bm_lot_select_publisher = ".mx-name-referenceSelector2 select";
     public static String $bm_lot_select_PPP = ".mx-name-referenceSelector4 select";
     public static String $bm_lot_PPP_Nr = "//table[contains(@class,'mx-name-table3')]/tbody/tr[2]//input";
-    public static String $bm_lot_buyNowPrice = ".mx-name-textBuyNowPriceNett";
-    public static String $bm_lot_bidPrice = ".mx-name-textNextBidPriceNett1";
-    public static String $bm_lot_info_icon = ".mx-name-actionButton33";
+    public static String $bm_lot_buyNowPrice = ".mx-name-textBuyNowPriceNett5";
+    public static String $bm_lot_bidPrice = ".mx-name-textNextBidPriceNett5";
+    public static String $bm_lot_info_icon = ".mx-name-actionButton84";
+    public static String $bm_lot_lot_select_box = ".mx-name-actionExpandInventory12";
     public static String $bm_lot_delete_icon = ".mx-name-actionButton19";
     public static String $bm_lot_buy_icon = ".mx-name-actionButton22";
     public static String $bm_lot_negotiation_icon = ".mx-name-actionButton71";
@@ -176,6 +181,7 @@ public class D {
     //lot status: should be used with $bm_lot_row_prefix
     public static String $bm_lot_status_option_requested = "//img[contains(@src,'Exchange$status_optie_aagevr.png')]";
     public static String $bm_lot_status_option = "//img[contains(@src,'Exchange$status_optie.png')]";
+    public static String $bm_lot_status_option_cancelled = "//img[contains(@src,'Exchange$Exchange_status_optiecancel.png')]";
     public static String $bm_lot_status_saved = "//img[contains(@src,'Exchange$status_bewaard.png')]";
     public static String $bm_lot_status_bid = "//img[contains(@src,'Exchange$status_biedingen.png')]";
     public static String $bm_lot_status_underbid = "//img[contains(@src,'Exchange$status_onderbod.png')]";
