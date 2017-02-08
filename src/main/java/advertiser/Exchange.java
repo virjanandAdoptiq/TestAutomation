@@ -72,6 +72,7 @@ public class Exchange {
 		Lib.FindElement(By.cssSelector(D.$be_date_filter));
 		List<WebElement> elements = D.driver.findElements(By.cssSelector(D.$be_date_filter));
 		for(WebElement ele: elements){
+			ele.clear();
 			ele.sendKeys(Keys.chord(Keys.COMMAND, "a"), date);
 			Thread.sleep(D.waitTime);
 		}
