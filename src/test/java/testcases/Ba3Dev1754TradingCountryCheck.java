@@ -16,7 +16,7 @@ import toplevel.Top;
 
 @Test(groups = {"Ba3"}, dependsOnGroups="Ba2", alwaysRun = true)
 @Listeners(TestFailureListener.class)
-public class Ba3Dev1000TradingCountryCheck {	
+public class Ba3Dev1754TradingCountryCheck {	
 	  @BeforeClass
 			public void start() throws InterruptedException{
 				Top.StartBroswer();
@@ -50,7 +50,7 @@ public class Ba3Dev1000TradingCountryCheck {
 		  String countryName = Exchange.GetTradingCountryName();
 	      softAssert.assertEquals(countryName, "Nederland");
 	      Exchange.SelectCampaign("");
-	      Lib.ClickButton(By.xpath(D.$be_restore));
+	      Exchange.GotoBuyerEchangePage();
 	      String countryName2 = Exchange.GetTradingCountryName();
 	      softAssert.assertEquals(countryName2, "Oostenrijk");
 		  softAssert.assertAll();

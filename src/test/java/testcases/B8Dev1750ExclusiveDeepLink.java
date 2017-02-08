@@ -23,7 +23,7 @@ import toplevel.Top;
 
 @Test(groups = {"B8"}, dependsOnGroups="B7", alwaysRun = true)
 @Listeners(TestFailureListener.class)
-public class B8Dev1000ExclusiveDeepLink {	
+public class B8Dev1750ExclusiveDeepLink {	
       String exclusiveDeepLink;
 	  private String product1 = D.Pagina2FullPage;
 	  private String product2 = D.Pagina2HalfLying;

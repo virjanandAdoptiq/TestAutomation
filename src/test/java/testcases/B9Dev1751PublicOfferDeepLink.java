@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -25,7 +24,7 @@ import toplevel.Top;
 
 @Test(groups = {"B9"}, dependsOnGroups="B8", alwaysRun = true)
 @Listeners(TestFailureListener.class)
-public class B9Dev1000PublicOfferADV {	
+public class B9Dev1751PublicOfferDeepLink {	
 	  String exclusiveDeepLink;
 	  String product1 = D.Cover2HalfLying;
 	  String product2 = D.Cover2HalfStand;

@@ -16,7 +16,7 @@ import toplevel.Top;
 
 @Test(groups = {"Ba2"}, dependsOnGroups="Ba1", alwaysRun = true)
 @Listeners(TestFailureListener.class)
-public class Ba2Dev1000GuiCheckExchange {	
+public class Ba2Dev1753GuiCheckExchange {	
 	  @BeforeClass
 			public void start() throws InterruptedException{
 				Top.StartBroswer();

@@ -18,7 +18,7 @@ import toplevel.Top;
 
 @Test(groups = {"Ba1"}, dependsOnGroups="B9", alwaysRun = true)
 @Listeners(TestFailureListener.class)
-public class Ba1Dev1000CheckMaterialSizes {	
+public class Ba1Dev1752CheckMaterialSizes {	
 	  private String product1 = D.Cover2FullPage;
 	  private String product2 = D.Cover2HalfLying;
 	  private String product3 = D.Cover2HalfStand;

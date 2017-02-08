@@ -17,7 +17,7 @@ import toplevel.Top;
 
 @Test(groups = {"B7"}, dependsOnGroups="B6", alwaysRun = true)
 @Listeners(TestFailureListener.class)
-public class B7Dev1000CheckConflicting {	
+public class B7Dev1749CheckConflicting {	
 	  private String product1 = D.Cover2FullPage;
 	  private String product2 = D.Cover2HalfLying;
 	  private String media = Lib.BuyNow;
