@@ -358,6 +358,27 @@ public class Lib {
 		            int numberOfEmails = inbox.getMessageCount();
 		            System.out.println(numberOfEmails);
 		            
+		            if(numberOfEmails < maxLine){
+			            store.close();
+		            	Thread.sleep(D.waitTime * 10);
+		            	session = Session.getInstance(props, null);
+				        store = session.getStore();
+		            	store.connect("imap.gmail.com", D.EMAIL, D.EmailPass);
+			            inbox = store.getFolder("INBOX");
+			            inbox.open(Folder.READ_ONLY);
+			            numberOfEmails = inbox.getMessageCount();
+			            System.out.println(numberOfEmails);
+		            }
+		            
+		            if(numberOfEmails < maxLine){
+		            	actualMails[0] = "NumberOfEmailIsSmaller";
+		            	return actualMails;
+		            }
+		            if(numberOfEmails > maxLine){
+		            	actualMails[0] = "NumberOfEmailIsBigger";
+		            	return actualMails;
+		            }
+		            
 		            if(numberOfEmails > 0){
 		            Message[] emails = inbox.getMessages();
 		            for(int i = 0; i < numberOfEmails; i++){
@@ -394,6 +415,9 @@ public class Lib {
 			String[] expectedMails = new String[numberOfMails];
 			  String file = "./src/test/resources/mails/" + fileName + ".txt";
 			  String[] actualMails = getMailsFromInbox(numberOfMails);
+			if(actualMails[0].equalsIgnoreCase("NumberOfEmailIsSmaller") || actualMails[0].equalsIgnoreCase("NumberOfEmailIsBigger")) {
+				return actualMails[0];
+			}
 			  String result[] = new String[numberOfMails];
 	          expectedMails = ReadLineFromFileToArray(file,numberOfMails);
 			  for(int i =0; i <numberOfMails; i++){
