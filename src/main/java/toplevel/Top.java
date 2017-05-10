@@ -32,7 +32,7 @@ public class Top {
 		    
 		} else
 		if(D.browser.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver", "/Users/dejuan/Testing/driver/chromedriver-4");
+			System.setProperty("webdriver.chrome.driver", "./src/test/resources/driver/chromedriver-4");
 			//Switch off save password pops up
 			Map<String, Object> prefs = new HashMap<String, Object>();
 			prefs.put("credentials_enable_service", false);
