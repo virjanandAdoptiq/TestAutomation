@@ -1,4 +1,4 @@
-package testcases;
+package testcases.emails_check;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

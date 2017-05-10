@@ -14,7 +14,7 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"Ba3"}, dependsOnGroups="Ba2", alwaysRun = true)
+@Test//(groups = {"Ba3"}, dependsOnGroups="Ba2", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class Ba3Dev1754TradingCountryCheck {	
 	  @BeforeClass
@@ -38,7 +38,9 @@ public class Ba3Dev1754TradingCountryCheck {
 		  Top.GotoMyAccountPage();
 		  Lib.SelectDropdownItem(By.xpath(D.$MyAccount_TradingCountry), "Oostenrijk");
 		  Lib.ClickButton(By.xpath(D.$MyAccount_Save));
+		  Lib.CloseDialogBox();
 		  Exchange.GotoBuyerEchangePage();
+		  Lib.CloseDialogBox();
 	      String countryName = Exchange.GetTradingCountryName();
 	      softAssert.assertEquals(countryName, "Oostenrijk");
 		  softAssert.assertAll();
@@ -51,6 +53,7 @@ public class Ba3Dev1754TradingCountryCheck {
 	      softAssert.assertEquals(countryName, "Nederland");
 	      Exchange.SelectCampaign("");
 	      Exchange.GotoBuyerEchangePage();
+		  Lib.CloseDialogBox();
 	      String countryName2 = Exchange.GetTradingCountryName();
 	      softAssert.assertEquals(countryName2, "Oostenrijk");
 		  softAssert.assertAll();
@@ -62,6 +65,7 @@ public class Ba3Dev1754TradingCountryCheck {
 		  Top.GotoMyAccountPage();
 		  Lib.SelectDropdownItem(By.xpath(D.$MyAccount_TradingCountry), "Nederland");
 		  Lib.ClickButton(By.xpath(D.$MyAccount_Save));
+		  Lib.CloseDialogBox();
 	  }
 	
 	  @AfterClass

@@ -1,4 +1,4 @@
-package testcases;
+package testcases.emails_check;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;

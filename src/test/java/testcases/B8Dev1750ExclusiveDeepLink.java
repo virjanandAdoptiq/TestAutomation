@@ -4,7 +4,6 @@ import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
@@ -21,7 +20,7 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"B8"}, dependsOnGroups="B7", alwaysRun = true)
+@Test//(groups = {"B8"}, dependsOnGroups="B7", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class B8Dev1750ExclusiveDeepLink {	
       String exclusiveDeepLink;
@@ -36,12 +35,9 @@ public class B8Dev1750ExclusiveDeepLink {
 		  Top.CloseBrowser();
 	  }
 	  
-	//  String exclusiveDeepLink = "https://adoptiq100-test.mendixcloud.com/link/sis/inbehyk1";
 	  @Test(dependsOnMethods="makeExclusiveDeepLink")
 	  public void loginUseDeeplink() throws InterruptedException{
-		  D.driver = new FirefoxDriver();	
-		  D.driver.manage().window().maximize();
-		  D.driver.get(exclusiveDeepLink); 
+		  Top.GetBroswer(exclusiveDeepLink);
 		  D.wait = new WebDriverWait(D.driver, D.maxWaitTime);
 		  D.longWait = new WebDriverWait(D.driver,D.longWaitTime);
 		
@@ -60,8 +56,8 @@ public class B8Dev1750ExclusiveDeepLink {
 		     SoftAssert softAssert = new SoftAssert();
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
 			 
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product1, D.$bm_lot_status_conflicting));
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product2, D.$bm_lot_status_conflicting));
+			 softAssert.assertTrue(Mylots.CheckLotCoflicting(product1, D.$bm_lot_status_conflicting));
+			 softAssert.assertTrue(Mylots.CheckLotCoflicting(product2, D.$bm_lot_status_conflicting));
 			 
 			 softAssert.assertAll();
 	  }	

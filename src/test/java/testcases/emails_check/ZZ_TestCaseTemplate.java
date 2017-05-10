@@ -1,4 +1,4 @@
-package testcases;
+package testcases.emails_check;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -29,7 +29,7 @@ public class ZZ_TestCaseTemplate {
 		// the test steps, for example:
 		Top.Login(Lib.MB,"Welkom01@1");
 		 Mylots.SelectMyLotsMenuItem(D.$ItemOrderOverview);   
-		 orders = Lib.SortOrders(Lib.GetTableContent(D.$b_orderoverview_table, 6, 12));  
+	//	 orders = Lib.SortOrders(Lib.GetTableContent(D.$b_orderoverview_table, 6, 12));  
 		//
 		Top.Logout();
 //		softAssert.assertAll();		 

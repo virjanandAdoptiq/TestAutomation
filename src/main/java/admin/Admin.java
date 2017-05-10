@@ -40,9 +40,17 @@ public class Admin {
 		Thread.sleep(D.waitTime);
 		D.driver.findElement(By.cssSelector(D.$ad_unit_run)).click(); 	
 			
-		Thread.sleep(D.waitTime * 100);
+		Thread.sleep(D.waitTime * 50);
 		D.longWait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
 		
+	}
+	public static boolean run_unit_test_check(){
+	   try {
+		   D.driver.findElement(By.xpath(D.$ad_unit_run_fail_message));
+		   return false;
+	   } catch (Exception e) {
+	       return true;
+	   }
 	}
 	
 

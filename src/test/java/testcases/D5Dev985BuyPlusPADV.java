@@ -65,13 +65,11 @@ public class D5Dev985BuyPlusPADV {
 	  public void setPPPricesByPublisher() throws InterruptedException{
 		    D.FAILURE_INDICATION = 3; 
 
-			String menu = D.$Menu + D.$MenuExchange + ")]";
 			Top.Login(Lib.Res2, "Welkom01@1");
-			Lib.ClickButton(By.xpath(menu));
-			ExchangeP.SelectLeftMenu(D.$p_exchange_left_orderOverview);
-			Lib.ClickButton(By.cssSelector(D.$p_orderoverview_pluspropersition_tab));
-					
-			ExchangeP.SetPPPPrice("0,00", "100");  //should use product, but it doesn't work
+				
+			ExchangeP.GoToExchangePlatform();
+			Lib.ClickButton(By.xpath(D.$p_negotiation_top_edit_icon));
+			ExchangeP.SetPPPPrice("100");  
 			
 			Top.Logout();
 	  }
@@ -81,7 +79,7 @@ public class D5Dev985BuyPlusPADV {
 			Top.Login(Lib.ADV,"Welkom01@1");
 		     			 			 
 			 Mylots.SelectMyLotsMenuItem(D.$ItemOrderOverview);   //Go to OrderOverview
-			 orders = Lib.SortOrders(Lib.GetTableContent(D.$b_orderoverview_table, 6, 20));  //get all orders
+			 orders = Lib.SortOrders(Lib.GetTableContent(By.xpath(D.$b_orderoverview_table2), 12, 20));  //get all orders
 			 Top.Logout();		 			     						 			 
 	  }	
 	  @Test(dataProvider="inputdata2", dependsOnMethods="GetOrderOverview")
@@ -117,11 +115,12 @@ public class D5Dev985BuyPlusPADV {
 	  }
 	  @Test(dependsOnMethods="checkFinalOrderResults")
 	  public static void checkEmail() throws InterruptedException{
-		    Top.CloseBrowser();
 		    
 		    SoftAssert softAssert = new SoftAssert();
 			softAssert.assertEquals(Lib.checkEmails("D5Dev985BuyPlusPADV", 6), "emailCorrect");				
-			softAssert.assertAll(); 		  
+			 
+			 D.FAILURE_INDICATION = 0; 
+			 softAssert.assertAll();			  
 	  }	 
 	  @AfterClass
 	  public void stop() throws InterruptedException{

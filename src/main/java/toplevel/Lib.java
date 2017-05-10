@@ -21,8 +21,11 @@ import javax.mail.Session;
 import javax.mail.Store;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -48,13 +51,14 @@ public class Lib {
 	public static String BuyNow2 = credential+"BuyNow2";
     //publication dates
 	public static String Today = dateFormat(addHoursToToday(0),"dd-MM-yyyy");
-	public static String lmDay1 = dateFormat(addHoursToToday(40),"dd-MM-yyyy");
-	public static String lmDay2 = dateFormat(addHoursToToday(64),"dd-MM-yyyy");
-	public static String bidDay1 = dateFormat(addHoursToToday(104),"dd-MM-yyyy");
-	public static String bidDay2 = dateFormat(addHoursToToday(128),"dd-MM-yyyy");
-	public static String buyDay1 = dateFormat(addHoursToToday(152),"dd-MM-yyyy");
-	public static String weekDay = dateFormat(addHoursToToday(176),"dd-MM-yyyy");
-	public static String buyDay3 = dateFormat(addHoursToToday(200),"dd-MM-yyyy");
+	public static String lmDay1 = dateFormat(addDayToToday(2),"dd-MM-yyyy");
+	public static String lmDay2 = dateFormat(addDayToToday(3),"dd-MM-yyyy");
+	public static String bidDay1 = dateFormat(addDayToToday(4),"dd-MM-yyyy");
+	public static String bidDay2 = dateFormat(addDayToToday(5),"dd-MM-yyyy");
+	public static String buyDay1 = dateFormat(addDayToToday(6),"dd-MM-yyyy");
+//	public static String weekDay = dateFormat(addHoursToToday(176),"dd-MM-yyyy");
+	public static String weekDay = dateFormat(addDayToToday(7),"dd-MM-yyyy");
+	public static String buyDay3 = dateFormat(addDayToToday(8),"dd-MM-yyyy");
 
 	
 	public static String ReadFromFile(String file, String name) {
@@ -209,9 +213,10 @@ public class Lib {
 		return sdf.format(dt);
 	}
 
-	public static String[][] GetTableContent(String tableID, int rows, int cols) throws InterruptedException{		
+	public static String[][] GetTableContent(By tableID, int rows, int cols) throws InterruptedException{		
 		String[][] orders = new String[rows][cols];
-		WebElement table = D.driver.findElement(By.cssSelector(tableID));
+		FindElement(tableID);
+		WebElement table = D.driver.findElement(tableID);
 		List<WebElement> allRows = table.findElements(By.tagName("tr"));
 		int i = 0;
 		for (WebElement row : allRows) {
@@ -227,7 +232,29 @@ public class Lib {
 			   break;
 		   }
 		}
-		
+/*
+ public static String[][] GetTableContent(String tableID, int rows, int cols) throws InterruptedException{		
+		String[][] orders = new String[rows][cols];
+		FindElement(By.cssSelector(tableID));
+		WebElement table = D.driver.findElement(By.cssSelector(tableID));
+		List<WebElement> allRows = table.findElements(By.tagName("tr"));
+		int i = 0;
+		for (WebElement row : allRows) {
+		    List<WebElement> cells = row.findElements(By.tagName("td"));
+           int j = 0; 
+		   for (WebElement cell : cells) {
+			//   WebElement we = cell.findElement(By.tagName("div"));
+			  orders[i][j] = cell.getText();
+		      j = j + 1;
+		      if(j > cols - 1) break;
+		   }
+		   i = i + 1;
+		   if(i > rows - 1) {
+			   break;
+		   }
+		}
+ */		
+
 		return orders;
 		}
 
@@ -241,9 +268,9 @@ public class Lib {
 	}
 	
 	public static void Highlight(WebElement element){
-		JavascriptExecutor js = (JavascriptExecutor) D.driver;
-	    js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element,
-	        "color: blue; border: 2px solid blue;");
+//		JavascriptExecutor js = (JavascriptExecutor) D.driver;
+//	    js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element,
+//	        "color: blue; border: 2px solid blue;");
 		
 	}
 	
@@ -254,7 +281,7 @@ public class Lib {
 		   Thread.sleep(D.waitTime);
 	}
 //
-	  public static void CloseDialogBox() throws InterruptedException{
+	public static void CloseDialogBox() throws InterruptedException{
 	    	D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
 			Thread.sleep(D.waitTime);
 	    	if(D.driver.findElements(By.xpath(D.$OK_Button)).isEmpty() == false){
@@ -264,13 +291,16 @@ public class Lib {
 	    	}
 		}
 	    
-	    public static void InputData(String value, By field) throws InterruptedException{
+	public static void InputData(String value, By field) throws InterruptedException{
 	    	FindElement(field);
+	    	D.driver.findElement(field).click();
+	    	Thread.sleep(D.waitTime / 2); 
 	    	D.driver.findElement(field).clear();
+	    	Thread.sleep(D.waitTime / 2); 
 			D.driver.findElement(field).sendKeys(value);
 			Thread.sleep(D.waitTime);  
 	    }
-	    public static void ClickButton(By name) throws InterruptedException{			
+	public static void ClickButton(By name) throws InterruptedException{			
 	 		FindElement(name);
 	 		List<WebElement> elements = D.driver.findElements(name);
 	 		for(WebElement ele: elements){
@@ -282,29 +312,42 @@ public class Lib {
 	 			}
 	 		}
 	 	}
-	    public static void SendSpecialKey(Keys name) throws InterruptedException{
+	public static void ClickAll(By name) throws InterruptedException{			
+ 		FindElement(name);
+ 		List<WebElement> elements = D.driver.findElements(name);
+ 		for(WebElement ele: elements){
+ 			if(ele.isDisplayed()){
+ 				ele.click();
+ 				D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
+ 				Thread.sleep(D.waitTime);
+ 			}
+ 		}
+ 	}
+	public static void SendSpecialKey(Keys name) throws InterruptedException{
 	    	Thread.sleep(D.waitTime);
 	    	Actions builder = new Actions(D.driver);
 	    	builder.sendKeys(name).perform();
 	    	Thread.sleep(D.waitTime);
 	    	D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
-	    }
-	    public static void DoubleClicky(By name) throws InterruptedException{
+	}
+	public static void DoubleClicky(By name) throws InterruptedException{
+	    	FindElement(name);
 	    	Thread.sleep(D.waitTime);
 	    	Actions builder = new Actions(D.driver);
 	    	builder.moveToElement(D.driver.findElement(name)).doubleClick().build().perform();
 	    	Thread.sleep(D.waitTime);
 	    	D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
-	    }
-	    public static void SelectMenuLink(By menu, By link) throws InterruptedException{
+	}
+	public static void SelectMenuLink(By menu, By link) throws InterruptedException{
 	    	FindElement(menu);
 	    	Thread.sleep(D.waitTime);
 			D.driver.findElement(menu).click();
 			Thread.sleep(D.waitTime);
-			if(D.driver.findElements( link ).size() == 0){
-				D.driver.findElement(menu).click();
-				Thread.sleep(D.waitTime);
-			}
+			D.wait.until(ExpectedConditions.visibilityOfElementLocated(link));
+//			if(D.driver.findElements( link ).size() == 0){
+//				D.driver.findElement(menu).click();
+//				Thread.sleep(D.waitTime);
+//			}
 			if(D.driver.findElements( link ).size() != 0){
 				 D.wait.until(ExpectedConditions.visibilityOfElementLocated(link));
 				 Actions act = new Actions(D.driver);
@@ -317,7 +360,7 @@ public class Lib {
 				Assert.fail();
 			}
 	    }
-	    public static void SelectDropdownItem(By dlist, String item) throws InterruptedException{	
+	public static void SelectDropdownItem(By dlist, String item) throws InterruptedException{	
 			FindElement(dlist);
 			Thread.sleep(D.waitTime * 2);
 			WebElement mySelectElm = D.driver.findElement(dlist); 
@@ -325,13 +368,13 @@ public class Lib {
 			mySelect.selectByVisibleText(item);
 			D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
 			Thread.sleep(D.waitTime);
-		}   
-		public static void ClickContextSensitiveItem(By context, By item) throws InterruptedException{	
+	}   
+	public static void ClickContextSensitiveItem(By context, By item) throws InterruptedException{	
 			FindElement(context);
 			D.driver.findElement(context).findElement(item).click();
 			Thread.sleep(D.waitTime);
-		}		
-		public static boolean isBox(String name){
+	}		
+	public static boolean isBox(String name){
 			String path = D.$infoErroBox + name + "']";
 			try {
 				D.driver.findElement(By.xpath(path));
@@ -339,12 +382,12 @@ public class Lib {
 			} catch (Exception e) {
 			   return false;
 			}
-		}	
-		public static void ClickAway() throws InterruptedException{
+	}	
+	public static void ClickAway() throws InterruptedException{
 			D.driver.findElement(By.xpath(D.$PoweredByMendix)).click();
 			Thread.sleep(D.waitTime);
-		}
-		public static String[] getMailsFromInbox(int maxLine){	
+	}
+	public static String[] getMailsFromInbox(int maxLine){	
 			    String[] actualMails = new String[maxLine];
 				String credential = Lib.credential;
 		        Properties props = new Properties();
@@ -383,10 +426,9 @@ public class Lib {
 		            Message[] emails = inbox.getMessages();
 		            for(int i = 0; i < numberOfEmails; i++){
 		            	Address[] ad = emails[i].getFrom();
-		            	if(ad[0].toString().equalsIgnoreCase("system@adoptiq.com")){
+		         //   	if(ad[0].toString().equalsIgnoreCase("system@adoptiq.com")){
+		            	if(ad[0].toString().equalsIgnoreCase("systemmail@adoptiq.com")){
 		            		StringBuilder sb = new StringBuilder(); 
-		            		//sb.append(emails[i].getSubject().replaceAll("editie:.*", "editie:").replaceAll("TEST: .*]", "TEST:").replaceAll(credential, "XXXXXX").replaceAll("TEST: .* <>", "TEST: <>"));        		           		
-		            		//sb.append(emails[i].getSubject().replaceAll("TEST: .*]", "TEST:").replaceAll("TEST: .* <>", "TEST: <>").replaceAll(credential, "XXXXXX").replaceAll("[a-z]* \\d{2} [a-z]* \\d{4} - \\d{2}-\\d{2}-\\d{4}", "Edition:"));        		           		
 		            		sb.append(emails[i].getSubject().replaceAll("TEST: .*]", "TEST:").replaceAll("TEST: .* <>", "TEST: <>").replaceAll(credential, "XXXXXX").replaceAll("[a-z]* \\d{2} [a-z]* \\d{4}.*", "Edition:"));        		           				            		
 		            		//get content
 		                	Multipart mp = (Multipart) emails[i].getContent();
@@ -395,9 +437,8 @@ public class Lib {
 		                	               	
 		                	for (int j = 0; j < mp2.getCount(); j++) {
 		                        BodyPart bodyPart = mp2.getBodyPart(j);
-		                        //<[^>]*>  html tag, \\s+ empty space and invisible character
-		                      //  sb.append(bodyPart.getContent().toString().replaceAll("<[^>]*>", "").replaceAll("\\s+", "").replaceAll("_*", "").replaceAll("&nbsp;", "").replaceAll(credential, "XXXXXX").replaceAll("\\d{2}-\\d{2}-\\d{4}", "dd-mm-yyyy").replaceAll("editie:[a-z]*\\d{2}[a-z]*\\d{4}", "editie").replaceAll("Nr:\\d+", "Nr:NNNN").replaceAll("OptieID:[0-9]*","OptieID:XXXX").replaceAll("bodnummer:[0-9]*", "bodnummer:XXXX").replaceAll("Bodnummer:[0-9]*", "Bodnummer:XXXX"));         
-		                          sb.append(bodyPart.getContent().toString().replaceAll("<[^>]*>", "").replaceAll("\\s+", "").replaceAll("_*", "").replaceAll("&nbsp;", "").replaceAll(credential, "XXXXXX").replaceAll("\\d{2}-\\d{2}-\\d{4}", "dd-mm-yyyy").replaceAll("[a-z]*\\d{2}[a-z]*\\d{4}", "editie").replaceAll("Nr:\\d+", "Nr:NNNN").replaceAll("OptieID:[0-9]*","OptieID:XXXX").replaceAll("bodnummer:[0-9]*", "bodnummer:XXXX").replaceAll("Bodnummer:[0-9]*", "Bodnummer:XXXX").replaceAll("ordernummer:[0-9]*", "ordernummer:XXXX"));          
+		                  //      sb.append(bodyPart.getContent().toString().replaceAll("<[^>]*>", "").replaceAll("\\s+", "").replaceAll("_*", "").replaceAll("&nbsp;", "").replaceAll(credential, "XXXXXX").replaceAll("\\d{2}-\\d{2}-\\d{4}", "dd-mm-yyyy").replaceAll("[a-z]*\\d{2}[a-z]*\\d{4}", "editie").replaceAll("Nr:\\d+", "Nr:NNNN").replaceAll("OptieID:[0-9]*","OptieID:XXXX").replaceAll("bodnummer:[0-9]*", "bodnummer:XXXX").replaceAll("Bodnummer:[0-9]*", "Bodnummer:XXXX").replaceAll("ordernummer:[0-9]*", "ordernummer:XXXX").replaceAll("OnderhandelingID:[0-9]*", "OnderhandelingID:XXXX").replaceAll("PrivatedealID:[0-9]*", "PrivatedealID:XXXX"));          
+		                        sb.append(bodyPart.getContent().toString().replaceAll("<[^>]*>", "").replaceAll("\\s+", "").replaceAll("_*", "").replaceAll("&nbsp;", "").replaceAll(credential, "XXXXXX").replaceAll("\\d{2}-\\d{2}-\\d{4}", "dd-mm-yyyy").replaceAll("[a-z]*\\d{2}[a-z]*\\d{4}", "editie").replaceAll("Nr:\\d+", "Nr:NNNN").replaceAll("ID:[0-9]*","ID:XXXX").replaceAll("bodnummer:[0-9]*", "bodnummer:XXXX").replaceAll("Bodnummer:[0-9]*", "Bodnummer:XXXX").replaceAll("ordernummer:[0-9]*", "ordernummer:XXXX"));          			                	
 		                	}
 		                	actualMails[i] = sb.toString();	  	              
 		                	}       
@@ -462,11 +503,27 @@ public class Lib {
 	            }
 	       
 	  }
-
 		
 		public static String getFromClipboard() throws UnsupportedFlavorException, IOException{
 			Toolkit toolkit = Toolkit.getDefaultToolkit();
 			Clipboard clipboard = toolkit.getSystemClipboard();
 			return(String) clipboard.getData(DataFlavor.stringFlavor);
 		}
+		
+		public static void maximizeScreen(WebDriver driver) {
+			    java.awt.Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			    Point position = new Point(0, 0);
+			    driver.manage().window().setPosition(position);
+			    Dimension maximizedScreenSize =
+			        new Dimension((int) screenSize.getWidth(), (int) screenSize.getHeight());
+			    driver.manage().window().setSize(maximizedScreenSize);
+			  }
+	
+//		public static void sortColumn(By columnName,By aORd) throws InterruptedException{			
+//		 		FindElement(columnName);
+//		 		while (D.driver.findElements(aORd).size() == 0) {
+//		 			Lib.ClickButton(columnName);
+//		 		}
+//		 	}
+		 
 }

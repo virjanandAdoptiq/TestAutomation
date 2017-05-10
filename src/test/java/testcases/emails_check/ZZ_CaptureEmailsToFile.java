@@ -1,6 +1,8 @@
-package testcases;
+package testcases.emails_check;
 
 import java.util.*;
+
+import javax.activation.DataHandler;
 import javax.mail.*;
 
 import java.io.FileNotFoundException;
@@ -17,7 +19,7 @@ public class ZZ_CaptureEmailsToFile {
 	@Test
     public static void email() throws FileNotFoundException, UnsupportedEncodingException {
 		
-		PrintWriter writer = new PrintWriter("./test-output/emails/D4Dev1194BuyDealIDBulkDealIDMB.txt", "UTF-8");
+		PrintWriter writer = new PrintWriter("./test-output/emails/C4Dev1132OptionPushMB.txt", "UTF-8");
 				
 		String[] mails = new String[200];
 		String credential = Lib.credential;
@@ -36,9 +38,8 @@ public class ZZ_CaptureEmailsToFile {
             Message[] emails = inbox.getMessages();
             for(int i = 0; i < numberOfEmails; i++){
             	Address[] ad = emails[i].getFrom();
-            	if(ad[0].toString().equalsIgnoreCase("system@adoptiq.com")){
+            	if(ad[0].toString().equalsIgnoreCase("systemmail@adoptiq.com")){
             		StringBuilder sb = new StringBuilder(); 
-            	//	sb.append(emails[i].getSubject().replaceAll("editie:.*", "editie:").replaceAll("TEST: .*]", "TEST:").replaceAll(credential, "XXXXXX").replaceAll("TEST: .* <>", "TEST: <>"));        		           		
             		sb.append(emails[i].getSubject().replaceAll("TEST: .*]", "TEST:").replaceAll("TEST: .* <>", "TEST: <>").replaceAll(credential, "XXXXXX").replaceAll("[a-z]* \\d{2} [a-z]* \\d{4}.*", "Edition:"));        		           		
             		//get content
                 	Multipart mp = (Multipart) emails[i].getContent();
@@ -48,12 +49,24 @@ public class ZZ_CaptureEmailsToFile {
                 	for (int j = 0; j < mp2.getCount(); j++) {
                         BodyPart bodyPart = mp2.getBodyPart(j);
                         //<[^>]*>  html tag, \\s+ empty space and invisible character
-                        sb.append(bodyPart.getContent().toString().replaceAll("<[^>]*>", "").replaceAll("\\s+", "").replaceAll("_*", "").replaceAll("&nbsp;", "").replaceAll(credential, "XXXXXX").replaceAll("\\d{2}-\\d{2}-\\d{4}", "dd-mm-yyyy").replaceAll("[a-z]*\\d{2}[a-z]*\\d{4}", "editie").replaceAll("Nr:\\d+", "Nr:NNNN").replaceAll("OptieID:[0-9]*","OptieID:XXXX").replaceAll("bodnummer:[0-9]*", "bodnummer:XXXX").replaceAll("Bodnummer:[0-9]*", "Bodnummer:XXXX").replaceAll("ordernummer:[0-9]*", "ordernummer:XXXX"));   //ordernummer:	      
-	            	           }
-                	mails[i] = sb.toString();
-                	//System.out.println(mails[i]);
+          //              sb.append(bodyPart.getContent().toString().replaceAll("<[^>]*>", "").replaceAll("\\s+", "").replaceAll("_*", "").replaceAll("&nbsp;", "").replaceAll(credential, "XXXXXX").replaceAll("\\d{2}-\\d{2}-\\d{4}", "dd-mm-yyyy").replaceAll("[a-z]*\\d{2}[a-z]*\\d{4}", "editie").replaceAll("Nr:\\d+", "Nr:NNNN").replaceAll("OptieID:[0-9]*","OptieID:XXXX").replaceAll("bodnummer:[0-9]*", "bodnummer:XXXX").replaceAll("Bodnummer:[0-9]*", "Bodnummer:XXXX").replaceAll("ordernummer:[0-9]*", "ordernummer:XXXX").replaceAll("OnderhandelingID:[0-9]*", "OnderhandelingID:XXXX").replaceAll("PrivatedealID:[0-9]*", "PrivatedealID:XXXX"));   //ordernummer:	      
+                        sb.append(bodyPart.getContent().toString().replaceAll("<[^>]*>", "").replaceAll("\\s+", "").replaceAll("_*", "").replaceAll("&nbsp;", "").replaceAll(credential, "XXXXXX").replaceAll("\\d{2}-\\d{2}-\\d{4}", "dd-mm-yyyy").replaceAll("[a-z]*\\d{2}[a-z]*\\d{4}", "editie").replaceAll("Nr:\\d+", "Nr:NNNN").replaceAll("ID:[0-9]*","ID:XXXX").replaceAll("bodnummer:[0-9]*", "bodnummer:XXXX").replaceAll("Bodnummer:[0-9]*", "Bodnummer:XXXX").replaceAll("ordernummer:[0-9]*", "ordernummer:XXXX"));          
 
+                	}
+                	mails[i] = sb.toString();
                 	writer.println(mails[i]);
+                	
+                	//Attachment
+//                	String disposition = bp.getDisposition();
+//                	if (disposition != null && (disposition.equals(BodyPart.ATTACHMENT))) {
+//
+//                	     DataHandler handler = bp.getDataHandler();
+//                	     System.out.println("Attachment : " + handler.getName());
+//
+//                	     } else {
+//                	     System.out.println("Content: " + bp.getContent());
+//                	     }
+                	//
               
                 	}       
                   }

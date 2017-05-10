@@ -16,7 +16,7 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"B4"}, dependsOnGroups="B3", alwaysRun = true)
+@Test//(groups = {"B4"}, dependsOnGroups="B3", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class B4Dev1077CheckAllPricesForADV {		  
 	  @BeforeClass
@@ -27,10 +27,11 @@ public class B4Dev1077CheckAllPricesForADV {
 	  } 
       @Test
       public void addLMToMyLots() throws InterruptedException{
-        	 Exchange.GotoBuyerEchangePage();
-			 Exchange.EnterFromThroughDate(Lib.lmDay1);
+        	 Exchange.GotoBuyerEchangePageTileView();
+			 Exchange.EnterFromThroughDate(Lib.lmDay2);
 			 Exchange.SelectMedia(Lib.BuyNow);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
+			 Exchange.ClickAMediaTile(Lib.BuyNow);
 			 Exchange.AddToMyLots(D.Cover2FullPage);
 			 Exchange.AddToMyLots(D.Cover3HalfLying);
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots);  
@@ -46,7 +47,6 @@ public class B4Dev1077CheckAllPricesForADV {
 			     SoftAssert softAssert = new SoftAssert();
 				 	
 				 Mylots.OpenLotInfon(product);
-				 //check data in the lot info page
 				 String rateCardPrice =  Mylots.GetLotInfo(D.$bm_lot_info_rateCardPrice);
 				 softAssert.assertEquals(rateCardPrice, rateCardPriceE);
 				 String buyNowPrice =  Mylots.GetLotInfo(D.$bm_lot_info_buyNowPrice);
@@ -75,7 +75,6 @@ public class B4Dev1077CheckAllPricesForADV {
 				 String lotBidPrice =  Mylots.CheckLotRowPrice(product,D.$bm_lot_bidPrice);
 				 softAssert.assertEquals(lotBidPrice, lmPriceE);
 			 
-				 //Delete it from My lot
 				 Mylots.SelectALot(product);
 				 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 				 			
@@ -90,10 +89,11 @@ public class B4Dev1077CheckAllPricesForADV {
 		  }			
 		  @Test(dependsOnMethods="checkLMPrices",alwaysRun = true)
 	         public void addBidToMyLots() throws InterruptedException{
-	        	 Exchange.GotoBuyerEchangePage();
-				 Exchange.EnterFromThroughDate(Lib.bidDay1);
+	        	 Exchange.GotoBuyerEchangePageTileView();
+				 Exchange.EnterFromThroughDate(Lib.bidDay2);
 				 Exchange.SelectMedia(Lib.BuyNow);
 				 Lib.ClickButton(By.cssSelector(D.$be_execute));
+				 Exchange.ClickAMediaTile(Lib.BuyNow);
 				 Exchange.AddToMyLots(D.Cover2FullPage);
 				 Exchange.AddToMyLots(D.Cover3HalfLying);
 				 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots);  
@@ -107,7 +107,6 @@ public class B4Dev1077CheckAllPricesForADV {
 				 SoftAssert softAssert = new SoftAssert();
 				 
 				 Mylots.OpenLotInfon(product);
-				 //check data in the lot info page
 				 String rateCardPrice =  Mylots.GetLotInfo(D.$bm_lot_info_rateCardPrice);
 				 softAssert.assertEquals(rateCardPrice, rateCardPriceE);
 				 String buyNowPrice =  Mylots.GetLotInfo(D.$bm_lot_info_buyNowPrice);
@@ -134,7 +133,6 @@ public class B4Dev1077CheckAllPricesForADV {
 				String lotBidPrice =  Mylots.CheckLotRowPrice(product,D.$bm_lot_bidPrice);
 				softAssert.assertEquals(lotBidPrice, bidPriceE);
 				
-				 //Delete it from My lot
 				 Mylots.SelectALot(product);
 				 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 				 			
@@ -149,9 +147,10 @@ public class B4Dev1077CheckAllPricesForADV {
 			  }	
 			  @Test(dependsOnMethods="checkBidPrices",alwaysRun = true)
 		         public void addBuyNowToMyLots() throws InterruptedException{
-		        	 Exchange.GotoBuyerEchangePage();
-					 Exchange.EnterFromThroughDate(Lib.buyDay1);
-					 Exchange.SelectMedia(Lib.BuyNow);
+		        	 Exchange.GotoBuyerEchangePageTileView();
+		        	 Exchange.ClickAMediaTile(Lib.BuyNow);
+					 Exchange.EnterFromThroughDate(Lib.buyDay3);
+					// Exchange.SelectMedia(Lib.BuyNow);
 					 Lib.ClickButton(By.cssSelector(D.$be_execute));
 					 Exchange.AddToMyLots(D.Cover2FullPage);
 					 Exchange.AddToMyLots(D.Cover3FullPage);
@@ -168,7 +167,6 @@ public class B4Dev1077CheckAllPricesForADV {
 					 SoftAssert softAssert = new SoftAssert();
 					 
 					 Mylots.OpenLotInfon(product);
-					 //check data in the lot info page
 					 String rateCardPrice =  Mylots.GetLotInfo(D.$bm_lot_info_rateCardPrice);
 					 softAssert.assertEquals(rateCardPrice, rateCardPriceE);
 					 String buyNowPrice =  Mylots.GetLotInfo(D.$bm_lot_info_buyNowPrice);
@@ -193,7 +191,6 @@ public class B4Dev1077CheckAllPricesForADV {
 					 String lotBuyNowPrice =  Mylots.CheckLotRowPrice(product,D.$bm_lot_buyNowPrice);
 					 softAssert.assertEquals(lotBuyNowPrice, finalPriceE); 
 					 			 
-					 //Delete it from My lot
 					 Mylots.SelectALot(product);
 					 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 					 			
@@ -211,10 +208,11 @@ public class B4Dev1077CheckAllPricesForADV {
 			  
 				  @Test(dependsOnMethods="checkBuyNowPrices",alwaysRun = true)
 			         public void addWeekDayToMyLots() throws InterruptedException{
-			        	 Exchange.GotoBuyerEchangePage();
+			        	 Exchange.GotoBuyerEchangePageTileView();
 						 Exchange.EnterFromThroughDate(Lib.weekDay);
 						 Exchange.SelectMedia(Lib.BuyNow);
 						 Lib.ClickButton(By.cssSelector(D.$be_execute));
+						 Exchange.ClickAMediaTile(Lib.BuyNow);
 						 Exchange.AddToMyLots(D.Cover2FullPage);
 						 Exchange.AddToMyLots(D.Cover3FullPage);
 						 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots);  
@@ -228,7 +226,6 @@ public class B4Dev1077CheckAllPricesForADV {
 							             String finalPriceE) throws InterruptedException {
 						 SoftAssert softAssert = new SoftAssert();
 						 Mylots.OpenLotInfon(product);
-						 //check data in the lot info page
 						 String rateCardPrice =  Mylots.GetLotInfo(D.$bm_lot_info_rateCardPrice);
 						 softAssert.assertEquals(rateCardPrice, rateCardPriceE);
 						 String buyNowPrice =  Mylots.GetLotInfo(D.$bm_lot_info_buyNowPrice);
@@ -250,8 +247,6 @@ public class B4Dev1077CheckAllPricesForADV {
 						 softAssert.assertEquals(finalPrice, finalPriceE);
 						 
 						 Mylots.CloseLotInfo();
-						 			 
-						 //Delete it from My lot
 						 Mylots.SelectALot(product);
 						 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 						 			
@@ -269,10 +264,11 @@ public class B4Dev1077CheckAllPricesForADV {
 
 		 @Test(dependsOnMethods="checkWeekDayPrices",alwaysRun = true)
 		 public void addAnotherSaleOrgToMyLots() throws InterruptedException{
-				        	 Exchange.GotoBuyerEchangePage();
-							 Exchange.EnterFromThroughDate(Lib.buyDay1);
+				        	 Exchange.GotoBuyerEchangePageTileView();
+							 Exchange.EnterFromThroughDate(Lib.buyDay3);
 							 Exchange.SelectMedia(Lib.BuyNow);
 							 Lib.ClickButton(By.cssSelector(D.$be_execute));
+							 Exchange.ClickAMediaTile(Lib.BuyNow);
 							 Exchange.AddToMyLots(D.Cover2FullPage);
 							 Exchange.AddToMyLots(D.Cover2HalfStand);
 							 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots);  
@@ -291,7 +287,6 @@ public class B4Dev1077CheckAllPricesForADV {
 				 
 				 
 				 Mylots.OpenLotInfon(product);
-				 //check data in the lot info page
 				 String rateCardPrice =  Mylots.GetLotInfo(D.$bm_lot_info_rateCardPrice);
 				 softAssert.assertEquals(rateCardPrice, rateCardPriceE);
 				 String buyNowPrice =  Mylots.GetLotInfo(D.$bm_lot_info_buyNowPrice);
@@ -315,7 +310,6 @@ public class B4Dev1077CheckAllPricesForADV {
 				 String lotBuyNowPrice =  Mylots.CheckLotRowPrice(product,D.$bm_lot_buyNowPrice);
 				 softAssert.assertEquals(lotBuyNowPrice, finalPriceE); 
 				 			 
-				 //Delete it from My lot
 				 Mylots.SelectALot(product);
 				 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 				 			

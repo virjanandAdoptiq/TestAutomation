@@ -33,11 +33,9 @@ public class C3Dev1007OptionPushADV {
 	  public void optionPush() throws InterruptedException {			  
 			 
 			 Top.Login(Lib.UG2,"Welkom01@1");
-			 String menu = D.$Menu + D.$MenuMedia + ")]";
-			 Lib.ClickButton(By.xpath(menu));
-	 		 ExchangeP.SelectLeftMenu("Inventory");
+	 		 ExchangeP.GotoInventory();
 			 Exchange.SelectMedia(Lib.BuyNow2);
-			 Exchange.EnterFromThroughDate(Lib.buyDay1);		 
+			 Exchange.EnterFromThroughDate(Lib.buyDay3);		 
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
 			 ExchangeP.SelectRowOverViewTable(productP);
 			 Lib.ClickButton(By.cssSelector(D.$p_option_push));
@@ -51,7 +49,7 @@ public class C3Dev1007OptionPushADV {
 		  Top.Login(Lib.ADV,"Welkom01@1");
 		  Exchange.ClickOfferNotification();
 		  Exchange.SelectAInventory(product);
-		  Lib.ClickButton(By.cssSelector(D.$be_inventory_add_all));
+		  Lib.ClickButton(By.xpath(D.$be_inventory_add_all));
 		  D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(D.$OK_Button)));
 		  Lib.CloseDialogBox();
 
@@ -69,7 +67,6 @@ public class C3Dev1007OptionPushADV {
 		  Lib.CloseDialogBox();
 	
 		  Top.Logout();
-		  Top.CloseBrowser();
 		  
 		  D.FAILURE_INDICATION = 0;
 		  softAssert.assertAll();

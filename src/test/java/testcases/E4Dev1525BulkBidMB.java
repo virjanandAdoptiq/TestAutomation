@@ -21,7 +21,7 @@ public class E4Dev1525BulkBidMB {
 	 String product1 = D.Cover3HalfStand;
 	 String product2 = D.Cover3HalfLying;
 	  private String media = Lib.BuyNow;
-	  private String theDate = Lib.bidDay1;
+	  private String theDate = Lib.bidDay2;
 	  @BeforeClass
 	  public void start() throws InterruptedException{
 	        Lib.deleteAllMailsFromInbox();
@@ -50,10 +50,11 @@ public class E4Dev1525BulkBidMB {
 			 Mylots.BuyBidOptionConfirm(D.$bm_lot_bid_confirm);       
 			 
 			 SoftAssert softAssert = new SoftAssert();
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product1, D.$bm_lot_status_bid));
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product2, D.$bm_lot_status_bid));
+			 Mylots.ExpandAGroup("Bod");
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product1, D.$bm_lot_status_bid),"Not in Bid status:" + product1);
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product2, D.$bm_lot_status_bid),"Not in Bid status: " + product2);
+
 			 Top.Logout();  
-			 Top.CloseBrowser();
 			 
 			 D.FAILURE_INDICATION = 0; //if test failed, do nothing
 			 softAssert.assertAll();		     						 			 
@@ -62,6 +63,7 @@ public class E4Dev1525BulkBidMB {
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
 			softAssert.assertEquals(Lib.checkEmails("E4Dev1525BulkBidMB", 6), "emailCorrect");				
+			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }	 		     						 			 
 	  @AfterClass

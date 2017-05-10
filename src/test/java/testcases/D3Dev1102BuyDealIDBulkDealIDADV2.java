@@ -28,14 +28,19 @@ public class D3Dev1102BuyDealIDBulkDealIDADV2 {
 	  		 Top.StartBroswer();
 			 Top.Login(Lib.ADV2,"Welkom01@1");
 		     			 
-			 Exchange.GotoBuyerEchangePage();			 
+			 Exchange.GotoBuyerEchangePageTileView();	
+			 Exchange.ClickAMediaTile(Lib.BuyNow);
 			 Exchange.EnterFromThroughDate(Lib.buyDay3);
-			 Exchange.SelectMedia(Lib.BuyNow);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));		
-			 Exchange.SelectAInventory(product1);
 			 Exchange.SelectAInventory(product2);
 			 Exchange.SelectAInventory(product3);
-			 Lib.ClickButton(By.cssSelector(D.$be_addAllSelectedToMyLots));
+			 Lib.ClickButton(By.cssSelector(D.$be_addAllSelectedToMyLotsTileView));
+			 
+			 
+			 Lib.ClickButton(By.xpath(D.$be_restore));
+			 Exchange.EnterFromThroughDate(Lib.weekDay);
+			 Lib.ClickButton(By.cssSelector(D.$be_execute));	
+			 Exchange.AddToMyLots(product1);
 	
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
 
@@ -67,7 +72,6 @@ public class D3Dev1102BuyDealIDBulkDealIDADV2 {
 			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);
 			   
 			 Top.Logout(); 
-			 Top.CloseBrowser();
       }    
 	  @Test(dependsOnMethods="SetBulkDealIdAndBuy")
 	  public static void checkEmail() throws InterruptedException{

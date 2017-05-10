@@ -32,10 +32,11 @@ public class D2Dev986BuyADV {
 	  @Test(alwaysRun = true)
 	  public void AddToMyLots() throws InterruptedException {	
 		  
-			 Exchange.GotoBuyerEchangePage();		 
+			 Exchange.GotoBuyerEchangePageTileView();	
+			 Exchange.ClickAMediaTile(Lib.BuyNow2);
 			 Exchange.SelectPhase("Buy Now");
-			 Exchange.SelectMedia(Lib.BuyNow2);
-			 Exchange.EnterFromThroughDate(Lib.buyDay3);
+	//		 Exchange.SelectMedia(Lib.BuyNow2);
+			 Exchange.EnterFromThroughDate(Lib.weekDay);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));	
 			 Exchange.AddToMyLots(product1);
 			 Exchange.AddToMyLots(product2);
@@ -61,7 +62,6 @@ public class D2Dev986BuyADV {
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_buy_icon));
 			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);	
 			 Top.Logout();
-			 Top.CloseBrowser();
 	  }
 	  @Test(dependsOnMethods="ADBuyMultiple")
 	  public static void checkEmail() throws InterruptedException{

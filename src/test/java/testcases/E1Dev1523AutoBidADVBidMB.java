@@ -16,7 +16,7 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test//(groups = {"E1"}, alwaysRun = true)
+@Test//(groups = {"E1"}, dependsOnGroups="D6", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class E1Dev1523AutoBidADVBidMB {	
 	  private String product = D.Pagina3FullPage;
@@ -167,10 +167,9 @@ public class E1Dev1523AutoBidADVBidMB {
 	  }	
 	  @Test(dependsOnMethods="MBIsOutBid")
 	  public static void checkEmail() throws InterruptedException{
-		    Top.CloseBrowser();
-		  
 		    SoftAssert softAssert = new SoftAssert();
 			softAssert.assertEquals(Lib.checkEmails("E1Dev1523AutoBidADVBidMB", 27), "emailCorrect");				
+			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }	 
 	  @AfterClass

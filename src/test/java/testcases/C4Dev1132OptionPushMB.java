@@ -35,32 +35,49 @@ public class C4Dev1132OptionPushMB {
 	  public void optionPush(String seller, String buyer, String ad, String media, String format, 
 			                        String theDate,String price, String product) throws InterruptedException {			  
 			 
-			 Top.Login(seller,"Welkom01@1");
-			 String menu = D.$Menu + D.$MenuMedia + ")]";
-			 Lib.ClickButton(By.xpath(menu));
-	 		 ExchangeP.SelectLeftMenu("Inventory");
+     		 Top.Login(seller,"Welkom01@1");
+	 		 ExchangeP.GotoInventory();
 			 Exchange.SelectMedia(media);
 			 Exchange.EnterFromThroughDate(theDate);
 			 Exchange.SelectFormat(format);			 
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
 			 ExchangeP.SelectRowOverViewTable(product);
 			 Lib.ClickButton(By.cssSelector(D.$p_option_push));
-			 Media.PushOption(buyer, ad, "1", ad + "1", price);
+     		 Media.PushOption(buyer, ad, "1", ad + "1", price);
 			 Top.Logout(); 
 	
 	  }	 
 	  @DataProvider
 	  public Object[][] inputdata() {
 	    return new Object[][] { 
-          {Lib.Res2,Lib.MB,Lib.ADV2,Lib.BuyNow2,"CD101V",Lib.buyDay1,"400", "CD101V - Voorpagina"},
-	      {Lib.UG2,Lib.MB,Lib.ADV2,Lib.BuyNow2,"CD102VL",Lib.buyDay1,"300", "CD102VL - Pagina 3"},
-	      {Lib.Res,Lib.MB,Lib.ADV,Lib.BuyNow,"CD102VL",Lib.buyDay1,"200", "CD102VL - Cover 3"},
-	      {Lib.UG,Lib.MB,Lib.ADV,Lib.BuyNow,"CD102VS",Lib.buyDay1,"100","CD102VS - Cover 3"},
+          {Lib.Res2,Lib.MB,Lib.ADV2,Lib.BuyNow2,"CD101V",Lib.buyDay3,"400", "CD101V - Voorpagina"},
+	      {Lib.UG2,Lib.MB,Lib.ADV2,Lib.BuyNow2,"CD102VL",Lib.buyDay3,"300", "CD102VL - Pagina 3"},
 	    };
 	  }
-					 
+	  @Test(dataProvider="inputdataX",dependsOnMethods="optionPush", alwaysRun = true)
+	  public void optionMultiplePush(String seller, String buyer, String ad, String media, 
+			                        String theDate,String price, String product1, String product2) throws InterruptedException {			  
+			 
+			 Top.Login(seller,"Welkom01@1");
+	 		 ExchangeP.GotoInventory();
+			 Exchange.SelectMedia(media);
+			 Exchange.EnterFromThroughDate(theDate);		 
+			 Lib.ClickButton(By.cssSelector(D.$be_execute));
+			 ExchangeP.SelectRowOverViewTable(product1);
+			 ExchangeP.SelectRowOverViewTable(product2);
+			 Lib.ClickButton(By.cssSelector(D.$p_option_push));
+			 Media.PushOption(buyer, ad, "1", ad + "1", price);
+			 Top.Logout(); 
+	
+	  }	 
+	  @DataProvider
+	  public Object[][] inputdataX() {
+	    return new Object[][] { 
+	      {Lib.Res,Lib.MB,Lib.ADV,Lib.BuyNow,Lib.buyDay3,"200", "CD102VL - Cover 3","CD102VS - Cover 3"},
+	    };
+	  }				 
 //MB reacts to the offer
-	  @Test(dataProvider="inputdata2",dependsOnMethods="optionPush", alwaysRun = true)
+	  @Test(dataProvider="inputdata2",dependsOnMethods="optionMultiplePush", alwaysRun = true)
 	  public void notificationNoCampaignDeselect(String prod11,String prod12,String prod21,String prod22) throws InterruptedException{		  
 			 Top.Login(Lib.MB,"Welkom01@1");
 			 Exchange.ClickOfferNotification();
@@ -69,7 +86,7 @@ public class C4Dev1132OptionPushMB {
 			 Exchange.SelectAInventory(prod12);
 			 Exchange.SelectAInventory(prod21);
 			 Exchange.SelectAInventory(prod22);
-			 Lib.ClickButton(By.cssSelector(D.$be_inventory_deselect_all));
+			 Lib.ClickButton(By.xpath(D.$be_inventory_deselect_all));
 
 	  }
 	  @DataProvider
@@ -101,7 +118,7 @@ public class C4Dev1132OptionPushMB {
 		  Exchange.SelectCampaign(campaign);
 		  Exchange.SelectAInventory(prod1);
 		  Exchange.SelectAInventory(prod2);
-		  Lib.ClickButton(By.cssSelector(D.$be_inventory_add_all));
+		  Lib.ClickButton(By.xpath(D.$be_inventory_add_all));
 
 		  D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(D.$OK_Button)));
 		  Lib.CloseDialogBox();
@@ -132,7 +149,9 @@ public class C4Dev1132OptionPushMB {
 	  public void CheckStatusBuyTwoDeleteOne() throws InterruptedException{
 		  Exchange.SelectCampaign("");
 		  Mylots.SelectMyLotsMenuItem(D.$ItemMyLots);
+		  Lib.FindElement(By.xpath(D.$bm_lot_status_option));
 		  List<WebElement> elements = D.driver.findElements(By.xpath(D.$bm_lot_status_option));
+		  
 		  SoftAssert softAssert = new SoftAssert();
 		  softAssert.assertEquals(elements.size(), 3);
 		  //buy two
@@ -151,7 +170,6 @@ public class C4Dev1132OptionPushMB {
 		  Lib.CloseDialogBox();
 	
 		  Top.Logout();
-		  Top.CloseBrowser(); 
 		  
 		  D.FAILURE_INDICATION = 0;
 		  softAssert.assertAll();
@@ -159,6 +177,7 @@ public class C4Dev1132OptionPushMB {
 	  @Test(dependsOnMethods="CheckStatusBuyTwoDeleteOne")
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
+			Thread.sleep(D.waitTime * 4);
 			softAssert.assertEquals(Lib.checkEmails("C4Dev1132OptionPushMB", 13), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  

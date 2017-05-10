@@ -4,6 +4,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import admin.Admin;
 import toplevel.D;
@@ -25,10 +26,13 @@ public class A1Dev1028UnitCreate {
 	    Admin.GotoUnitTest();
 	    Admin.GotoUnitMenu("TestDataGenerator");
 	    Admin.EnterName(Lib.ReadFromFile(D.credentialsFile, "username"), D.EMAIL);
-	    Admin.StartRun();
-	    Top.Logout();     
-	 }
-	 
+	    Admin.StartRun();	    
+	    D.FAILURE_INDICATION = 0;
+	    SoftAssert softAssert = new SoftAssert();
+	    softAssert.assertTrue(Admin.run_unit_test_check());
+	    softAssert.assertAll();	    
+	    Top.Logout();     	    
+	 }	 
 	 @AfterClass
 	 public void stop() throws InterruptedException {
 		Top.CloseBrowser();

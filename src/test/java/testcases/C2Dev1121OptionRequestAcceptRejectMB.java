@@ -27,16 +27,22 @@ public class C2Dev1121OptionRequestAcceptRejectMB {
 			}
 	  
 	  @Test(dataProvider="inputdata",alwaysRun = true)
-	  public void optionRequestAcceptReject(String pubAction, String seller, String buyer, String campaign, String media, String format, 
+	  public void optionRequestAcceptReject(String exchangeView,String pubAction, String seller, String buyer, String campaign, String media, String format, 
 			                        String theDate, String product, String productP) throws InterruptedException {			  
 		     SoftAssert softAssert = new SoftAssert();
 		     D.FAILURE_INDICATION = 1; 
 
 			 Top.Login(buyer,"Welkom01@1");	
-			 Exchange.GotoBuyerEchangePage();
-			 Exchange.SelectCampaign(campaign);
-			 Exchange.SelectMedia(media);
-			 Lib.ClickButton(By.cssSelector(D.$be_execute));
+			 if(exchangeView.equals("list")){
+				 Exchange.GotoBuyerEchangePage();
+				 Exchange.SelectCampaign(campaign);
+			     Exchange.SelectMedia(media);
+			     Lib.ClickButton(By.cssSelector(D.$be_execute));
+			 } else {
+				 Exchange.GotoBuyerEchangePageTileView();
+				 Exchange.SelectCampaign(campaign);
+				 Exchange.ClickAMediaTile(media);
+			 }
 			 Exchange.SelectFormat(format);
 			 Exchange.EnterFromThroughDate(theDate);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
@@ -54,17 +60,18 @@ public class C2Dev1121OptionRequestAcceptRejectMB {
 			 Top.Logout();  
 		 
 			 Top.Login(seller,"Welkom01@1");
-			 String menu = D.$Menu + D.$MenuExchange + ")]";
-			 Lib.ClickButton(By.xpath(menu));
-			 ExchangeP.SelectLeftMenu("Optie overzicht");
-			 ExchangeP.SelectRowOverViewTable(productP);
+//			 ExchangeP.GotoOptionOverview();
+//			 ExchangeP.SelectRowOverViewTable(productP);
+			 
+			 ExchangeP.GoToExchangePlatform();
+
 			 if(pubAction.equalsIgnoreCase("accept")){				 
-				 Lib.ClickButton(By.cssSelector(D.$p_option_approve));
-				 ExchangeP.AproveOption("1");		
+				 Lib.ClickButton(By.xpath(D.$p_negotiation_accept_button));
+				 ExchangeP.AproveOption("1");
 			 } else {
-				 Lib.ClickButton(By.cssSelector(D.$p_option_reject));
-				 ExchangeP.RejectOption();
-			 }				 
+				 Lib.ClickButton(By.xpath(D.$p_negotiation_reject_button));
+			 }	
+			 Lib.CloseDialogBox();
 			 Top.Logout(); 
 
 			 Top.Login(buyer,"Welkom01@1");
@@ -94,14 +101,12 @@ public class C2Dev1121OptionRequestAcceptRejectMB {
 	  @DataProvider
 	  public Object[][] inputdata() {
 	    return new Object[][] { 
-	      {"accept",Lib.Res2,Lib.MB,Lib.CampaignADV2,Lib.BuyNow2,"CD101V",Lib.buyDay1,D.Pagina45FullPage,"CD101V - Pagina 4-5"},
-	      {"reject",Lib.UG,Lib.MB,Lib.CampaignADV,Lib.BuyNow,"CD101V",Lib.buyDay1,D.Cover3FullPage,"CD101V - Cover 3"},
+	      {"list","accept",Lib.Res2,Lib.MB,Lib.CampaignADV2,Lib.BuyNow2,"CD101V",Lib.buyDay3,D.Pagina45FullPage,"CD101V - Pagina 4-5"},
+	      {"title","reject",Lib.UG,Lib.MB,Lib.CampaignADV,Lib.BuyNow,"CD101V",Lib.buyDay3,D.Cover3FullPage,"CD101V - Cover 3"},
 	    };
 	  }
 	  @Test(dependsOnMethods="optionRequestAcceptReject")
-	  public static void checkEmail() throws InterruptedException{
-		    Top.CloseBrowser();
-		  
+	  public static void checkEmail() throws InterruptedException{		  
 			SoftAssert softAssert = new SoftAssert();
 			softAssert.assertEquals(Lib.checkEmails("C2Dev1121OptionRequestAcceptRejectMB", 11), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;

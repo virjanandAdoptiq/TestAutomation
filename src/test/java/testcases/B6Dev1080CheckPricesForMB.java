@@ -16,13 +16,13 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"B6"}, dependsOnGroups="B5", alwaysRun = true)
+@Test//(groups = {"B6"}, dependsOnGroups="B5", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class B6Dev1080CheckPricesForMB {	
 	  String media = Lib.BuyNow;
 	  String format = "CD101V";
 	  String product = D.Cover2FullPage;
-	  String theDay = Lib.buyDay1;
+	  String theDay = Lib.buyDay3;
 	
 	  @BeforeClass
 	  public void start() throws InterruptedException{

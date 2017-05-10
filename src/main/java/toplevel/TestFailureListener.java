@@ -18,15 +18,15 @@ public class TestFailureListener extends TestListenerAdapter {
 
 	  @Override
 	  public void onTestFailure(ITestResult result) {	
-		 String className = result.getMethod().getTestClass().getName().replace("testcases.", "");
+		// String className = result.getMethod().getTestClass().getName().replace("testcases.", "");
 	  if(D.FAILURE_INDICATION == 0){
-		 File scrFile = ((TakesScreenshot)D.driver).getScreenshotAs(OutputType.FILE); 
-		 try {
-			FileUtils.copyFile(scrFile, new File("test-output/ScreenShots/" + className + ".jpg"));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} 
+//		 File scrFile = ((TakesScreenshot)D.driver).getScreenshotAs(OutputType.FILE); 
+//		 try {
+//			FileUtils.copyFile(scrFile, new File("test-output/ScreenShots/" + className + ".jpg"));
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} 
 	  }
 		  
 		//0 = doing nothing, 1 = logout, 2=close browser, 3=logout and close browser)

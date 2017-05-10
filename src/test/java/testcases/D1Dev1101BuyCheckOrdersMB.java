@@ -1,5 +1,6 @@
 package testcases;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -10,13 +11,14 @@ import org.testng.asserts.SoftAssert;
 
 import advertiser.Exchange;
 import advertiser.Mylots;
+import publisher.ExchangeP;
 import toplevel.D;
 import toplevel.Lib;
 import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test//(groups = {"D1"}, alwaysRun = true)
+@Test//(groups = {"D1"}, dependsOnGroups="C4", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class D1Dev1101BuyCheckOrdersMB {
 	  String[][] orders; 
@@ -40,12 +42,13 @@ public class D1Dev1101BuyCheckOrdersMB {
 		  
 		     SoftAssert softAssert = new SoftAssert();
 		     
-			 Exchange.GotoBuyerEchangePage();
+			 Exchange.GotoBuyerEchangePageTileView();
 			 Exchange.SelectCampaign(campaign);			 
 			 Exchange.EnterFromThroughDate(theDate);
 			 Exchange.SelectFormat(format);
 			 Exchange.SelectMedia(media);
-			 Lib.ClickButton(By.cssSelector(D.$be_execute));		
+			 Lib.ClickButton(By.cssSelector(D.$be_execute));
+			 Exchange.ClickAMediaTile(media);
 			 Exchange.AddToMyLots(product);
 
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
@@ -68,7 +71,7 @@ public class D1Dev1101BuyCheckOrdersMB {
 	  @DataProvider
 	  public Object[][] inputdata() {
 	    return new Object[][] { 
-	      {Lib.CampaignADV,Lib.BuyNow,"CD101V",Lib.buyDay1,D.Cover2FullPage,"1.575,00"},
+	      {Lib.CampaignADV,Lib.BuyNow,"CD101V",Lib.buyDay3,D.Cover2FullPage,"1.575,00"},
 	    };
 	  }
 
@@ -104,34 +107,32 @@ public class D1Dev1101BuyCheckOrdersMB {
 	  @DataProvider
 	  public Object[][] inputdata2() {
 	    return new Object[][] { 
-	      {Lib.CampaignADV2,Lib.BuyNow2,"CD101V","CD102VS", Lib.buyDay1,D.Pagina2FullPage,D.Pagina3HalfStand},
+	      {Lib.CampaignADV2,Lib.BuyNow2,"CD101V","CD102VS", Lib.buyDay3,D.Pagina2FullPage,D.Pagina3HalfStand},
 	    };
 	  }
-  
+ 
 	  @Test(dependsOnMethods="SelectCmpBuyTwoTogether")
 	  public void fatchOrders() throws InterruptedException{
-		    
+    
 			Mylots.SelectMyLotsMenuItem(D.$ItemOrderOverview);   
-			orders = Lib.SortOrders(Lib.GetTableContent(D.$b_orderoverview_table, 3, 12));
+			orders = Lib.SortOrders(Lib.GetTableContent(By.xpath(D.$b_orderoverview_table2), 3, 12));
+	
 			Top.Logout(); 
-/*
+
 			Top.Login(Lib.UG, "Welkom01@1");
-			String menu = D.$Menu + D.$MenuExchange + ")]";
-			Lib.ClickButton(By.xpath(menu));
-			ExchangeP.SelectLeftMenu(D.$p_exchange_left_orderOverview);
-			ordersUG = Lib.GetTableContent(D.$p_orderoverview_table, 1, 10);
+			ExchangeP.GotoOderOverview();
+			ordersUG = Lib.GetTableContent(By.xpath(D.$p_orderoverview_table), 1, 10);
 			Top.Logout(); 
 
 			Top.Login(Lib.Res2, "Welkom01@1");
-			Lib.ClickButton(By.xpath(menu));
-			ExchangeP.SelectLeftMenu(D.$p_exchange_left_orderOverview);
-			ordersRes2 = Lib.GetTableContent(D.$p_orderoverview_table, 2, 10);
+			ExchangeP.GotoOderOverview();
+			ordersRes2 = Lib.GetTableContent(By.xpath(D.$p_orderoverview_table), 2, 10);
 			Top.Logout();
 				
 			ordersPub = Lib.SortOrders(ArrayUtils.addAll(ArrayUtils.addAll(ordersUG, ordersRes),ordersRes2));
-*/			
+			
 	  }
-/*  the pubside has problem: get orders <td> doesn't work	  
+  
 	  @Test(dependsOnMethods="fatchOrders")
 	  public void compareOrdersPubSideAndMBSide(){
 		  SoftAssert softAssert = new SoftAssert();	
@@ -146,14 +147,13 @@ public class D1Dev1101BuyCheckOrdersMB {
 		  }
 		  softAssert.assertAll();
 	  }
-*/
-	  //@Test(dataProvider="orderlist",dependsOnMethods="compareOrdersPubSideAndMBSide", alwaysRun = true)
-	  @Test(dataProvider="orderlist",dependsOnMethods="fatchOrders", alwaysRun = true)
+
+	  @Test(dataProvider="orderlist",dependsOnMethods="compareOrdersPubSideAndMBSide", alwaysRun = true)
 	  public void checkOrderValue(String pubDate, String media, String format, String page,String advertiser, String campaign,
 			             String price, String ppp, String surcharge) throws InterruptedException {	
 		  SoftAssert softAssert = new SoftAssert();	
 		  int index =0;
-		  for(int i = 0; i < 4; i++){
+		  for(int i = 0; i < 3; i++){
 			  if(orders[i][5].equals(format) && orders[i][6].equals(page) && orders[i][1].equals(pubDate)){
 				  index = i;
 				  softAssert.assertEquals(orders[index][2], media);
@@ -179,12 +179,12 @@ public class D1Dev1101BuyCheckOrdersMB {
 		    };
 	  }
 	  @Test(dependsOnMethods="checkOrderValue")
-	  public static void checkEmail() throws InterruptedException{
-		    Top.CloseBrowser();
-		  
+	  public static void checkEmail() throws InterruptedException{		  
 			SoftAssert softAssert = new SoftAssert();
 			softAssert.assertEquals(Lib.checkEmails("D1Dev1101BuyCheckOrdersMB", 6), "emailCorrect");				
-			softAssert.assertAll(); 		  
+			 
+			 D.FAILURE_INDICATION = 0; 
+			 softAssert.assertAll();			  
 	  }
 	  @AfterClass
 	  public void stop() throws InterruptedException{

@@ -15,28 +15,25 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"B3"}, dependsOnGroups="B2", alwaysRun = true)
+@Test//(groups = {"B3"}, dependsOnGroups="B2", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class B3Dev998CheckExchangePricesADV2 {	
-
 	  @BeforeClass
 	  public void start() throws InterruptedException{
 				Top.StartBroswer();
 				Top.Login(Lib.ADV2,"Welkom01@1");
-				D.FAILURE_INDICATION = 0; //if softAssertionAll failed, do not logout close browser
+				D.FAILURE_INDICATION = 0; 
 	  }	
-//Media1
 	  @Test(alwaysRun = true)
 	  public void findLMInventoryForMedia1() throws InterruptedException{
 		     Exchange.GotoBuyerEchangePage();
 			 Exchange.SelectMedia(Lib.BuyNow);
-			 Exchange.EnterFromThroughDate(Lib.lmDay1);
+			 Exchange.EnterFromThroughDate(Lib.lmDay2);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
 	  }
 	  @Test(dataProvider="inputData", dependsOnMethods="findLMInventoryForMedia1",alwaysRun = true)
-	  public void checkLMExchangePrice(boolean BuyPriceHigher,String product, String buyNowE,String buyNowCPME, String bidE,String bidCPME) throws InterruptedException{
-		  
-		SoftAssert softAssert = new SoftAssert();
+	  public void checkLMExchangePrice(boolean BuyPriceHigher,String product, String buyNowE,String buyNowCPME, String bidE,String bidCPME) throws InterruptedException{		  
+		     SoftAssert softAssert = new SoftAssert();
 			 if(BuyPriceHigher){
 				 String BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_bidphase_price);
 				 softAssert.assertEquals(BuyNowPrice, buyNowE);
@@ -51,9 +48,8 @@ public class B3Dev998CheckExchangePricesADV2 {
 			 String BidPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_bid_price);
 			 softAssert.assertEquals(BidPrice, bidE);
 			 String BidCPM = Exchange.GetAInventoryPrice(product, D.$be_inventory_bid_cpm_price);
-			 softAssert.assertEquals(BidCPM, bidCPME);
-						 			
-		softAssert.assertAll(); 						 			 	  
+			 softAssert.assertEquals(BidCPM, bidCPME);						 			
+		     softAssert.assertAll(); 						 			 	  
 	   }	
 	@DataProvider
 	public Object[][] inputData() {
@@ -68,13 +64,12 @@ public class B3Dev998CheckExchangePricesADV2 {
 	}
 	 @Test(dependsOnMethods="checkLMExchangePrice",alwaysRun = true)
 	 public void findBidInventoryForMedia1() throws InterruptedException{
-		 Exchange.EnterFromThroughDate(Lib.bidDay1);
+		 Exchange.EnterFromThroughDate(Lib.bidDay2);
 		 Lib.ClickButton(By.cssSelector(D.$be_execute));
      }
 	 @Test(dataProvider="inputData2", dependsOnMethods="findBidInventoryForMedia1",alwaysRun = true)
-	  public void checkBidExchangePrice(boolean BuyPriceHigher,String product, String buyNowE,String buyNowCPME, String bidE,String bidCPME) throws InterruptedException{
-		  
-		SoftAssert softAssert = new SoftAssert();
+	  public void checkBidExchangePrice(boolean BuyPriceHigher,String product, String buyNowE,String buyNowCPME, String bidE,String bidCPME) throws InterruptedException{		  
+		     SoftAssert softAssert = new SoftAssert();
 			 if(BuyPriceHigher){
 				 String BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_bidphase_price);
 				 softAssert.assertEquals(BuyNowPrice, buyNowE);
@@ -89,9 +84,8 @@ public class B3Dev998CheckExchangePricesADV2 {
 			 String BidPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_bid_price);
 			 softAssert.assertEquals(BidPrice, bidE);
 			 String BidCPM = Exchange.GetAInventoryPrice(product, D.$be_inventory_bid_cpm_price);
-			 softAssert.assertEquals(BidCPM, bidCPME);
-						 			
-		softAssert.assertAll(); 						 			 	  
+			 softAssert.assertEquals(BidCPM, bidCPME);						 			
+		     softAssert.assertAll(); 						 			 	  
 	   }	
 	@DataProvider
 	public Object[][] inputData2() {
@@ -103,11 +97,10 @@ public class B3Dev998CheckExchangePricesADV2 {
 		{false,D.Cover3HalfLying,"937,50","4,69","2.500,00","12,50"},
 		{false,D.Cover3FullPage,"1.875,00","9,38","5.000,00","25,00"},
 		};
-	}
-	
+	}	
 	 @Test(dependsOnMethods="checkBidExchangePrice",alwaysRun = true)
 	 public void findBuyNowInventoryForMedia1() throws InterruptedException{
-		 Exchange.EnterFromThroughDate(Lib.buyDay1);
+		 Exchange.EnterFromThroughDate(Lib.buyDay3);
 		 Lib.ClickButton(By.cssSelector(D.$be_execute));
      }
 	 @Test(dataProvider="inputData3", dependsOnMethods="findBuyNowInventoryForMedia1",alwaysRun = true)
@@ -116,18 +109,10 @@ public class B3Dev998CheckExchangePricesADV2 {
 		SoftAssert softAssert = new SoftAssert();
 		String BuyNowPrice;
 		String BuyNowCPM;
-		//		 String BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_price);
-		//		 if(BuyNowPrice.isEmpty()){
-					 BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_bidphase_price);
-		//		 }
-				 softAssert.assertEquals(BuyNowPrice, buyNowE);
-		//		 String BuyNowCPM = Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_cpm_price);
-		//		 if(BuyNowCPM.isEmpty()){
-					 BuyNowCPM = Exchange.GetAInventoryPrice(product,D.$be_inventory_buynow_bidphase_cpm_price);
-		//		 }
-				 softAssert.assertEquals(BuyNowCPM, buyNowCPME);				 
-
-						 			
+		BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_bidphase_price);
+		softAssert.assertEquals(BuyNowPrice, buyNowE);
+		BuyNowCPM = Exchange.GetAInventoryPrice(product,D.$be_inventory_buynow_bidphase_cpm_price);
+		softAssert.assertEquals(BuyNowCPM, buyNowCPME);				 						 			
 		softAssert.assertAll(); 						 			 	  
 	   }	
 	@DataProvider
@@ -141,20 +126,16 @@ public class B3Dev998CheckExchangePricesADV2 {
 		{D.Cover3FullPage,"1.875,00","9,38"},
 		};
 	}
-	
-//Media 2   Exchange.SelectPhase("LastMinute"); Exchange.SelectPhase("Bidding"); Exchange.SelectPhase("BuyNow");
 	@Test(dependsOnMethods="checkBuyNowExchangePrice",alwaysRun = true)
 	  public void findLMInventoryForMedia2() throws InterruptedException{
 	         Lib.ClickButton(By.xpath(D.$be_restore));
 			 Exchange.SelectMedia(Lib.BuyNow2);
-	//		 Exchange.SelectPhase("LastMinute");
-			 Exchange.EnterFromThroughDate(Lib.lmDay1);
+			 Exchange.EnterFromThroughDate(Lib.lmDay2);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
 	  }
 	  @Test(dataProvider="inputData_2", dependsOnMethods="findLMInventoryForMedia2",alwaysRun = true)
-	  public void checkLMExchangePriceM2(boolean BuyPriceHigher,String product, String buyNowE,String buyNowCPME, String bidE,String bidCPME) throws InterruptedException{
-		  
-		SoftAssert softAssert = new SoftAssert();
+	  public void checkLMExchangePriceM2(boolean BuyPriceHigher,String product, String buyNowE,String buyNowCPME, String bidE,String bidCPME) throws InterruptedException{		  
+		     SoftAssert softAssert = new SoftAssert();
 			 if(BuyPriceHigher){
 				 String BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_bidphase_price);
 				 softAssert.assertEquals(BuyNowPrice, buyNowE);
@@ -169,9 +150,8 @@ public class B3Dev998CheckExchangePricesADV2 {
 			 String BidPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_bid_price);
 			 softAssert.assertEquals(BidPrice, bidE);
 			 String BidCPM = Exchange.GetAInventoryPrice(product, D.$be_inventory_bid_cpm_price);
-			 softAssert.assertEquals(BidCPM, bidCPME);
-						 			
-		softAssert.assertAll(); 						 			 	  
+			 softAssert.assertEquals(BidCPM, bidCPME);						 			
+		     softAssert.assertAll(); 						 			 	  
 	   }	
 	@DataProvider
 	public Object[][] inputData_2() {
@@ -192,14 +172,12 @@ public class B3Dev998CheckExchangePricesADV2 {
 	}
 	 @Test(dependsOnMethods="checkLMExchangePriceM2",alwaysRun = true)
 	 public void findBidInventoryForMedia2() throws InterruptedException{
-//		 Exchange.SelectPhase("Bidding");
-		 Exchange.EnterFromThroughDate(Lib.bidDay1);
+		 Exchange.EnterFromThroughDate(Lib.bidDay2);
 		 Lib.ClickButton(By.cssSelector(D.$be_execute));
   }
 	 @Test(dataProvider="inputData22", dependsOnMethods="findBidInventoryForMedia2",alwaysRun = true)
 	  public void checkBidExchangePriceM2(boolean BuyPriceHigher,String product, String buyNowE,String buyNowCPME, String bidE,String bidCPME) throws InterruptedException{
-		  
-		SoftAssert softAssert = new SoftAssert();
+		     SoftAssert softAssert = new SoftAssert();
 			 if(BuyPriceHigher){
 				 String BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_bidphase_price);
 				 softAssert.assertEquals(BuyNowPrice, buyNowE);
@@ -214,9 +192,8 @@ public class B3Dev998CheckExchangePricesADV2 {
 			 String BidPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_bid_price);
 			 softAssert.assertEquals(BidPrice, bidE);
 			 String BidCPM = Exchange.GetAInventoryPrice(product, D.$be_inventory_bid_cpm_price);
-			 softAssert.assertEquals(BidCPM, bidCPME);
-						 			
-		softAssert.assertAll(); 						 			 	  
+			 softAssert.assertEquals(BidCPM, bidCPME);						 			
+		     softAssert.assertAll(); 						 			 	  
 	   }	
 	@DataProvider
 	public Object[][] inputData22() {
@@ -238,28 +215,18 @@ public class B3Dev998CheckExchangePricesADV2 {
 	
 	 @Test(dependsOnMethods="checkBidExchangePriceM2",alwaysRun = true)
 	 public void findBuyNowInventoryForMedia2() throws InterruptedException{
-//		 Exchange.SelectPhase("BuyNow");
-		 Exchange.EnterFromThroughDate(Lib.buyDay1);
+		 Exchange.EnterFromThroughDate(Lib.buyDay3);
 		 Lib.ClickButton(By.cssSelector(D.$be_execute));
   }
 	 @Test(dataProvider="inputData23", dependsOnMethods="findBuyNowInventoryForMedia2",alwaysRun = true)
-	  public void checkBuyNowExchangePriceM2(String product, String buyNowE,String buyNowCPME) throws InterruptedException{
-		  
+	  public void checkBuyNowExchangePriceM2(String product, String buyNowE,String buyNowCPME) throws InterruptedException{		  
 		SoftAssert softAssert = new SoftAssert();
 		String BuyNowPrice;
 		String BuyNowCPM;
-		//		 String BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_price);
-		//		 if(BuyNowPrice.isEmpty()){
-					 BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_bidphase_price);
-		//		 }
-				 softAssert.assertEquals(BuyNowPrice, buyNowE);
-		//		 String BuyNowCPM = Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_cpm_price);
-		//		 if(BuyNowCPM.isEmpty()){
-					 BuyNowCPM = Exchange.GetAInventoryPrice(product,D.$be_inventory_buynow_bidphase_cpm_price);
-		//		 }
-				 softAssert.assertEquals(BuyNowCPM, buyNowCPME);				 
-
-						 			
+		BuyNowPrice =  Exchange.GetAInventoryPrice(product, D.$be_inventory_buynow_bidphase_price);
+		softAssert.assertEquals(BuyNowPrice, buyNowE);
+		BuyNowCPM = Exchange.GetAInventoryPrice(product,D.$be_inventory_buynow_bidphase_cpm_price);
+		softAssert.assertEquals(BuyNowCPM, buyNowCPME);				 				 			
 		softAssert.assertAll(); 						 			 	  
 	   }	
 	@DataProvider
@@ -279,7 +246,6 @@ public class B3Dev998CheckExchangePricesADV2 {
 		{D.VoorpaginaHalfLying,"2.062,50","10,31"},
 		};
 	}
-
 	@AfterClass
 	public void stop() throws InterruptedException {
 			    Top.Logout(); 

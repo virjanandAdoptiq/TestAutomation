@@ -2,91 +2,41 @@ package publisher;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
-import java.util.List;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import toplevel.D;
 import toplevel.Lib;
 import toplevel.Top;
 
 public class Media {
-	public static void PushOption(String mb, String ad, String days, String dealID, String price) throws InterruptedException{
-		D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(D.$p_option_push_dialog)));
-		Thread.sleep(D.waitTime);
-		//there are other elements with the same identifier, but they are not displayed.
-		List<WebElement> elements = D.driver.findElements(By.xpath(D.$p_option_details_deadLine_days));
-		for(WebElement ele: elements){
-			if(ele.isDisplayed()){
-				ele.sendKeys(Keys.chord(Keys.COMMAND, "a"), days);
-				break;
-			}
-		}
-		//Enter price
-/*
-		List<WebElement> pricefield = D.driver.findElements(By.xpath(D.$p_option_details_price));
-		for(WebElement ele: pricefield){
-				if(ele.isEnabled()){
-				ele.sendKeys(price);
-				break;
-			}
-		}
-*/		
-		Lib.InputData(price, By.xpath(D.$p_option_details_price));
-		
-		Lib.InputData(dealID, By.xpath(D.$p_option_details_dealid));
-		
-		
-		//select MB
-		Lib.ClickButton(By.xpath(D.$p_option_details_mb_button));
-		Lib.ClickButton(By.xpath(D.$p_option_details_org_search));
+	public static void GotoMedia() throws InterruptedException{			 
+		 String menu = D.$Menu + D.$MenuMedia + ")]";
+		 String item = D.$MenuLink + D.$ItemMedia + ")]";
+		 Lib.SelectMenuLink(By.xpath(menu), By.xpath(item));
+	}
+	public static void PushOption(String mb, String ad, String days, String dealID, String price) throws InterruptedException{		
+		Lib.InputData(days, By.xpath(D.$p_option_multi_details_deadLine_days));
+		Lib.InputData(price, By.xpath(D.$p_option_multi_details_price));		
+		Lib.InputData(dealID, By.xpath(D.$p_option_multi_details_dealid));		
+		Lib.ClickButton(By.xpath(D.$p_option_multi_details_mb_button));
 		Lib.InputData(Lib.credential, By.xpath(D.$p_option_details_org_input));
 		Lib.ClickButton(By.xpath(D.$p_option_details_org_search_execute));
 		Lib.ClickButton(By.xpath(D.$p_option_details_org_ad_select + mb + "']"));
-		Lib.ClickButton(By.xpath(D.$p_option_details_org_choose_button));
-		//Lib.SelectDropdownItem(By.xpath(D.$p_option_details_mb_button), mb);
-		//select ad
-		Lib.SelectDropdownItem(By.xpath(D.$p_option_details_ad), ad);
-	
-		//save
-		Lib.ClickButton(By.xpath(D.$p_approve_option_save));
+		Lib.ClickButton(By.xpath(D.$p_option_details_org_choose_button));		
+		Lib.SelectDropdownItem(By.xpath(D.$p_option_multi_details_ad), ad);
+		Lib.ClickButton(By.xpath(D.$p_private_offer_save));
 		Lib.CloseDialogBox();
 	}		
-
 	public static void PushOptionToADVOnly(String ad, String days, String dealID, String price) throws InterruptedException{
-		D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(D.$p_option_push_dialog)));
-		Thread.sleep(D.waitTime);
-		//there are other elements with the same identifier, but they are not displayed.
-		List<WebElement> elements = D.driver.findElements(By.xpath(D.$p_option_details_deadLine_days));
-		for(WebElement ele: elements){
-			if(ele.isDisplayed()){
-				ele.sendKeys(Keys.chord(Keys.COMMAND, "a"), days);
-				break;
-			}
-		}
-		//Enter price
-/*
-		List<WebElement> pricefield = D.driver.findElements(By.xpath(D.$p_option_details_price));
-		for(WebElement ele: pricefield){
-				ele.sendKeys(price);
-		}
-*/
-		Lib.InputData(price, By.xpath(D.$p_option_details_price));
-		Lib.InputData(dealID, By.xpath(D.$p_option_details_dealid));
-		
-		Lib.ClickButton(By.xpath(D.$p_option_details_mb_button));
-		Lib.ClickButton(By.xpath(D.$p_option_details_org_search));
+    	Lib.InputData(days, By.xpath(D.$p_option_multi_details_deadLine_days));
+		Lib.InputData(price, By.xpath(D.$p_option_multi_details_price));		
+		Lib.InputData(dealID, By.xpath(D.$p_option_multi_details_dealid));		
+		Lib.ClickButton(By.xpath(D.$p_option_multi_details_mb_button));
 		Lib.InputData(Lib.credential, By.xpath(D.$p_option_details_org_input));
 		Lib.ClickButton(By.xpath(D.$p_option_details_org_search_execute));
 		Lib.ClickButton(By.xpath(D.$p_option_details_org_ad_select + ad + "']"));
-		Lib.ClickButton(By.xpath(D.$p_option_details_org_choose_button));
-		
-	//	Lib.SelectDropdownItem(By.xpath(D.$p_option_details_mb_button), ad);
-		//save
-		Lib.ClickButton(By.xpath(D.$p_approve_option_save));
+		Lib.ClickButton(By.xpath(D.$p_option_details_org_choose_button));		
+		Lib.ClickButton(By.xpath(D.$p_private_offer_save));
 		Lib.CloseDialogBox();
 	}		
 	public static void CreatePublicOffer(String fromDate, String endDate) throws InterruptedException{		
@@ -96,9 +46,10 @@ public class Media {
 		 Lib.CloseDialogBox();				 
 	    }
 	public static String GetDeepLinkFromOfferOverview(String type) throws InterruptedException, UnsupportedFlavorException, IOException{
-		String menu = D.$Menu + D.$MenuMedia + ")]";
-		 Lib.ClickButton(By.xpath(menu));
-		 Lib.ClickButton(By.xpath(D.$p_inventory_aanbiedingen));
+		 ExchangeP.GotoDeeplink();
+		 
+		 Lib.ClickButton(By.xpath(D.$p_aanbiedingden_sorting));
+		 Lib.ClickButton(By.xpath(D.$p_aanbiedingden_sorting));
 		 if(type.equalsIgnoreCase("inventory")){
 		     Lib.ClickButton(By.xpath(D.$p_aanbiedingenOverview_row + "Inventory']"));
 		 } else {
@@ -112,9 +63,7 @@ public class Media {
 
     public static String CreateExclusiveDeepLink(String user,String fromDate, String endDate) throws InterruptedException, UnsupportedFlavorException, IOException{
    	 Top.Login(user,"Welkom01@1");
-	 String menu = D.$Menu + D.$MenuMedia + ")]";
-	 Lib.ClickButton(By.xpath(menu));
-	 Lib.ClickButton(By.xpath(D.$p_inventory_aanbiedingen));
+     ExchangeP.GotoDeeplink();
 	 Lib.ClickButton(By.xpath(D.$p_inventory_aanbiedingen_new_button));
 	 Lib.ClickButton(By.xpath(D.$p_aanbiedingenDetails_exclusive_checkbox));
 	 Lib.InputData(fromDate, By.xpath(D.$p_aanbiedingenDetails_valid_from));
@@ -130,8 +79,5 @@ public class Media {
 	 Top.Logout(); 
  
 	 return ret;
-	
-	 
-
     }
 }

@@ -15,13 +15,13 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test(groups = {"B7"}, dependsOnGroups="B6", alwaysRun = true)
+@Test//(groups = {"B7"}, dependsOnGroups="B6", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class B7Dev1749CheckConflicting {	
 	  private String product1 = D.Cover2FullPage;
 	  private String product2 = D.Cover2HalfLying;
 	  private String media = Lib.BuyNow;
-	  private String theDate = Lib.buyDay1;
+	  private String theDate = Lib.buyDay3;
 
 	  @BeforeClass
 			public void start() throws InterruptedException{
@@ -41,8 +41,8 @@ public class B7Dev1749CheckConflicting {
              
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
 			 
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product1, D.$bm_lot_status_conflicting));
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product2, D.$bm_lot_status_conflicting));
+			 softAssert.assertTrue(Mylots.CheckLotCoflicting(product1, D.$bm_lot_status_conflicting));
+			 softAssert.assertTrue(Mylots.CheckLotCoflicting(product2, D.$bm_lot_status_conflicting));
 			 
 			 softAssert.assertAll();
 			 

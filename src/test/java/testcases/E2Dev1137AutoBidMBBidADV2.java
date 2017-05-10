@@ -22,7 +22,7 @@ public class E2Dev1137AutoBidMBBidADV2 {
 	  private String product = D.Cover2FullPage;
 	  private String media = Lib.BuyNow;
 	  private String format = "CD101V";
-	  private String theDate = Lib.bidDay1;
+	  private String theDate = Lib.bidDay2;
 	  @BeforeClass
 	  public void start() throws InterruptedException{
 	        Lib.deleteAllMailsFromInbox();
@@ -161,7 +161,6 @@ public class E2Dev1137AutoBidMBBidADV2 {
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
 			 
 			 Top.Logout();  
-			 Top.CloseBrowser();
 			 
 			 D.FAILURE_INDICATION = 0; //if test failed, do nothing
 			 softAssert.assertAll();		     						 			 
@@ -170,6 +169,7 @@ public class E2Dev1137AutoBidMBBidADV2 {
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
 			softAssert.assertEquals(Lib.checkEmails("E2Dev1137AutoBidMBBidADV2", 27), "emailCorrect");				
+			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }	 
 	  @AfterClass

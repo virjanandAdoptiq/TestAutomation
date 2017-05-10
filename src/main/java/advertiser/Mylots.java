@@ -38,18 +38,21 @@ public class Mylots {
 	}
 
 	public static void SetFilterOrderShow() throws InterruptedException{
+		Thread.sleep(D.waitTime);
 		if(D.driver.findElements(By.xpath(D.$bm_lots_order_filter_on)).isEmpty()){
 			D.driver.findElement(By.xpath(D.$bm_lots_order_filter_off)).click();
 			Thread.sleep(D.waitTime);	
 		} 
 	}
     public static void SetFilterOrderNotShow() throws InterruptedException{
+    	Thread.sleep(D.waitTime * 2);
     	if(D.driver.findElements(By.xpath(D.$bm_lots_order_filter_off)).isEmpty()){
 			D.driver.findElement(By.xpath(D.$bm_lots_order_filter_on)).click();
 			Thread.sleep(D.waitTime);	
 		} 
 	}
     public static void SetFilterBidNotShow() throws InterruptedException{
+    	Thread.sleep(D.waitTime);
     	if(D.driver.findElements(By.xpath(D.$bm_lots_bid_filter_off)).isEmpty()){
 			D.driver.findElement(By.xpath(D.$bm_lots_bid_filter_on)).click();
 			Thread.sleep(D.waitTime);	
@@ -61,12 +64,12 @@ public class Mylots {
 		Lib.ClickButton(By.xpath(path));	
 	}
 	public static void SelectAllLot(String medium) throws InterruptedException{		
-		String path = D.$bm_lot_row_prefix + medium + D.$bm_lot_row_suffix;
+		String path = D.$bm_lot_row_prefix + medium + D.$bm_lot_row_suffix + "/td[1]/table/tbody/tr/td/span/img";
 		D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path)));
 			
 		List<WebElement> elements = D.driver.findElements(By.xpath(path));
 		for(WebElement ele: elements){
-			ele.findElement(By.cssSelector(D.$bm_lot_select_check)).click();
+			ele.click();
 			Thread.sleep(D.waitTime);
 		}
 	}
@@ -80,7 +83,17 @@ public class Mylots {
 			return false;
 		}
 	}
-	public static void BuyBidOptionConfirm(String which) throws InterruptedException{	
+	public static boolean CheckLotCoflicting(String product, String cof) throws InterruptedException{		
+		String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/td[4]" + cof;
+		try {
+		    D.driver.findElement(By.xpath(path));
+			return true;
+		} catch(Exception e) {
+			return false;
+		}
+	}
+	public static void BuyBidOptionConfirm(String which) throws InterruptedException{
+		Lib.FindElement(By.cssSelector(which));
 		Lib.ClickButton(By.cssSelector(which));
 		D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
 		Thread.sleep(D.waitTime);
@@ -100,6 +113,7 @@ public class Mylots {
 		String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/following-sibling::tr";
 		WebElement mySelectElm = D.driver.findElement(By.xpath(path)).findElement(By.cssSelector(D.$bm_lot_select_publisher));
 		Select mySelect= new Select(mySelectElm);
+		Thread.sleep(D.waitTime);
 		mySelect.selectByVisibleText(publisher);
 		Thread.sleep(D.waitTime);
 		D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
@@ -113,7 +127,7 @@ public class Mylots {
 		Lib.ClickButton(By.xpath(D.$bm_lot_autobid_select_button));
 		Lib.CloseDialogBox();
 	}
-	public static void SetUnderBidPrice(String product, String price) throws InterruptedException{
+/*	public static void SetUnderBidPrice(String product, String price) throws InterruptedException{
 	   String path = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/following-sibling::tr";
 	   Lib.ClickContextSensitiveItem(By.xpath(path), By.xpath(D.$bm_lot_underbid_input));
 	   D.driver.findElement(By.xpath(path)).findElement(By.xpath(D.$bm_lot_underbid_input)).sendKeys(price);
@@ -131,6 +145,7 @@ public class Mylots {
 		   Thread.sleep(D.waitTime); 
 		   Lib.CloseDialogBox();
 		}
+*/	
 	public static void SetCampaign(String product,String campaignNo) throws InterruptedException{	
 		String fatherpath = D.$bm_lot_row_prefix + product + D.$bm_lot_row_suffix + "/following-sibling::tr";
 		D.driver.findElement(By.xpath(fatherpath)).findElement(By.cssSelector(D.$bm_lot_select_campaign_button)).click();
@@ -211,5 +226,49 @@ public class Mylots {
 		}
 		Lib.ClickButton(By.xpath(D.$bm_lot_negotiation_Negotiation_Button));
 		Lib.CloseDialogBox();
+	}
+	public static void NegotiationPingPongPrice(String price) throws InterruptedException{	
+		Lib.InputData(price, By.xpath(D.$bm_lot_negotiation_proposed_price));
+		Lib.SendSpecialKey(Keys.TAB);
+		Lib.ClickButton(By.xpath(D.$bm_lot_negotiation_Negotiation_Button));
+		Lib.CloseDialogBox();
+	}
+	public static void NegotiationDraft(String price) throws InterruptedException{	
+		Lib.InputData(price, By.xpath(D.$bm_lot_negotiation_proposed_price));
+		Lib.ClickButton(By.xpath(D.$bm_lot_negotiation_SaveDraft));
+		Lib.ClickAway();
+		Lib.ClickButton(By.xpath(D.$bm_lot_negotiation_draft_confirm_save));
+	}
+	//Group
+	public static void SelectAGroup(String type) throws InterruptedException{		
+		String path = D.$bm_lot_group_row_prefix + type + D.$bm_lot_group_row_suffix + "/td[1]/table/tbody/tr/td/span/img";
+		Lib.ClickButton(By.xpath(path));	
+	}	
+	public static String GetGroupLotInfo(String type, String name) throws InterruptedException{	
+		String path = D.$bm_lot_group_row_prefix + type + D.$bm_lot_group_row_suffix;
+		Thread.sleep(D.waitTime);
+		return D.driver.findElement(By.xpath(path)).findElement(By.cssSelector(name)).getText().trim();
+	}
+	public static void ExpandAGroup(String type) throws InterruptedException{		
+		String path = D.$bm_lot_group_row_prefix + type + D.$bm_lot_group_row_suffix;
+		if(D.driver.findElements(By.xpath(D.$bm_lot_group_closed)).isEmpty()){
+			return;
+		} else {
+		  Lib.ClickContextSensitiveItem(By.xpath(path), By.xpath(D.$bm_lot_group_closed));
+		  return;
+		}
+	}
+	public static void SelectALotInsideGroup(String product) throws InterruptedException{		
+		String path = D.$bm_lot_group_inside_row_prefix + product + D.$bm_lot_group_inside_row_suffix + "/td[1]/table/tbody/tr/td/span/img";
+		Lib.ClickButton(By.xpath(path));
+	}
+	public static boolean CheckGroupLotStatus(String product, String status) throws InterruptedException{		
+		String path = D.$bm_lot_group_inside_row_prefix + product + D.$bm_lot_group_inside_row_suffix + "/td[3]" + status;
+		try {
+		    D.driver.findElement(By.xpath(path));
+			return true;
+		} catch(Exception e) {
+			return false;
+		}
 	}
 }

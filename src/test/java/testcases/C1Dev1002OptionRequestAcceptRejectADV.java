@@ -16,7 +16,7 @@ import toplevel.TestFailureListener;
 import toplevel.Top;
 
 
-@Test//(groups = {"C1"}, alwaysRun = true)
+@Test//(groups = {"C1"}, dependsOnGroups="Ba3", alwaysRun = true)
 @Listeners(TestFailureListener.class)
 public class C1Dev1002OptionRequestAcceptRejectADV {	
 	  String format1 = "CD102VS";
@@ -36,10 +36,62 @@ public class C1Dev1002OptionRequestAcceptRejectADV {
 			}
 	  
 	  @Test
-	  public void optionRequestAcceptReject() throws InterruptedException {			  
+	  public void optionRequestAccept() throws InterruptedException {			  
 		     SoftAssert softAssert = new SoftAssert();
 		     D.FAILURE_INDICATION = 1; 
+			 Top.Login(buyer,"Welkom01@1");	
+			 Exchange.GotoBuyerEchangePageTileView();
+			 Exchange.ClickAMediaTile(media);
+			 Exchange.SelectFormat(format1);
+			 Exchange.EnterFromThroughDate(theDay);
+			 Lib.ClickButton(By.cssSelector(D.$be_execute));
+			 Exchange.AddToMyLots(product1);
+			 Exchange.SelectFormat(format1);
+			 Exchange.SelectFormat(format2);
+			 Lib.ClickButton(By.cssSelector(D.$be_execute));
+			 Exchange.AddToMyLots(product2);
+			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
+			 Mylots.SetFilterOrderNotShow();
+			 Mylots.ClickApplyFilterButton();			 
+			 Mylots.SelectALot(product1);
+			 Mylots.SelectALot(product2);
+			 Lib.ClickButton(By.cssSelector(D.$bm_lot_option_icon));
+			 Mylots.BuyBidOptionConfirm(D.$bm_lot_option_confirm);       
+			 Mylots.ExpandAGroup("Optie");
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product1,D.$bm_lot_status_option_requested));
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product2,D.$bm_lot_status_option_requested));
+			 Top.Logout();  		 
+			 Top.Login(seller,"Welkom01@1");
+				 
+			 ExchangeP.GoToExchangePlatform();
+			 ExchangeP.ExpandANegotiationy("5.500,00");
+			 Lib.ClickButton(By.xpath(D.$p_negotiation_accept_button));
+			 ExchangeP.AproveOption("1");
+			 		 
+			 Top.Logout(); 
 
+			 Top.Login(buyer,"Welkom01@1");
+			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 			 
+			 Mylots.ExpandAGroup("Optie");
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product1, D.$bm_lot_status_option),"Not in option status:" + product1);
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product2, D.$bm_lot_status_option),"Not in option status: " + product2);			 
+			 Mylots.SelectAGroup("Optie");	
+			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
+			 Lib.CloseDialogBox();
+			 Mylots.ExpandAGroup("Optie");
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product1,D.$bm_lot_status_option_cancelled));
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product2,D.$bm_lot_status_option_cancelled));
+			 Mylots.SelectAGroup("Optie");
+			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
+			 Lib.CloseDialogBox();
+			 Top.Logout();			 
+			 D.FAILURE_INDICATION = 0; 
+			 softAssert.assertAll();		     						 			 
+	  }	
+	  @Test(dependsOnMethods="optionRequestAccept")
+	  public void optionRequestReject() throws InterruptedException {			  
+		     SoftAssert softAssert = new SoftAssert();
+		     D.FAILURE_INDICATION = 1; 
 			 Top.Login(buyer,"Welkom01@1");	
 			 Exchange.GotoBuyerEchangePage();
 			 Exchange.SelectMedia(media);
@@ -53,57 +105,46 @@ public class C1Dev1002OptionRequestAcceptRejectADV {
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));
 			 Exchange.AddToMyLots(product2);
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
-
 			 Mylots.SetFilterOrderNotShow();
 			 Mylots.ClickApplyFilterButton();			 
-
 			 Mylots.SelectALot(product1);
 			 Mylots.SelectALot(product2);
 			 Lib.ClickButton(By.cssSelector(D.$bm_lot_option_icon));
 			 Mylots.BuyBidOptionConfirm(D.$bm_lot_option_confirm);       
-
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product1,D.$bm_lot_status_option_requested));
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product2,D.$bm_lot_status_option_requested));
-			 Top.Logout();  
-		 
+			 Mylots.ExpandAGroup("Optie");
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product1,D.$bm_lot_status_option_requested));
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product2,D.$bm_lot_status_option_requested));
+			 Top.Logout();  		 
 			 Top.Login(seller,"Welkom01@1");
-			 String menu = D.$Menu + D.$MenuExchange + ")]";
-			 Lib.ClickButton(By.xpath(menu));
-			 ExchangeP.SelectLeftMenu("Optie overzicht");
-			 ExchangeP.SelectRowOverViewTable(productP1);				 
-			 Lib.ClickButton(By.cssSelector(D.$p_option_approve));
-			 ExchangeP.AproveOption("1");		
-			 ExchangeP.SelectRowOverViewTable(productP2);
-			 Lib.ClickButton(By.cssSelector(D.$p_option_reject));
-			 ExchangeP.RejectOption();
+		 
+			 ExchangeP.GoToExchangePlatform();
+			 ExchangeP.ExpandANegotiationy("5.500,00");
+			 Lib.ClickButton(By.xpath(D.$p_negotiation_reject_button));
+			 Lib.CloseDialogBox();
 			 
 			 Top.Logout(); 
 
 			 Top.Login(buyer,"Welkom01@1");
-			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product1,D.$bm_lot_status_option));
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product2,D.$bm_lot_status_option_cancelled));
+			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 		
+			 Mylots.ExpandAGroup("Optie");
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product1,D.$bm_lot_status_option_cancelled));
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product2,D.$bm_lot_status_option_cancelled));
+	         
+			 Mylots.SelectAGroup("Optie");
+			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
+			 Lib.CloseDialogBox();
 
-			 
-			 Mylots.SelectALot(product1);
-			 Mylots.SelectALot(product2);
-			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
-			 Lib.CloseDialogBox();
-			 softAssert.assertTrue(Mylots.CheckLotStatus(product1,D.$bm_lot_status_option_cancelled));
-			 Mylots.SelectALot(product1);
-			 Lib.ClickButton(By.cssSelector(D.$bm_lot_delete_icon));
-			 Lib.CloseDialogBox();
-			 Top.Logout();
-			 Top.CloseBrowser();
-			 
+			 Top.Logout();			 
 			 D.FAILURE_INDICATION = 0; 
 			 softAssert.assertAll();		     						 			 
 	  }	
-	  @Test(dependsOnMethods="optionRequestAcceptReject")
+	  @Test(dependsOnMethods="optionRequestReject")
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(Lib.checkEmails("C1Dev1002OptionRequestAcceptRejectADV", 8), "emailCorrect");				
-			softAssert.assertAll(); 		  
+			softAssert.assertEquals(Lib.checkEmails("C1Dev1002OptionRequestAcceptRejectADV", 16), "emailCorrect");				
+			 
+			 D.FAILURE_INDICATION = 0; 
+			 softAssert.assertAll();			  
 	  }
 	  @AfterClass
 		public void stop() throws InterruptedException {

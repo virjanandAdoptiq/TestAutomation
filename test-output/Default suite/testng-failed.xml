@@ -3,7 +3,7 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="testcases.A1Dev1028UnitCreate"/>
+      <class name="testcases.Fa3Dev0000NegotiationPingPongNonBundleMB"/>
     </classes>
   </test> <!-- Default test -->
 </suite> <!-- Failed suite [Default suite] -->

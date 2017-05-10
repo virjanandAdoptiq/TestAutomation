@@ -36,19 +36,18 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 
       @Test(alwaysRun = true)
 	  public void AddInventoriesToMyLots() throws InterruptedException {	
-			Top.Login(Lib.MB,"Welkom01@1");
+			 Top.Login(Lib.MB,"Welkom01@1");
 		     			 
-		     //add inventory to MyLots
-			 Exchange.GotoBuyerEchangePage();
+			 Exchange.GotoBuyerEchangePageTileView();
 			 Exchange.SelectCampaign(Lib.CampaignADV);			 
-			 Exchange.EnterFromThroughDate(Lib.weekDay); //buyDay2 for BuyNow 2 no weekDay
-			// Exchange.SelectFormat("CD101V");
+			 Exchange.EnterFromThroughDate(Lib.weekDay); 
 			 Exchange.SelectMedia(Lib.BuyNow);
 			 Lib.ClickButton(By.cssSelector(D.$be_execute));		
+			 Exchange.ClickAMediaTile(Lib.BuyNow);
 			 Exchange.SelectAInventory(product1);
 			 Exchange.SelectAInventory(product2);
 			 Exchange.SelectAInventory(product3);
-			 Lib.ClickButton(By.cssSelector(D.$be_addAllSelectedToMyLots));
+			 Lib.ClickButton(By.cssSelector(D.$be_addAllSelectedToMyLotsTileView));
 	
 			 Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); //Go to My Lots
 			 //do not show orders
@@ -85,7 +84,7 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);
 			 
 			 Mylots.SelectMyLotsMenuItem(D.$ItemOrderOverview);   
-			 orders = Lib.SortOrders(Lib.GetTableContent(D.$b_orderoverview_table, 6, 12));  
+			 orders = Lib.SortOrders(Lib.GetTableContent(By.xpath(D.$b_orderoverview_table2), 6, 12));  
 			 Top.Logout(); 
       }
 	  @Test(dataProvider="inputdata", dependsOnMethods="SetBulkDealIdAndBuyAndGetOrderOverview")
@@ -126,16 +125,22 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 	  @Test(dependsOnMethods="checkOrderResults")
 	  public void setPricesByPublisher() throws InterruptedException{
 		    D.FAILURE_INDICATION = 3; //if test failed, logout and close browser
-		    //Get orders from MB
-			String menu = D.$Menu + D.$MenuExchange + ")]";
+
 			Top.Login(Lib.UG, "Welkom01@1");
-			Lib.ClickButton(By.xpath(menu));
-			ExchangeP.SelectLeftMenu(D.$p_exchange_left_orderOverview);
-			Lib.ClickButton(By.cssSelector(D.$p_orderoverview_privateSeat_tab));
+
+			ExchangeP.GoToExchangePlatform();
+			Lib.ClickButton(By.xpath(D.$p_negotiation_top_edit_icon));		
+			ExchangeP.SetPrivatePrice("30");
 			
-//			ExchangeP.SetPrivatePrice("CD101V - Pagina 2", "30");			
-			ExchangeP.SetPrivatePrice(productP2, "50");
-			ExchangeP.SetPrivatePrice(productP3, "40");
+			
+			ExchangeP.GoToExchangePlatform();
+			ExchangeP.ExpandANegotiationy("4.320,00");
+
+			Lib.ClickButton(By.xpath(D.$p_negotiation_top_edit_icon));
+			ExchangeP.SetPrivatePrice("40");
+			
+			Lib.ClickButton(By.xpath(D.$p_negotiation_top_edit_icon));
+			ExchangeP.SetPrivatePrice("40");
 			
 			Top.Logout();
 	  }
@@ -145,9 +150,8 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 			Top.Login(Lib.MB,"Welkom01@1");
 		     			 			 
 			 Mylots.SelectMyLotsMenuItem(D.$ItemOrderOverview);   //Go to OrderOverview
-			 orders = Lib.SortOrders(Lib.GetTableContent(D.$b_orderoverview_table, 6, 12));  //get all orders
-			 Top.Logout(); 
-			 Top.CloseBrowser();			 			     						 			 
+			 orders = Lib.SortOrders(Lib.GetTableContent(By.xpath(D.$b_orderoverview_table2), 6, 12));  //get all orders
+			 Top.Logout(); 		 			     						 			 
 	  }	
 	  @Test(dataProvider="inputdata2", dependsOnMethods="campaignMultipleBuyGetOrderOverview")
 	  public void checkFinalOrderResults(String pubDate, String media, String format, String page,
@@ -179,15 +183,17 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 	  public Object[][] inputdata2() {
 	    return new Object[][] { 
 //	      {Lib.buyDay2,Lib.BuyNow2,"CD101V - Pagina 2",Lib.ADV2,Lib.CampaignADV2,"3.500,00","Nee","0,00"},
-	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig liggend","Cover 3",Lib.ADV,Lib.CampaignADV,"2.160,00","Nee","0,00"},
+	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig liggend","Cover 3",Lib.ADV,Lib.CampaignADV,"2.592,00","Nee","0,00"},
 	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig staand","Cover 3",Lib.ADV,Lib.CampaignADV,"2.592,00","Nee","0,00"},
 	    };
 	  }
 	  @Test(dependsOnMethods="checkFinalOrderResults")
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(Lib.checkEmails("D4Dev1194BuyDealIDBulkDealIDMB", 10), "emailCorrect");				
-			softAssert.assertAll(); 		  
+			softAssert.assertEquals(Lib.checkEmails("D4Dev1194BuyDealIDBulkDealIDMB", 12), "emailCorrect");				
+			 
+			 D.FAILURE_INDICATION = 0; 
+			 softAssert.assertAll();			  
 	  }	 
 	  @AfterClass
 	  public void stop() throws InterruptedException{

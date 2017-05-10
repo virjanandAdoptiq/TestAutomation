@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import toplevel.D;
 import toplevel.Lib;
@@ -14,9 +15,38 @@ public class Exchange {
 		String menu = D.$Menu + D.$MenuExchange + ")]";
 		String item = D.$MenuLink + D.$ItemExchange + ")]";
 		Lib.SelectMenuLink(By.xpath(menu), By.xpath(item));
-	}	
+		SetListView();
+	}
+	public static void GotoBuyerEchangePageTileView() throws InterruptedException{	
+		String menu = D.$Menu + D.$MenuExchange + ")]";
+		String item = D.$MenuLink + D.$ItemExchange + ")]";
+		Lib.SelectMenuLink(By.xpath(menu), By.xpath(item));
+		SetTileView();
+	}
+	public static void SetListView() throws InterruptedException{	
+		if(D.driver.findElements(By.xpath(D.$be_Show_ListView_Button)).size() != 0){
+			Lib.ClickButton(By.xpath(D.$be_Show_ListView_Button));
+		}
+	}
+	public static void SetTileView() throws InterruptedException{	
+		if(D.driver.findElements(By.xpath(D.$be_Show_TileView_Button)).size() != 0){
+			Lib.ClickButton(By.xpath(D.$be_Show_TileView_Button));
+		}
+		
+	}
 	public static void SelectCampaign(String campaign) throws InterruptedException{	
 		Lib.SelectDropdownItem(By.cssSelector(D.$campaign), campaign);
+	}
+	public static void ClickAMediaTile(String mediaName) throws InterruptedException{	
+		String path = D.$be_media_tile_prefix + mediaName + D.$be_media_tile_suffix;
+		D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path)));
+		Thread.sleep(D.waitTime);
+		D.driver.findElement(By.xpath(path)).click();	
+		Thread.sleep(D.waitTime);
+		D.driver.findElement(By.xpath(path)).findElement(By.cssSelector(D.$be_media_tile_LookDetails_Button)).click();		
+		Thread.sleep(D.waitTime);
+		D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
+//		Lib.ClickContextSensitiveItem(By.xpath(path), By.cssSelector(D.$be_media_tile_LookDetails_Button));
 	}
 //Select filter
 	public static void SelectPhase(String phase) throws InterruptedException{	
@@ -56,7 +86,7 @@ public class Exchange {
 		Lib.SelectDropdownItem(By.xpath(D.$be_filter_weekday), wDay);
     }
 	public static void SelectCategory(String cat) throws InterruptedException{	
-		String path = D.$be_medium_format_prefix + "Categorie" + D.$be_medium_format_suffix;
+		String path = D.$be_medium_format_prefix + "Contextueel" + D.$be_medium_format_suffix;
 		String item = D.$be_filter_check_box + cat +"')]";
 		Lib.SelectMenuLink(By.xpath(path), By.xpath(item));
 		Lib.ClickAway();
@@ -108,6 +138,11 @@ public class Exchange {
 	public static String GetAInventoryPrice(String product, String name) throws InterruptedException{	
 		String path = D.$be_inventory_row_prefix + product + D.$be_inventory_row_suffix;
 		return D.driver.findElement(By.xpath(path)).findElement(By.cssSelector(name)).getText().replace("€", "").replaceAll("\\s","");
+	}
+	public static void FindAMediaWithPercentage(String mediaName, String percentage) throws InterruptedException{	
+		String path = "//span[text()='" + mediaName + "']/../../..//span[text()='" + percentage + "']";
+		
+		Lib.FindElement(By.xpath(path));
 	}
 	
 	//private offers
