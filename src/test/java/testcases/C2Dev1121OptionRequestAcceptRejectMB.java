@@ -108,7 +108,7 @@ public class C2Dev1121OptionRequestAcceptRejectMB {
 	  @Test(dependsOnMethods="optionRequestAcceptReject")
 	  public static void checkEmail() throws InterruptedException{		  
 			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(Lib.checkEmails("C2Dev1121OptionRequestAcceptRejectMB", 11), "emailCorrect");				
+			softAssert.assertEquals(Lib.checkEmails("C2Dev1121OptionRequestAcceptRejectMB", 12), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }

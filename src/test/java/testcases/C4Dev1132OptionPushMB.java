@@ -14,6 +14,7 @@ import org.testng.asserts.SoftAssert;
 
 import advertiser.Exchange;
 import advertiser.Mylots;
+import advertiser.PersonalOffer;
 import publisher.ExchangeP;
 import publisher.Media;
 import toplevel.D;
@@ -66,7 +67,7 @@ public class C4Dev1132OptionPushMB {
 			 ExchangeP.SelectRowOverViewTable(product1);
 			 ExchangeP.SelectRowOverViewTable(product2);
 			 Lib.ClickButton(By.cssSelector(D.$p_option_push));
-			 Media.PushOption(buyer, ad, "1", ad + "1", price);
+			 Media.PushOptionMultiple(buyer, ad, "1", ad + "1", price);
 			 Top.Logout(); 
 	
 	  }	 
@@ -76,17 +77,16 @@ public class C4Dev1132OptionPushMB {
 	      {Lib.Res,Lib.MB,Lib.ADV,Lib.BuyNow,Lib.buyDay3,"200", "CD102VL - Cover 3","CD102VS - Cover 3"},
 	    };
 	  }				 
-//MB reacts to the offer
+
 	  @Test(dataProvider="inputdata2",dependsOnMethods="optionMultiplePush", alwaysRun = true)
 	  public void notificationNoCampaignDeselect(String prod11,String prod12,String prod21,String prod22) throws InterruptedException{		  
 			 Top.Login(Lib.MB,"Welkom01@1");
-			 Exchange.ClickOfferNotification();
+			 Exchange.GoToPersonalOffer();
 			 Exchange.SelectCampaign("");
-			 Exchange.SelectAInventory(prod11);
-			 Exchange.SelectAInventory(prod12);
-			 Exchange.SelectAInventory(prod21);
-			 Exchange.SelectAInventory(prod22);
-			 Lib.ClickButton(By.xpath(D.$be_inventory_deselect_all));
+			 PersonalOffer.SelectAGroupOfOffers("€ 200,00");
+			 PersonalOffer.SelectAGroupOfOffers("€ 400,00");
+			 PersonalOffer.SelectAGroupOfOffers("€ 300,00");
+			 Lib.ClickButton(By.xpath(D.$img_deselect_all));
 
 	  }
 	  @DataProvider
@@ -98,11 +98,12 @@ public class C4Dev1132OptionPushMB {
 	  
 	  @Test(dataProvider="inputdata3",dependsOnMethods="notificationNoCampaignDeselect", alwaysRun = true)
 	  public void deletAnOffer(String product) throws InterruptedException{
+		  PersonalOffer.ExpandAGroupOfOffers("€ 200,00");
 		  Exchange.SelectAInventory(product);
 		  Lib.ClickButton(By.cssSelector(D.$be_offer_delete));
 		  
-		  D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(D.$Doorgaan_Button)));
-		  Lib.ClickButton(By.xpath(D.$Doorgaan_Button));
+		//  D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(D.$Doorgaan_Button)));
+		//  Lib.ClickButton(By.xpath(D.$Doorgaan_Button));
 		  
 
 	  }
@@ -113,11 +114,11 @@ public class C4Dev1132OptionPushMB {
 	    };
 	  }
 	  @Test(dataProvider="inputdata4",dependsOnMethods="deletAnOffer", alwaysRun = true)
-	  public void campaignAddAll(String campaign,String prod1, String prod2) throws InterruptedException{
+	  public void campaignAddAll(String campaign,String price1, String price2) throws InterruptedException{
 		  		  
 		  Exchange.SelectCampaign(campaign);
-		  Exchange.SelectAInventory(prod1);
-		  Exchange.SelectAInventory(prod2);
+		  PersonalOffer.SelectAGroupOfOffers(price1);
+		  PersonalOffer.SelectAGroupOfOffers(price2);
 		  Lib.ClickButton(By.xpath(D.$be_inventory_add_all));
 
 		  D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(D.$OK_Button)));
@@ -127,13 +128,14 @@ public class C4Dev1132OptionPushMB {
 	  @DataProvider
 	  public Object[][] inputdata4() {
 	    return new Object[][] { 
-          {Lib.CampaignADV2,D.VoorpaginaFullPage,D.Pagina3HalfLying},
+          {Lib.CampaignADV2,"€ 400,00","€ 300,00"},
 	    };
 	  }
 	  @Test(dataProvider="inputdata5",dependsOnMethods="campaignAddAll", alwaysRun = true)
-	  public void campaignAddOne(String camp,String product) throws InterruptedException{
+	  public void campaignAddOne(String camp,String price, String product) throws InterruptedException{
 		  
 		  Exchange.SelectCampaign(camp);
+		  PersonalOffer.ExpandAGroupOfOffers(price);
 		  Exchange.AddToMyLots(product);    
 		  D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(D.$OK_Button)));
 		  Lib.CloseDialogBox();
@@ -142,7 +144,7 @@ public class C4Dev1132OptionPushMB {
 	  @DataProvider
 	  public Object[][] inputdata5() {
 	    return new Object[][] { 
-          {Lib.CampaignADV,D.Cover3HalfLying},
+          {Lib.CampaignADV,"€ 100,00",D.Cover3HalfLying},
 	    };
 	  }
 	  @Test(dependsOnMethods="campaignAddOne", alwaysRun = true)
@@ -178,7 +180,7 @@ public class C4Dev1132OptionPushMB {
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
 			Thread.sleep(D.waitTime * 4);
-			softAssert.assertEquals(Lib.checkEmails("C4Dev1132OptionPushMB", 13), "emailCorrect");				
+			softAssert.assertEquals(Lib.checkEmails("C4Dev1132OptionPushMB", 14), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }

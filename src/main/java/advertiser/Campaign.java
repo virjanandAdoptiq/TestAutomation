@@ -31,4 +31,8 @@ public class Campaign {
 		Lib.SelectDropdownItem(By.xpath(D.$bc_characteristic_type_list), type);
 		Lib.SendSpecialKey(Keys.ENTER);
 	}
+	public static void Media_filter_Characteristics_select_type(String type) throws InterruptedException{	
+		Lib.SelectDropdownItem(By.xpath(D.$media_filter_characteristic_type_list), type);
+		Lib.SendSpecialKey(Keys.ENTER);
+	}
 }

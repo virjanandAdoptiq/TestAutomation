@@ -84,7 +84,7 @@ public class Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject {
 		     Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
 		     Mylots.ExpandAGroup("Onderhandeling");
 	
-			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product1, D.$bm_lot_status_order));
+			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product1, D.$bm_lot_status_negotiate_accepted));
 			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product2, D.$bm_lot_status_negotiateCounterOffer));
 			 softAssert.assertTrue(Mylots.CheckGroupLotStatus(product3, D.$bm_lot_status_negotiationCancelled));
 				

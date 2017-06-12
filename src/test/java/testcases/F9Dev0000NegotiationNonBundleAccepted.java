@@ -65,11 +65,24 @@ public class F9Dev0000NegotiationNonBundleAccepted {
 			 
 			 Top.Logout();
 	  }	
-
-	  
 	  @Test(dependsOnMethods="UGAcceptIt")
+      public void MBBuyIt() throws InterruptedException {	
+		    Top.Login(Lib.MB,"Welkom01@1");
+		     Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
+		     Mylots.ExpandAGroup("888,00");
+		     SoftAssert softAssert = new SoftAssert();	
+		     softAssert.assertTrue(Mylots.CheckGroupLotStatus(product1, D.$bm_lot_status_negotiate_accepted));
+		     softAssert.assertTrue(Mylots.CheckGroupLotStatus(product2, D.$bm_lot_status_negotiate_accepted));
+		     Mylots.SelectAGroup("888,00");
+		     Lib.ClickButton(By.cssSelector(D.$bm_lot_buy_icon));
+			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);
+			 
+			 D.FAILURE_INDICATION = 0; 
+			 softAssert.assertAll();
+	  }	
+	  
+	  @Test(dependsOnMethods="MBBuyIt")
 	  public void CheckNegotiationOverview() throws InterruptedException {
-		     Top.Login(Lib.MB,"Welkom01@1");
 		     SoftAssert softAssert = new SoftAssert();		     
 		     Mylots.SelectMyLotsMenuItem(D.$ItemOrderOverview);
 		     Lib.ClickButton(By.xpath(D.$b_negotiation_overview_tab));
@@ -125,7 +138,7 @@ public class F9Dev0000NegotiationNonBundleAccepted {
 	  @Test(dependsOnMethods="CheckOrderPriceIsNegotiationPrice")
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(Lib.checkEmails("F9Dev0000NegotiationNonBundleAccepted", 5), "emailCorrect");				
+			softAssert.assertEquals(Lib.checkEmails("F9Dev0000NegotiationNonBundleAccepted", 9), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }	 

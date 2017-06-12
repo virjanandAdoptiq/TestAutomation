@@ -80,8 +80,20 @@ public class F4Dev0000NegotiationSingleAccepted {
 		     softAssert.assertTrue(result, "price=1.111,00 and status=Goedgekeurd is not in negotiation overview");
 			 D.FAILURE_INDICATION = 0; 
 			 softAssert.assertAll();			 
+	  }	
+	  @Test(dependsOnMethods="CheckNegotiationOverview")  
+	  public void BuyIt() throws InterruptedException {
+		     SoftAssert softAssert = new SoftAssert();		
+		     Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
+		     softAssert.assertTrue(Mylots.CheckLotStatus(product, D.$bm_lot_status_negotiate_accepted));
+		     Mylots.SelectALot(product);
+		     Lib.ClickButton(By.cssSelector(D.$bm_lot_buy_icon));
+			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);
+		     
+		     D.FAILURE_INDICATION = 0; 
+			 softAssert.assertAll();			 
 	  }	 
-	  @Test(dependsOnMethods="CheckNegotiationOverview")
+	  @Test(dependsOnMethods="BuyIt")
 	  public void CheckOrderPriceIsNegotiationPrice() throws InterruptedException {
 		    SoftAssert softAssert = new SoftAssert();		     
 		    Mylots.SelectMyLotsMenuItem(D.$ItemOrderOverview);   

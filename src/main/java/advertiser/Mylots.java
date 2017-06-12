@@ -230,7 +230,7 @@ public class Mylots {
 	public static void NegotiationPingPongPrice(String price) throws InterruptedException{	
 		Lib.InputData(price, By.xpath(D.$bm_lot_negotiation_proposed_price));
 		Lib.SendSpecialKey(Keys.TAB);
-		Lib.ClickButton(By.xpath(D.$bm_lot_negotiation_Negotiation_Button));
+		Lib.ClickButton(By.xpath(D.$bm_lot_negotiation_pingpong_negotiation_Button));
 		Lib.CloseDialogBox();
 	}
 	public static void NegotiationDraft(String price) throws InterruptedException{	

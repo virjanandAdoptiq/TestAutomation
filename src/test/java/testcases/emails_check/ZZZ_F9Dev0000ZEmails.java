@@ -10,7 +10,7 @@ public class ZZZ_F9Dev0000ZEmails {
 	  public void test() throws InterruptedException{
 		  SoftAssert softAssert = new SoftAssert();
 
-		  softAssert.assertEquals(Lib.checkEmails("F9Dev0000NegotiationNonBundleAccepted", 5), "emailCorrect");
+		  softAssert.assertEquals(Lib.checkEmails("F9Dev0000NegotiationNonBundleAccepted", 9), "emailCorrect");
 			
 		  softAssert.assertAll(); 
 	  }

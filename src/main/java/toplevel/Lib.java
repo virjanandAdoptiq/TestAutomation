@@ -414,6 +414,18 @@ public class Lib {
 		            }
 		            
 		            if(numberOfEmails < maxLine){
+			            store.close();
+		            	Thread.sleep(D.waitTime * 10);
+		            	session = Session.getInstance(props, null);
+				        store = session.getStore();
+		            	store.connect("imap.gmail.com", D.EMAIL, D.EmailPass);
+			            inbox = store.getFolder("INBOX");
+			            inbox.open(Folder.READ_ONLY);
+			            numberOfEmails = inbox.getMessageCount();
+			            System.out.println(numberOfEmails);
+		            }
+		            
+		            if(numberOfEmails < maxLine){
 		            	actualMails[0] = "NumberOfEmailIsSmaller";
 		            	return actualMails;
 		            }
@@ -503,6 +515,19 @@ public class Lib {
 	            }
 	       
 	  }
+		public static String getPasswordResetEmailHttp() throws InterruptedException{
+			String[] actualMails = getMailsFromInbox(1);
+			if(actualMails[0].equalsIgnoreCase("NumberOfEmailIsSmaller") || actualMails[0].equalsIgnoreCase("NumberOfEmailIsBigger")) {
+			     return actualMails[0];
+			}
+			System.out.println(actualMails[0].toString());
+			int httpStarts = actualMails[0].indexOf("http");
+			int httpEnds = actualMails[0].indexOf("Ifyoudidnotreques");
+			return actualMails[0].substring(httpStarts, httpEnds);
+//			return actualMails[0].toString().startsWith("DEVTEST: Please confirm your password reset");
+ 
+	 } 
+		    
 		
 		public static String getFromClipboard() throws UnsupportedFlavorException, IOException{
 			Toolkit toolkit = Toolkit.getDefaultToolkit();

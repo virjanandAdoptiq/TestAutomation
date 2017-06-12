@@ -62,7 +62,7 @@ public class E4Dev1525BulkBidMB {
 	  @Test(dependsOnMethods="AddToMyLotsAndBid")
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(Lib.checkEmails("E4Dev1525BulkBidMB", 6), "emailCorrect");				
+			softAssert.assertEquals(Lib.checkEmails("E4Dev1525BulkBidMB", 4), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }	 		     						 			 

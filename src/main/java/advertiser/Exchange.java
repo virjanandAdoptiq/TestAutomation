@@ -53,7 +53,10 @@ public class Exchange {
 		Lib.SelectDropdownItem(By.xpath(D.$be_filter_phase), phase);
 	}
 	public static void SelectMediaType(String type) throws InterruptedException{
-		Lib.SelectDropdownItem(By.xpath(D.$be_filter_mediatype), type);
+		//Lib.SelectDropdownItem(By.xpath(D.$be_filter_mediatype), type);
+		String item = D.$be_filter_check_box + type +"')]";
+		Lib.SelectMenuLink(By.xpath(D.$be_filter_mediatype), By.xpath(item));
+		Lib.ClickAway();
 	}
 	public static void SelectSaleOrg(String saleOrg) throws InterruptedException{	
 		String path = D.$be_medium_format_prefix + "Verk.organisatie" + D.$be_medium_format_suffix;
@@ -146,8 +149,11 @@ public class Exchange {
 	}
 	
 	//private offers
-	public static void ClickOfferNotification() throws InterruptedException{
-		Lib.ClickButton(By.xpath(D.$be_offer_notification));
+	public static void GoToPersonalOffer() throws InterruptedException{
+		//Lib.ClickButton(By.xpath(D.$be_offer_notification));
+		String menu = D.$Menu + D.$MenuExchange + ")]";
+		String item = D.$MenuLink + D.$ItemPersonalOffer + ")]";
+		Lib.SelectMenuLink(By.xpath(menu), By.xpath(item));
 	}
 	//public offer
 	public static void SelectAnOffer(String name) throws InterruptedException{	

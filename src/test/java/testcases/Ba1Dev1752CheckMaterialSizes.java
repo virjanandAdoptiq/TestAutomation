@@ -68,7 +68,7 @@ public class Ba1Dev1752CheckMaterialSizes {
 	  @DataProvider
 		public Object[][] inputData() {
 		return new Object[][] { 	
-			{product1,"266","398","",""},
+			{product1,"266","398","5","5"},
 			{product2,"266","190","",""},
 			{product3,"158","330","",""},
 			};

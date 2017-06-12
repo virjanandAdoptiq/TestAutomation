@@ -15,6 +15,19 @@ public class Media {
 		 Lib.SelectMenuLink(By.xpath(menu), By.xpath(item));
 	}
 	public static void PushOption(String mb, String ad, String days, String dealID, String price) throws InterruptedException{		
+		Lib.InputData(days, By.xpath(D.$p_option_details_deadLine_days));
+		Lib.InputData(price, By.xpath(D.$p_option_details_price));		
+		Lib.InputData(dealID, By.xpath(D.$p_option_details_dealid));		
+		Lib.ClickButton(By.xpath(D.$p_option_details_mb_button));
+		Lib.InputData(Lib.credential, By.xpath(D.$p_option_details_org_input));
+		Lib.ClickButton(By.xpath(D.$p_option_details_org_search_execute));
+		Lib.ClickButton(By.xpath(D.$p_option_details_org_ad_select + mb + "']"));
+		Lib.ClickButton(By.xpath(D.$p_option_details_org_choose_button));		
+		Lib.SelectDropdownItem(By.xpath(D.$p_option_details_ad), ad);
+		Lib.ClickButton(By.xpath(D.$p_private_offer_save));
+		Lib.CloseDialogBox();
+	}	
+	public static void PushOptionMultiple(String mb, String ad, String days, String dealID, String price) throws InterruptedException{		
 		Lib.InputData(days, By.xpath(D.$p_option_multi_details_deadLine_days));
 		Lib.InputData(price, By.xpath(D.$p_option_multi_details_price));		
 		Lib.InputData(dealID, By.xpath(D.$p_option_multi_details_dealid));		
@@ -26,12 +39,12 @@ public class Media {
 		Lib.SelectDropdownItem(By.xpath(D.$p_option_multi_details_ad), ad);
 		Lib.ClickButton(By.xpath(D.$p_private_offer_save));
 		Lib.CloseDialogBox();
-	}		
+	}
 	public static void PushOptionToADVOnly(String ad, String days, String dealID, String price) throws InterruptedException{
-    	Lib.InputData(days, By.xpath(D.$p_option_multi_details_deadLine_days));
-		Lib.InputData(price, By.xpath(D.$p_option_multi_details_price));		
-		Lib.InputData(dealID, By.xpath(D.$p_option_multi_details_dealid));		
-		Lib.ClickButton(By.xpath(D.$p_option_multi_details_mb_button));
+		Lib.InputData(days, By.xpath(D.$p_option_details_deadLine_days));
+		Lib.InputData(price, By.xpath(D.$p_option_details_price));		
+		Lib.InputData(dealID, By.xpath(D.$p_option_details_dealid));		
+		Lib.ClickButton(By.xpath(D.$p_option_details_mb_button));
 		Lib.InputData(Lib.credential, By.xpath(D.$p_option_details_org_input));
 		Lib.ClickButton(By.xpath(D.$p_option_details_org_search_execute));
 		Lib.ClickButton(By.xpath(D.$p_option_details_org_ad_select + ad + "']"));

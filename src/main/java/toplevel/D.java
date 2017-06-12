@@ -47,13 +47,20 @@ public class D {
     public static String $img_delete = "//img[contains(@src,'System$Remove.png')]";
     public static String $img_save = "//img[contains(@src,'System$Save.png')]";
     public static String $img_select = "//img[contains(@src,'System$Select.png')]";
+    public static String $img_deselect_all = "//img[contains(@src,'System$DeselectAll.png')]";
     public static String $img_edit = "//img[contains(@src,'System$Edit.png')]";
     public static String $img_select_all = "//img[contains(@src,'System$SelectAll.png')]";
+    public static String $img_email_send = "//img[contains(@src,'Administration$mail_send.png')]";
+    public static String $img_change_password ="//img[contains(@src,'System$key_go.png')]";
    	//----login page and account
     public static String $forgot_password_link = "//a[text()='Forgot password?']";
-    public static String $forgot_password_email = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div/div/div[2]/div/input";
-    public static String $forgot_password_send_button = ".mx-name-microflowButton";
-	public static String $username = ".username";
+    public static String $forgot_password_username = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div/div/div[2]/div[1]/div/input";
+    public static String $forgot_password_email = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div/div/div[2]/div[2]/div/input";
+    public static String $forgot_password_new_password = "//html/body/div[2]/div[1]/div[2]/div/div/div[1]/div[1]/div/input";
+    public static String $forgot_password_new_password_confirm = "//html/body/div[2]/div[1]/div[2]/div/div/div[1]/div[2]/div/input";
+    public static String $forgot_password_new_password_send ="//html/body/div[2]/div[1]/div[2]/div/div/div[2]/button";
+    
+    public static String $username = ".username";
 	public static String $password = ".password";
 	public static String $signin = ".btn-warning";
 	public static String $signout = ".mx-name-signOutButton";
@@ -83,6 +90,7 @@ public class D {
     public static String $ItemExchange = "'Exchange'";
     public static String $ItemMedia = "' Media'";
     public static String $ItemMyLots = "' Mijn kavels'";
+    public static String $ItemPersonalOffer = "' Persoonlijke aanbiedingen'";
     public static String $ItemOptionOverview = "'Optie overzicht'";
     public static String $ItemOrderOverview = "'Orderoverzicht'";
     public static String $ItemPOrderOverview = "' Orderoverzicht'";
@@ -107,11 +115,19 @@ public class D {
 //    public static String $MyAccount_Email_Negotiation = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[3]/td/div/ul/li[5]/a";
 //    public static String $MyAccount_Email_DailyOverView = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[3]/td/div/ul/li[6]/a";
 //    public static String $MyAccount_Email_Checkbox = "//input[@type='checkbox']";
- 
+    public static String $MyAccountOldPassword = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[4]/td[1]/div/input";
+    public static String $MyAccountNewPassword = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[5]/td[1]/div/input";
+    public static String $MyAccountRepeatPassword = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[6]/td[1]/div/input";
+    public static String $MyAccountResetPasswordSave = "html/body/div[3]/div[1]/div[2]/div/div/div[2]/button[1]";
+    
     //---Media filter search form
     public static String $media_filter_publisher = "//label[text()='Uitgever']/../following-sibling::td/div/input";
     public static String $media_filter_title = "//label[text()='Titel']/../following-sibling::td/div/input";
     public static String $media_filter_execute = "//div[contains(@class, 'modal-dialog')]//button[text()='Uitvoeren']";
+    public static String $media_filter_goto_characteristics = "//html/body/div[3]/div[1]/div[2]/div/div/div/table[2]/tbody/tr[4]/td/div/button";
+    public static String $media_filter_characteristic_type_list ="//html/body/div[5]/div[1]/div[2]/div/div/div[1]/div[2]/div[1]/div[2]/select";
+    public static String $media_filter_characteristic_first_one = "//html/body/div[5]/div[1]/div[2]/div/div/div[3]/div/table[2]/tbody/tr[1]/td[2]/div";
+    
     //---buyer exchange
     public static String $be_Show_ListView_Button = "//button[text()='Toon kavels']";
     public static String $be_Show_TileView_Button = "//button[text()='Toon titels']";
@@ -124,7 +140,7 @@ public class D {
     public static String $be_addAllSelectedToMyLotsTileView = "button.mx-name-actionButton21";
     //Exchange filters
     public static String $be_filter_phase = "//tr[1]/td/div/select"; 
-    public static String $be_filter_mediatype = "//tr[2]/td/div/select"; 
+    public static String $be_filter_mediatype = "//tr[2]/td/div/div/div/button"; 
     public static String $be_filter_frequency = "//tr[12]/td/div/select"; 
     public static String $be_filter_positionname = "//tr[6]/td/div/input";
     public static String $be_filter_weekday = "//tr[11]/td/div/select"; 
@@ -145,7 +161,7 @@ public class D {
     public static String $be_inventory_row_suffix = "']/ancestor::table[contains(@class, 'int-table-to-datagrid')]/tbody/tr[1]";
     public static String $be_addToMyLots = "button.mx-name-actionButton3";
     public static String $be_inventory_deselect_all = "//html/body/div[1]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr[1]/td/div/div[2]/div[2]/button[1]";
-    public static String $be_inventory_add_all = "//html/body/div[1]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr[1]/td/div/div[2]/div[2]/button[2]";
+    public static String $be_inventory_add_all = "//html/body/div[1]/div/div/div/div[2]/div/div/div[2]/div/div/div/div/div/div/div/table/tbody/tr/td/div/div[2]/div[2]/button[2]";
     public static String $be_inventory_duplication_add_all = "//button[text()='Alle geselecteerde items toevoegen']";
     public static String $be_inventory_duplication_add_one = "//html/body/div[3]/div[1]/div[2]/div/div/div[2]/button[1]";
     
@@ -159,6 +175,9 @@ public class D {
     //Exchange offer page
     public static String $be_offer_notification = "//img[contains(@src,'Layouts$private_offer_on.png')]";    
     public static String $be_offer_delete = ".mx-name-actionButton6";
+    public static String $be_offer_group_prefix = "//table[contains(@class, 'mx-table mx-name-table1')]/tbody//*[normalize-space(.)= '";   
+    public static String $be_offer_group_suffix = "']/ancestor::table[contains(@class, 'mx-table mx-name-table1')]/tbody/tr[1]";
+
     //----buyer My Lots
     public static String $bm_backToMedia_Button = "//img[contains(@src,'Administration$arrow_180.png')]";
     public static String $bm_lot_row_prefix = "//li//*[contains(normalize-space(.), '";
@@ -216,6 +235,8 @@ public class D {
     public static String $bm_lot_negotiation_Negotiation_Button = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div[1]/table/tbody/tr[6]/td/button";
     public static String $bm_lot_negotiation_SaveDraft = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div[1]/table/tbody/tr[7]/td/button";
     public static String $bm_lot_negotiation_draft_confirm_save = "//html/body/div[5]/div[1]/div[3]/button[1]";
+    public static String $bm_lot_negotiation_pingpong_negotiation_Button = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div[1]/table/tbody/tr[7]/td/button";
+
     //Lot conflicting poposup
     public static String $bm_lot_conflicting_popup_close_button = "//html/body/div[3]/div[1]/div[1]/button";
     
@@ -239,7 +260,7 @@ public class D {
     public static String $bm_lot_status_negotiationCancelled = "//img[contains(@src,'Exchange$Exchange_status_onderhandel_cancel.png')]";
     public static String $bm_lot_status_negotiateCounterOffer = "//img[contains(@src,'Exchange$Exchange_Exchange_status_onderhandel_reactie.jpg')]";
     public static String $bm_lot_status_negotiateDraft = "//img[contains(@src,'Exchange$Exchange_Exchange_status_onderhandel_pending.jpg')]";
-
+    public static String $bm_lot_status_negotiate_accepted = "//img[contains(@src,'Exchange$Exchange_status_onderhandel_akkoord.png')]";
     //--- Buy,Option, bid lot form
     public static String $bm_lot_exceed_price_confirm = ".modal-dialog .btn-primary";
     public static String $bm_lot_buy_confirm = ".modal-dialog .btn-primary";
@@ -330,13 +351,19 @@ public class D {
     public static String $p_option_details_org_choose_button = "//html/body//div[1]/div[2]/div/div/div/div/div/div/div/div/div[2]/div[2]/button[2]";
     public static String $p_option_details_org_ad_select = "//html/body//div[1]/div[2]/div/div/div/div/div/div/div/div/div[3]/div/table[2]/tbody//div[text()='";
 
-    public static String $p_option_multi_details_deadLine_days = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[4]/td/div/input";
-    public static String $p_option_multi_details_price = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[5]/td/div/input";
-    public static String $p_option_multi_details_dealid = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[2]/td/div/input";
-    public static String $p_option_multi_details_mb_button = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[3]/td/div/button";
-    public static String $p_option_multi_details_ad = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[4]/td/div/div/select";
+    public static String $p_option_details_deadLine_days = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[4]/td/div/input";
+    public static String $p_option_details_price = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[5]/td/div/input";
+    public static String $p_option_details_dealid = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[2]/td/div/input";
+    public static String $p_option_details_mb_button = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[3]/td/div/button";
+    public static String $p_option_details_ad = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[4]/td/div/div/select";
     public static String $p_private_offer_save = "//img[contains(@src,'https://adoptiq100-test.mendixcloud.com/img/XLSReport$icnSend.gif')]";
 
+    public static String $p_option_multi_details_deadLine_days = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[5]/td/div/input";
+    public static String $p_option_multi_details_price = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[6]/td/div/input";
+    public static String $p_option_multi_details_dealid = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[2]/td/div/input";
+    public static String $p_option_multi_details_mb_button = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[4]/td/div/button";
+    public static String $p_option_multi_details_ad = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[5]/td/div/div/select";
+    public static String $p_option_multi_package_yes = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[3]/td/div/div/label[1]";
     
     public static String $p_overview_underbid = "//a[text()='Onderbiedingen']";
     public static String $p_underbid_accept = "//button[text()='Accepteer bod']";

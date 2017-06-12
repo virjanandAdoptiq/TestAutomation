@@ -13,28 +13,4 @@
       <class name="testcases.A1Dev1028UnitCreate"/>
     </classes>
   </test> <!-- GRP-A1,A2 -->
-  <test name="GRP-A1,A2(failed)">
-    <groups>
-      <run>
-        <include name="A1"/>
-        <include name="A2"/>
-      </run>
-    </groups>
-    <classes>
-      <class name="testcases.A1Dev1028UnitCreate">
-        <methods>
-          <include name="start"/>
-          <include name="CreateData"/>
-          <include name="stop"/>
-        </methods>
-      </class> <!-- testcases.A1Dev1028UnitCreate -->
-      <class name="testcases.A2Dev1072LoginFirstTime">
-        <methods>
-          <include name="start"/>
-          <include name="logInChangePass"/>
-          <include name="stop"/>
-        </methods>
-      </class> <!-- testcases.A2Dev1072LoginFirstTime -->
-    </classes>
-  </test> <!-- GRP-A1,A2(failed) -->
 </suite> <!-- Failed suite [myMvnPro by groups] -->

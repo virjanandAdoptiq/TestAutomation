@@ -9,7 +9,7 @@ public class ZZZ_C4Dev1132ZEmails {
 	@Test
 	  public void test() throws InterruptedException{
 		  SoftAssert softAssert = new SoftAssert();
-		  softAssert.assertEquals(Lib.checkEmails("C4Dev1132OptionPushMB", 13), "emailCorrect");			
+		  softAssert.assertEquals(Lib.checkEmails("C4Dev1132OptionPushMB", 14), "emailCorrect");			
 		  softAssert.assertAll(); 
 	  }
 }

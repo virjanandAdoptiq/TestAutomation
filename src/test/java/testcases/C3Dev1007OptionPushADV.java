@@ -10,6 +10,7 @@ import org.testng.asserts.SoftAssert;
 
 import advertiser.Exchange;
 import advertiser.Mylots;
+import advertiser.PersonalOffer;
 import publisher.ExchangeP;
 import publisher.Media;
 import toplevel.D;
@@ -47,7 +48,8 @@ public class C3Dev1007OptionPushADV {
 	  @Test(dependsOnMethods="optionPush", alwaysRun = true)
 	  public void offerScreen() throws InterruptedException{		  
 		  Top.Login(Lib.ADV,"Welkom01@1");
-		  Exchange.ClickOfferNotification();
+		  Exchange.GoToPersonalOffer();
+		  PersonalOffer.ExpandAGroupOfOffers("€ 123,00");
 		  Exchange.SelectAInventory(product);
 		  Lib.ClickButton(By.xpath(D.$be_inventory_add_all));
 		  D.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(D.$OK_Button)));
@@ -74,7 +76,7 @@ public class C3Dev1007OptionPushADV {
 	  @Test(dependsOnMethods="offerScreen")
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(Lib.checkEmails("C3Dev1007OptionPushADV", 2), "emailCorrect");				
+			softAssert.assertEquals(Lib.checkEmails("C3Dev1007OptionPushADV", 3), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }

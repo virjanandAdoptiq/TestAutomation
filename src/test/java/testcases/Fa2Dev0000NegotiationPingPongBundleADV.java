@@ -108,9 +108,16 @@ public class Fa2Dev0000NegotiationPingPongBundleADV {
 			 Top.Logout();
 	  }	
 	  @Test(dependsOnMethods="Res2AcceptIt")
+	  public void ADVBuytIt() throws InterruptedException {	
+		     Top.Login(Lib.ADV,"Welkom01@1");
+		     Mylots.SelectMyLotsMenuItem(D.$ItemMyLots); 
+		     Mylots.SelectAGroup("4.300,00");
+		     Lib.ClickButton(By.cssSelector(D.$bm_lot_buy_icon));
+			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);
+	  }	
+	  @Test(dependsOnMethods="ADVBuytIt")
 	  public void CheckNegotiationOverview() throws InterruptedException {  
 		     SoftAssert softAssert = new SoftAssert();	
-		     Top.Login(Lib.ADV,"Welkom01@1");
 		     Mylots.SelectMyLotsMenuItem(D.$ItemOrderOverview);
 		     Lib.ClickButton(By.xpath(D.$b_negotiation_overview_tab));
 		     String[][] orders = Lib.SortOrders(Lib.GetTableContent(By.xpath(D.$b_negotiationoverview_table), 6, 12));
@@ -180,7 +187,7 @@ public class Fa2Dev0000NegotiationPingPongBundleADV {
 	  @Test(dependsOnMethods="CheckOrderPriceIsNegotiationPrice")
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(Lib.checkEmails("Fa2Dev0000NegotiationPingPongBundleADV", 11), "emailCorrect");				
+			softAssert.assertEquals(Lib.checkEmails("Fa2Dev0000NegotiationPingPongBundleADV", 31), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }	 

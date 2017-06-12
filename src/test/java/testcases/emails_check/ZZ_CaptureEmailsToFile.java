@@ -19,7 +19,7 @@ public class ZZ_CaptureEmailsToFile {
 	@Test
     public static void email() throws FileNotFoundException, UnsupportedEncodingException {
 		
-		PrintWriter writer = new PrintWriter("./test-output/emails/C4Dev1132OptionPushMB.txt", "UTF-8");
+		PrintWriter writer = new PrintWriter("./test-output/emails/Fa2Dev0000NegotiationPingPongBundleADV.txt", "UTF-8");
 				
 		String[] mails = new String[200];
 		String credential = Lib.credential;

@@ -27,10 +27,10 @@ public class D6Dev1522BuyPlusPMB {
       
       @BeforeClass
 	  public void start() throws InterruptedException{
-//	        Lib.deleteAllMailsFromInbox();
+	        Lib.deleteAllMailsFromInbox();
 			Top.StartBroswer();
 	  }
-/*      @Test(alwaysRun = true)
+      @Test(alwaysRun = true)
 	  public void AddInventoriesToMyLots() throws InterruptedException {	
 			 Top.Login(Lib.MB,"Welkom01@1");
 		     			 
@@ -88,7 +88,7 @@ public class D6Dev1522BuyPlusPMB {
 	
 
 	  @Test(dependsOnMethods="BuyMultiplePPPAndBuyAndGetOrderOverview",alwaysRun = true)
-*/	  public void setPPPricesByPublisher() throws InterruptedException{
+	  public void setPPPricesByPublisher() throws InterruptedException{
 		    D.FAILURE_INDICATION = 3; 
 
 			Top.Login(Lib.Res2, "Welkom01@1");
