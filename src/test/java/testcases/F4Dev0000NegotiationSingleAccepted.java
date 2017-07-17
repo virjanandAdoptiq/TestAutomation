@@ -55,7 +55,7 @@ public class F4Dev0000NegotiationSingleAccepted {
 	  public void UGAcceptIt() throws InterruptedException {	
 		     Top.Login(Lib.Res, "Welkom01@1");
 			 ExchangeP.GoToExchangePlatform();
-			 ExchangeP.SelectANegotiationy("1.111,00");
+//			 ExchangeP.SelectANegotiationy("1.111,00");
 			 Lib.ClickButton(By.xpath(D.$p_negotiation_accept_button));
 			 Lib.CloseDialogBox();
 			 

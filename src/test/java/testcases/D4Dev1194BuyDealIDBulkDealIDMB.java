@@ -33,7 +33,6 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 	        Lib.deleteAllMailsFromInbox();
 			Top.StartBroswer();
 	  }
-
       @Test(alwaysRun = true)
 	  public void AddInventoriesToMyLots() throws InterruptedException {	
 			 Top.Login(Lib.MB,"Welkom01@1");
@@ -123,7 +122,7 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 	  }
 
 	  @Test(dependsOnMethods="checkOrderResults")
-	  public void setPricesByPublisher() throws InterruptedException{
+	  public void setPricesByUG() throws InterruptedException{
 		    D.FAILURE_INDICATION = 3; //if test failed, logout and close browser
 
 			Top.Login(Lib.UG, "Welkom01@1");
@@ -131,10 +130,13 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 			ExchangeP.GoToExchangePlatform();
 			Lib.ClickButton(By.xpath(D.$p_negotiation_top_edit_icon));		
 			ExchangeP.SetPrivatePrice("30");
-			
-			
+			Top.Logout();
+	  }
+	  @Test(dependsOnMethods="setPricesByUG")
+	  public void setPricesByRes() throws InterruptedException{
+			Top.Login(Lib.Res, "Welkom01@1");
 			ExchangeP.GoToExchangePlatform();
-			ExchangeP.ExpandANegotiationy("4.320,00");
+			ExchangeP.ExpandANegotiationy("5.500,00");
 
 			Lib.ClickButton(By.xpath(D.$p_negotiation_top_edit_icon));
 			ExchangeP.SetPrivatePrice("40");
@@ -145,7 +147,7 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 			Top.Logout();
 	  }
 	  
-	  @Test(dependsOnMethods="setPricesByPublisher", alwaysRun = true)
+	  @Test(dependsOnMethods="setPricesByRes", alwaysRun = true)
 	  public void campaignMultipleBuyGetOrderOverview() throws InterruptedException {	
 			Top.Login(Lib.MB,"Welkom01@1");
 		     			 			 
@@ -183,8 +185,8 @@ public class D4Dev1194BuyDealIDBulkDealIDMB {
 	  public Object[][] inputdata2() {
 	    return new Object[][] { 
 //	      {Lib.buyDay2,Lib.BuyNow2,"CD101V - Pagina 2",Lib.ADV2,Lib.CampaignADV2,"3.500,00","Nee","0,00"},
-	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig liggend","Cover 3",Lib.ADV,Lib.CampaignADV,"2.592,00","Nee","0,00"},
-	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig staand","Cover 3",Lib.ADV,Lib.CampaignADV,"2.592,00","Nee","0,00"},
+	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig liggend","Cover 3",Lib.ADV,Lib.CampaignADV,"1.500,00","Nee","0,00"},
+	      {Lib.weekDay,Lib.BuyNow,"1/2 pagina volledig staand","Cover 3",Lib.ADV,Lib.CampaignADV,"1.500,00","Nee","0,00"},
 	    };
 	  }
 	  @Test(dependsOnMethods="checkFinalOrderResults")

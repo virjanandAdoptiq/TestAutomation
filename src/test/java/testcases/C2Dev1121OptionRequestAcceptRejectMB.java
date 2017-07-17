@@ -102,7 +102,7 @@ public class C2Dev1121OptionRequestAcceptRejectMB {
 	  public Object[][] inputdata() {
 	    return new Object[][] { 
 	      {"list","accept",Lib.Res2,Lib.MB,Lib.CampaignADV2,Lib.BuyNow2,"CD101V",Lib.buyDay3,D.Pagina45FullPage,"CD101V - Pagina 4-5"},
-	      {"title","reject",Lib.UG,Lib.MB,Lib.CampaignADV,Lib.BuyNow,"CD101V",Lib.buyDay3,D.Cover3FullPage,"CD101V - Cover 3"},
+	      {"title","reject",Lib.Res,Lib.MB,Lib.CampaignADV,Lib.BuyNow,"CD101V",Lib.buyDay3,D.Cover3FullPage,"CD101V - Cover 3"},
 	    };
 	  }
 	  @Test(dependsOnMethods="optionRequestAcceptReject")

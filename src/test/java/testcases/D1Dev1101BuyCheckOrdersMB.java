@@ -1,6 +1,5 @@
 package testcases;
 
-import org.apache.commons.lang3.ArrayUtils;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -11,7 +10,6 @@ import org.testng.asserts.SoftAssert;
 
 import advertiser.Exchange;
 import advertiser.Mylots;
-import publisher.ExchangeP;
 import toplevel.D;
 import toplevel.Lib;
 import toplevel.TestFailureListener;

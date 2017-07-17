@@ -27,7 +27,13 @@ public class Media {
 		Lib.ClickButton(By.xpath(D.$p_private_offer_save));
 		Lib.CloseDialogBox();
 	}	
-	public static void PushOptionMultiple(String mb, String ad, String days, String dealID, String price) throws InterruptedException{		
+	public static void PushOptionMultiple(String mb, String ad, String days, String dealID, String price, boolean bundle, boolean reserve) throws InterruptedException{		
+		if(bundle){
+			Lib.ClickButton(By.xpath(D.$p_option_multi_package_yes));
+		}
+		if(reserve){
+			Lib.ClickButton(By.xpath(D.$p_option_multi_reserve_yes));
+		}
 		Lib.InputData(days, By.xpath(D.$p_option_multi_details_deadLine_days));
 		Lib.InputData(price, By.xpath(D.$p_option_multi_details_price));		
 		Lib.InputData(dealID, By.xpath(D.$p_option_multi_details_dealid));		

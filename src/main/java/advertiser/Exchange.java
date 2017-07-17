@@ -142,6 +142,15 @@ public class Exchange {
 		String path = D.$be_inventory_row_prefix + product + D.$be_inventory_row_suffix;
 		return D.driver.findElement(By.xpath(path)).findElement(By.cssSelector(name)).getText().replace("€", "").replaceAll("\\s","");
 	}
+	public static boolean CheckAInventoryExist(String product) throws InterruptedException{	
+		String path = D.$be_inventory_row_prefix + product + D.$be_inventory_row_suffix;
+		if(D.driver.findElements(By.xpath(path)).size() != 0){
+			return true;
+		} else {
+			return false;
+		}
+
+	}
 	public static void FindAMediaWithPercentage(String mediaName, String percentage) throws InterruptedException{	
 		String path = "//span[text()='" + mediaName + "']/../../..//span[text()='" + percentage + "']";
 		

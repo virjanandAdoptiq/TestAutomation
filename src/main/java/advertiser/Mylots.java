@@ -186,6 +186,7 @@ public class Mylots {
 	public static void OpenLotInfon(String medium) throws InterruptedException{	
 		String path = D.$bm_lot_row_prefix + medium + D.$bm_lot_row_suffix;
 		Lib.ClickContextSensitiveItem(By.xpath(path), By.cssSelector(D.$bm_lot_info_icon));
+		Thread.sleep(2 * D.waitTime);
 	}
 	public static void CloseLotInfo() throws InterruptedException{	
 		Lib.ClickButton(By.cssSelector(D.$bm_lot_info_closeButton));

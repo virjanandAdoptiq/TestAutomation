@@ -187,7 +187,7 @@ public class Fa2Dev0000NegotiationPingPongBundleADV {
 	  @Test(dependsOnMethods="CheckOrderPriceIsNegotiationPrice")
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(Lib.checkEmails("Fa2Dev0000NegotiationPingPongBundleADV", 31), "emailCorrect");				
+			softAssert.assertEquals(Lib.checkEmails("Fa2Dev0000NegotiationPingPongBundleADV", 28), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }	 

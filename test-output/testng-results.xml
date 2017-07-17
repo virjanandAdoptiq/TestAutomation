@@ -2,52 +2,152 @@
 <testng-results skipped="0" failed="0" total="8" passed="8">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="222424" started-at="2017-06-12T12:01:18Z" finished-at="2017-06-12T12:05:01Z">
+  <suite name="myMvnPro by groups" duration-ms="289270" started-at="2017-07-16T17:38:34Z" finished-at="2017-07-16T17:43:23Z">
     <groups>
+      <group name="A1">
+        <method signature="A1Dev1028UnitCreate.CreateData()[pri:0, instance:testcases.A1Dev1028UnitCreate@146ba0ac]" name="CreateData" class="testcases.A1Dev1028UnitCreate"/>
+      </group> <!-- A1 -->
+      <group name="A2">
+        <method signature="A2Dev1072LoginFirstTime.logInChangePass(java.lang.String, java.lang.String)[pri:0, instance:testcases.A2Dev1072LoginFirstTime@754ba872]" name="logInChangePass" class="testcases.A2Dev1072LoginFirstTime"/>
+      </group> <!-- A2 -->
     </groups>
-    <test name="Default test" duration-ms="222424" started-at="2017-06-12T12:01:18Z" finished-at="2017-06-12T12:05:01Z">
-      <class name="testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject">
-        <test-method status="PASS" signature="start()[pri:0, instance:testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject@1794d431]" test-instance-name="" name="start" is-config="true" duration-ms="7236" started-at="2017-06-12T14:01:18Z" finished-at="2017-06-12T14:01:26Z">
+    <test name="GRP-A1,A2" duration-ms="289270" started-at="2017-07-16T17:38:34Z" finished-at="2017-07-16T17:43:23Z">
+      <class name="testcases.A2Dev1072LoginFirstTime">
+        <test-method status="PASS" signature="start()[pri:0, instance:testcases.A2Dev1072LoginFirstTime@754ba872]" test-instance-name="" name="start" is-config="true" duration-ms="2756" started-at="2017-07-16T19:40:23Z" finished-at="2017-07-16T19:40:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start -->
-        <test-method status="PASS" signature="AddToMyLots()[pri:0, instance:testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject@1794d431]" test-instance-name="" name="AddToMyLots" duration-ms="47074" started-at="2017-06-12T14:01:26Z" finished-at="2017-06-12T14:02:13Z">
+        <test-method name="logInChangePass" test-instance-name="" signature="logInChangePass(java.lang.String, java.lang.String)[pri:0, instance:testcases.A2Dev1072LoginFirstTime@754ba872]" depends-on-groups="A1" status="PASS" duration-ms="23777" finished-at="2017-07-16T19:40:49Z" started-at="2017-07-16T19:40:25Z" data-provider="users">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[05rdxaADV]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[autotestAdoptiq@gmail.com]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddToMyLots -->
-        <test-method status="PASS" signature="MakeNegotiate()[pri:0, instance:testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject@1794d431]" test-instance-name="" name="MakeNegotiate" duration-ms="27411" started-at="2017-06-12T14:02:13Z" depends-on-methods="testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject.AddToMyLots" finished-at="2017-06-12T14:02:40Z">
+        </test-method> <!-- logInChangePass -->
+        <test-method name="logInChangePass" test-instance-name="" signature="logInChangePass(java.lang.String, java.lang.String)[pri:0, instance:testcases.A2Dev1072LoginFirstTime@754ba872]" depends-on-groups="A1" status="PASS" duration-ms="24802" finished-at="2017-07-16T19:41:14Z" started-at="2017-07-16T19:40:49Z" data-provider="users">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[05rdxaADV2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[autotestAdoptiq@gmail.com]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- MakeNegotiate -->
-        <test-method status="PASS" signature="Res2Reaction()[pri:0, instance:testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject@1794d431]" test-instance-name="" name="Res2Reaction" duration-ms="44870" started-at="2017-06-12T14:02:40Z" depends-on-methods="testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject.MakeNegotiate" finished-at="2017-06-12T14:03:25Z">
+        </test-method> <!-- logInChangePass -->
+        <test-method name="logInChangePass" test-instance-name="" signature="logInChangePass(java.lang.String, java.lang.String)[pri:0, instance:testcases.A2Dev1072LoginFirstTime@754ba872]" depends-on-groups="A1" status="PASS" duration-ms="24686" finished-at="2017-07-16T19:41:39Z" started-at="2017-07-16T19:41:14Z" data-provider="users">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[05rdxaMB]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[autotestAdoptiq@gmail.com]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Res2Reaction -->
-        <test-method status="PASS" signature="MBCheckLotsStatus()[pri:0, instance:testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject@1794d431]" test-instance-name="" name="MBCheckLotsStatus" duration-ms="28449" started-at="2017-06-12T14:03:25Z" depends-on-methods="testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject.Res2Reaction" finished-at="2017-06-12T14:03:53Z">
+        </test-method> <!-- logInChangePass -->
+        <test-method name="logInChangePass" test-instance-name="" signature="logInChangePass(java.lang.String, java.lang.String)[pri:0, instance:testcases.A2Dev1072LoginFirstTime@754ba872]" depends-on-groups="A1" status="PASS" duration-ms="24671" finished-at="2017-07-16T19:42:03Z" started-at="2017-07-16T19:41:39Z" data-provider="users">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[05rdxaUG]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[autotestAdoptiq@gmail.com]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- MBCheckLotsStatus -->
-        <test-method status="PASS" signature="MBBuyCounterOfferLots()[pri:0, instance:testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject@1794d431]" test-instance-name="" name="MBBuyCounterOfferLots" duration-ms="24234" started-at="2017-06-12T14:03:53Z" depends-on-methods="testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject.MBCheckLotsStatus" finished-at="2017-06-12T14:04:18Z">
+        </test-method> <!-- logInChangePass -->
+        <test-method name="logInChangePass" test-instance-name="" signature="logInChangePass(java.lang.String, java.lang.String)[pri:0, instance:testcases.A2Dev1072LoginFirstTime@754ba872]" depends-on-groups="A1" status="PASS" duration-ms="25023" finished-at="2017-07-16T19:42:28Z" started-at="2017-07-16T19:42:03Z" data-provider="users">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[05rdxaUG2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[autotestAdoptiq@gmail.com]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- MBBuyCounterOfferLots -->
-        <test-method status="PASS" signature="CheckNegotiationOverview()[pri:0, instance:testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject@1794d431]" test-instance-name="" name="CheckNegotiationOverview" duration-ms="11078" started-at="2017-06-12T14:04:18Z" depends-on-methods="testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject.MBBuyCounterOfferLots" finished-at="2017-06-12T14:04:29Z">
+        </test-method> <!-- logInChangePass -->
+        <test-method name="logInChangePass" test-instance-name="" signature="logInChangePass(java.lang.String, java.lang.String)[pri:0, instance:testcases.A2Dev1072LoginFirstTime@754ba872]" depends-on-groups="A1" status="PASS" duration-ms="24353" finished-at="2017-07-16T19:42:53Z" started-at="2017-07-16T19:42:28Z" data-provider="users">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[05rdxaRes]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[autotestAdoptiq@gmail.com]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CheckNegotiationOverview -->
-        <test-method status="PASS" signature="CheckOrderPriceIsNegotiationPrice()[pri:0, instance:testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject@1794d431]" test-instance-name="" name="CheckOrderPriceIsNegotiationPrice" duration-ms="8163" started-at="2017-06-12T14:04:29Z" depends-on-methods="testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject.CheckNegotiationOverview" finished-at="2017-06-12T14:04:37Z">
+        </test-method> <!-- logInChangePass -->
+        <test-method name="logInChangePass" test-instance-name="" signature="logInChangePass(java.lang.String, java.lang.String)[pri:0, instance:testcases.A2Dev1072LoginFirstTime@754ba872]" depends-on-groups="A1" status="PASS" duration-ms="24718" finished-at="2017-07-16T19:43:17Z" started-at="2017-07-16T19:42:53Z" data-provider="users">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[05rdxaRes2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[autotestAdoptiq@gmail.com]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CheckOrderPriceIsNegotiationPrice -->
-        <test-method status="PASS" signature="checkEmail()[pri:0, instance:testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject@1794d431]" test-instance-name="" name="checkEmail" duration-ms="15764" started-at="2017-06-12T14:04:37Z" depends-on-methods="testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject.CheckOrderPriceIsNegotiationPrice" finished-at="2017-06-12T14:04:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkEmail -->
-        <test-method status="PASS" signature="stop()[pri:0, instance:testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject@1794d431]" test-instance-name="" name="stop" is-config="true" duration-ms="8124" started-at="2017-06-12T14:04:53Z" finished-at="2017-06-12T14:05:01Z">
+        </test-method> <!-- logInChangePass -->
+        <test-method status="PASS" signature="stop()[pri:0, instance:testcases.A2Dev1072LoginFirstTime@754ba872]" test-instance-name="" name="stop" is-config="true" duration-ms="5582" started-at="2017-07-16T19:43:17Z" finished-at="2017-07-16T19:43:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- stop -->
-      </class> <!-- testcases.Fa1Dev0000NegotiationNonBundleCounterOfferAcceptReject -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- testcases.A2Dev1072LoginFirstTime -->
+      <class name="testcases.A1Dev1028UnitCreate">
+        <test-method status="PASS" signature="start()[pri:0, instance:testcases.A1Dev1028UnitCreate@146ba0ac]" test-instance-name="" name="start" is-config="true" duration-ms="3225" started-at="2017-07-16T19:38:34Z" finished-at="2017-07-16T19:38:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- start -->
+        <test-method status="PASS" signature="CreateData()[pri:0, instance:testcases.A1Dev1028UnitCreate@146ba0ac]" test-instance-name="" name="CreateData" duration-ms="100004" started-at="2017-07-16T19:38:37Z" finished-at="2017-07-16T19:40:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateData -->
+        <test-method status="PASS" signature="stop()[pri:0, instance:testcases.A1Dev1028UnitCreate@146ba0ac]" test-instance-name="" name="stop" is-config="true" duration-ms="5654" started-at="2017-07-16T19:40:17Z" finished-at="2017-07-16T19:40:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stop -->
+      </class> <!-- testcases.A1Dev1028UnitCreate -->
+    </test> <!-- GRP-A1,A2 -->
+  </suite> <!-- myMvnPro by groups -->
 </testng-results>

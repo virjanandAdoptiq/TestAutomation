@@ -14,4 +14,13 @@ public class PersonalOffer {
 		String path = D.$be_offer_group_prefix + price + D.$be_offer_group_suffix + "/td[2]";
 		Lib.ClickButton(By.xpath(path));
 	}
+	public static boolean CheckIfOfferExist(String price) throws InterruptedException{	
+		String path = D.$be_offer_group_prefix + price + D.$be_offer_group_suffix;
+		if(D.driver.findElements(By.xpath(path)).size() != 0){
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
 }

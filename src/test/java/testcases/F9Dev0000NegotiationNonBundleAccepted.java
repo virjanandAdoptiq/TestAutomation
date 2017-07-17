@@ -138,7 +138,7 @@ public class F9Dev0000NegotiationNonBundleAccepted {
 	  @Test(dependsOnMethods="CheckOrderPriceIsNegotiationPrice")
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(Lib.checkEmails("F9Dev0000NegotiationNonBundleAccepted", 9), "emailCorrect");				
+			softAssert.assertEquals(Lib.checkEmails("F9Dev0000NegotiationNonBundleAccepted", 8), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }	 

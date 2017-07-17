@@ -67,7 +67,7 @@ public class C4Dev1132OptionPushMB {
 			 ExchangeP.SelectRowOverViewTable(product1);
 			 ExchangeP.SelectRowOverViewTable(product2);
 			 Lib.ClickButton(By.cssSelector(D.$p_option_push));
-			 Media.PushOptionMultiple(buyer, ad, "1", ad + "1", price);
+			 Media.PushOptionMultiple(buyer, ad, "1", ad + "1", price,false,true);
 			 Top.Logout(); 
 	
 	  }	 

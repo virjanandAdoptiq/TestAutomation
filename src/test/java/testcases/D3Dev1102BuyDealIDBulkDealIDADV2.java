@@ -8,6 +8,7 @@ import org.testng.asserts.SoftAssert;
 
 import advertiser.Exchange;
 import advertiser.Mylots;
+import publisher.ExchangeP;
 import toplevel.D;
 import toplevel.Lib;
 import toplevel.TestFailureListener;
@@ -72,11 +73,30 @@ public class D3Dev1102BuyDealIDBulkDealIDADV2 {
 			 Mylots.BuyBidOptionConfirm(D.$bm_lot_buy_confirm);
 			   
 			 Top.Logout(); 
-      }    
+      }  
 	  @Test(dependsOnMethods="SetBulkDealIdAndBuy")
+	  public void setPricesByRes() throws InterruptedException{
+		    D.FAILURE_INDICATION = 3; //if test failed, logout and close browser
+
+			Top.Login(Lib.Res, "Welkom01@1");
+
+			ExchangeP.GoToExchangePlatform();
+			Lib.ClickButton(By.xpath(D.$p_negotiation_top_edit_icon));		
+			ExchangeP.SetPrivatePrice("30");
+			ExchangeP.ExpandANegotiationy("5.500,00");
+
+			Lib.ClickButton(By.xpath(D.$p_negotiation_top_edit_icon));
+			ExchangeP.SetPrivatePrice("40");
+			
+			Lib.ClickButton(By.xpath(D.$p_negotiation_top_edit_icon));
+			ExchangeP.SetPrivatePrice("40");
+			
+			Top.Logout();
+	  }
+	  @Test(dependsOnMethods="setPricesByRes")
 	  public static void checkEmail() throws InterruptedException{
 			SoftAssert softAssert = new SoftAssert();
-			softAssert.assertEquals(Lib.checkEmails("D3Dev1102BuyDealIDBulkDealIDADV2", 7), "emailCorrect");				
+			softAssert.assertEquals(Lib.checkEmails("D3Dev1102BuyDealIDBulkDealIDADV2", 13), "emailCorrect");				
 			D.FAILURE_INDICATION = 0;
 			softAssert.assertAll(); 		  
 	  }	 

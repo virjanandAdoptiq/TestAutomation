@@ -10,7 +10,7 @@ public class ZZZ_D3Dev1102ZEmails {
 	  public void test() throws InterruptedException{
 		  SoftAssert softAssert = new SoftAssert();
 
-		  softAssert.assertEquals(Lib.checkEmails("D3Dev1102BuyDealIDBulkDealIDADV2", 7), "emailCorrect");
+		  softAssert.assertEquals(Lib.checkEmails("D3Dev1102BuyDealIDBulkDealIDADV2", 13), "emailCorrect");
 			
 		  softAssert.assertAll(); 
 	  }

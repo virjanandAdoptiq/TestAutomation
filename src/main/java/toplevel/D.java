@@ -230,8 +230,8 @@ public class D {
     public static String $bm_lot_select_campaign_button = ".mx-name-actCampaignEdit";
     //lot negotiation
     public static String $bm_lot_negotiation_proposed_price = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div[1]/table/tbody/tr[5]/td/table/tbody/tr[1]/td[1]/div/input";
-    public static String $bm_lot_negotiation_Expiration_date = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div[1]/table/tbody/tr[5]/td/table/tbody/tr[2]/td[1]/div/div/div/input";
-    public static String $bm_lot_negotiation_Bundled = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div[1]/table/tbody/tr[5]/td/table/tbody/tr[3]/td[1]/div/div/input";
+    public static String $bm_lot_negotiation_Expiration_date = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div[1]/table/tbody/tr[5]/td/table/tbody/tr[3]/td[1]/div/div/div/input";
+    public static String $bm_lot_negotiation_Bundled = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div[1]/table/tbody/tr[5]/td/table/tbody/tr[4]/td[1]/div/div/input";
     public static String $bm_lot_negotiation_Negotiation_Button = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div[1]/table/tbody/tr[6]/td/button";
     public static String $bm_lot_negotiation_SaveDraft = "//html/body/div[3]/div[1]/div[2]/div/div/div/div/div[1]/table/tbody/tr[7]/td/button";
     public static String $bm_lot_negotiation_draft_confirm_save = "//html/body/div[5]/div[1]/div[3]/button[1]";
@@ -291,7 +291,7 @@ public class D {
     //Buy OrderOverview
     //public static String $b_orderoverview_table = ".mx-datagrid-body-table"; 
     public static String $b_negotiation_overview_tab = "//html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div/div/div/div/div/ul/li[1]/a";
-    public static String $b_negotiationoverview_table ="//html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div/div/div[3]/div/table[2]/tbody";
+    public static String $b_negotiationoverview_table ="//html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div/table/tbody/tr[1]/td/div/div[3]/div/table[2]/tbody";
     public static String $b_orderoverview_table2      ="//html/body/div[1]/div/div/div/div[2]/div/div/div[1]/div/div/div/div/div/div/div/div[3]/div/div/table/tbody/tr[1]/td/div/div[3]/div/table[2]";
     //Public offer form                                  
     public static String $b_offer_inventory_path = "//div[contains(@class, 'mx-dataview-content')]/table/tbody//*[normalize-space(.)= '";
@@ -329,7 +329,7 @@ public class D {
     public static String $p_contents_row = "//div[contains(@class, 'mx-datagrid-data-wrapper') and text()='"; //text']";
     public static String $p_modal_dialog = ".modal-dialog";
 //    public static String $p_approve_option_deadline_days = "//div/input[contains(@class,'form-control')]";
-    public static String $p_approve_option_deadline_days = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/table/tbody/tr[2]/td/input";
+    public static String $p_approve_option_deadline_days = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/table/tbody/tr[3]/td/input";
 
     public static String $p_approve_option_save = "//img[contains(@src,'https://adoptiq100-test.mendixcloud.com/img/System$Save.png')]";
     
@@ -351,20 +351,21 @@ public class D {
     public static String $p_option_details_org_choose_button = "//html/body//div[1]/div[2]/div/div/div/div/div/div/div/div/div[2]/div[2]/button[2]";
     public static String $p_option_details_org_ad_select = "//html/body//div[1]/div[2]/div/div/div/div/div/div/div/div/div[3]/div/table[2]/tbody//div[text()='";
 
-    public static String $p_option_details_deadLine_days = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[4]/td/div/input";
-    public static String $p_option_details_price = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[5]/td/div/input";
-    public static String $p_option_details_dealid = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[2]/td/div/input";
-    public static String $p_option_details_mb_button = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[3]/td/div/button";
-    public static String $p_option_details_ad = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[4]/td/div/div/select";
+    public static String $p_option_details_deadLine_days = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[5]/td/div/input";
+    public static String $p_option_details_price = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[6]/td/div/input";
+    public static String $p_option_details_dealid = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[2]/td/div/input";
+    public static String $p_option_details_mb_button = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[4]/td/div/button";
+    public static String $p_option_details_ad = "html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[5]/td/div/div/select";
     public static String $p_private_offer_save = "//img[contains(@src,'https://adoptiq100-test.mendixcloud.com/img/XLSReport$icnSend.gif')]";
 
-    public static String $p_option_multi_details_deadLine_days = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[5]/td/div/input";
-    public static String $p_option_multi_details_price = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[6]/td/div/input";
-    public static String $p_option_multi_details_dealid = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[2]/td/div/input";
-    public static String $p_option_multi_details_mb_button = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[4]/td/div/button";
-    public static String $p_option_multi_details_ad = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[5]/td/div/div/select";
-    public static String $p_option_multi_package_yes = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/table/tbody/tr[3]/td/div/div/label[1]";
-    
+    public static String $p_option_multi_details_deadLine_days = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[6]/td/div/input";
+    public static String $p_option_multi_details_price = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[7]/td/div/input";
+    public static String $p_option_multi_details_dealid = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[2]/td/div/input";
+    public static String $p_option_multi_details_mb_button = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[5]/td/div/button";
+    public static String $p_option_multi_details_ad = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[6]/td/div/div/select";
+    public static String $p_option_multi_package_yes = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[3]/td/div/div/label[1]/input";
+    public static String $p_option_multi_reserve_yes = "//html/body/div[3]/div[1]/div[2]/div/div/div[1]/div/div/div[1]/table/tbody/tr[4]/td/div/div/label[1]/input";
+
     public static String $p_overview_underbid = "//a[text()='Onderbiedingen']";
     public static String $p_underbid_accept = "//button[text()='Accepteer bod']";
     public static String $p_underbid_reject = "//button[text()='Wijs bod af']";

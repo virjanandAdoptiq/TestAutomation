@@ -335,7 +335,7 @@ public class Lib {
 	    	Thread.sleep(D.waitTime);
 	    	Actions builder = new Actions(D.driver);
 	    	builder.moveToElement(D.driver.findElement(name)).doubleClick().build().perform();
-	    	Thread.sleep(D.waitTime);
+	    	Thread.sleep(3 * D.waitTime);
 	    	D.wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(D.$ad_progress)));
 	}
 	public static void SelectMenuLink(By menu, By link) throws InterruptedException{
